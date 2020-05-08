@@ -67,6 +67,6 @@ Agora devemos testar, baixe qualquer programa de API REST para fazer seus testes
 Crie suas rotas como o localhost e o prefixo da rota, por exemplo: http://locahost:3000/usuario
 Agora é só fazer os testes, não se esqueça de que os métodos, post, put e delete estão com corpo json, não se esqueça de adicionar corpo a sua requisição. Com isso finalizamos o back-end.
 
-Adicionei um arquivo json especial nesse repositório, que só é necessário importar no Insomnia e usar os requests. Boa Sorte!
+Adicionei um <a href="https://github.com/MatheusFerreira71/BlogGM/blob/master/Requests_BlogGM.json">Arquivo JSON Especial</a> nesse repositório, que só é necessário importar no Insomnia e usar os requests. Boa Sorte!
 
 Special Thanks to <a href="https://github.com/faustocintra">Fausto Cintra</a> que forneceu seu conhecimento para nós.
