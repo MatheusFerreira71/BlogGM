@@ -5,6 +5,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const routerC = require('./routes/categoria');
+const routerP = require('./routes/post');
+const routerT = require('./routes/tag');
+const routerU = require('./routes/usuario');
 
 var app = express();
 
@@ -18,7 +22,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Inicialização das rotas.
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/categoria', routerC);
+app.use('/post', routerP);
+app.use('/tag', routerT);
+app.use('/usuario', routerU);
 
 module.exports = app;

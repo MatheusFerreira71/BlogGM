@@ -7,7 +7,7 @@ const schema = mongoose.Schema({
         required: true
     },
     sub: {
-        type: boolean,
+        type: Boolean,
         required: true
     },
     edited: {
