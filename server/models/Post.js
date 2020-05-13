@@ -11,7 +11,9 @@ const schema = mongoose.Schema({
     required: true,
   },
   avaliacao: {
-    type: Object,
+    type: Number,
+    default: 0,
+    required: true,
   },
   createdAt: {
     type: Number,
