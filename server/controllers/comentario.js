@@ -39,7 +39,10 @@ module.exports = {
     } else {
       try {
         // find(), sem parâmetros, retorna todos.
-        const lista = await Comentario.find().populate("usuario");
+        const lista = await Comentario.find().populate({
+          path: "usuario",
+          select: "nome email",
+        });
         res.send(lista); // Enviamos a lista completa de post na resposta com o status implícito.
       } catch (erro) {
         console.log(erro);
