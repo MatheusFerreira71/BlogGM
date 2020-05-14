@@ -21,7 +21,8 @@ const schema = mongoose.Schema({
     type: Object,
   },
   createdAt: {
-    type: Number,
+    type: Date,
+    default: new Date(),
     required: true,
   },
   avaliacao: {
