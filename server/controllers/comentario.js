@@ -12,7 +12,7 @@ async function busca(req, res) {
   console.log(`Critérios: ${criterio}`);
 
   try {
-    const lista = await Venda.find(criterio);
+    const lista = await Comentario.find(criterio);
     res.send(lista);
   } catch (erro) {
     console.log(erro);
