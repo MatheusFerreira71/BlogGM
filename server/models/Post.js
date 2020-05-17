@@ -38,6 +38,9 @@ const schema = mongoose.Schema({
     ref: "Usuario",
     required: true,
   },
+  comentarios: {
+    type: Object
+  },
 });
 
 // 1° parametro: Nome do modelo

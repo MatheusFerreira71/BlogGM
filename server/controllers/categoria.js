@@ -15,7 +15,7 @@ module.exports = {
   listar: async (req, res) => {
     try {
       // find(), sem parâmetros, retorna todos.
-      const lista = await Categoria.find().populate("subCategorias");
+      const lista = await Categoria.find()
       res.send(lista); // Enviamos a lista completa de categoria na resposta com o status implícito.
     } catch (erro) {
       console.log(erro);
