@@ -1,0 +1,56 @@
+.mat-toolbar {
+  background-color: #212121;
+  color: #f1f1f1;
+  max-height: 180px !important;
+  height: auto !important;
+  padding: 2rem 1rem;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+
+  a + a {
+    margin-left: 16px;
+  }
+}
+
+#leftFooter,
+#rightFooter {
+  height: 100%;
+}
+
+// #leftFooter {
+//   display: grid;
+//   grid-template-rows: 1fr 1fr 1fr;
+// }
+
+.footerTitle {
+  font-size: 24px;
+  color: #ccedff;
+}
+
+.footerSocial {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 24px 24px 24px;
+  grid-gap: 1rem;
+  margin-bottom: 12px;
+
+  .mat-icon {
+    height: auto;
+    width: auto;
+    color: #30bdff;
+    font-size: 1.5rem;
+  }
+}
+
+#copyright {
+  font-size: 14px;
+  color: #788c95;
+  margin-bottom: 0px;
+}
+
+#rightFooter {
+  font-size: 16px;
+  text-align: right;
+}
