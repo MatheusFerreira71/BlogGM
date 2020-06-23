@@ -7,6 +7,7 @@ router.post('/', PostController.create);
 router.put('/avaliar', PostController.avaliar);
 router.put('/', PostController.update);
 router.delete('/', PostController.delete);
+router.get('/', PostController.index);
 router.get('/name', PostController.indexByName);
 router.get('/tagcat', PostController.indexCatOrTag);
 router.get('/:id', PostController.show);

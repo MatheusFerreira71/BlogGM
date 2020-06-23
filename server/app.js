@@ -7,6 +7,7 @@ const RouterTags = require('./src/routes/tags');
 const RouterPosts = require('./src/routes/posts');
 const RouterUsuarios = require('./src/routes/usuarios');
 const RouterComentarios = require('./src/routes/comentarios');
+const RouterCategorias = require('./src/routes/categorias');
 
 var app = express();
 
@@ -24,5 +25,6 @@ app.use('/tags', RouterTags);
 app.use('/posts', RouterPosts);
 app.use('/usuarios', RouterUsuarios);
 app.use('/comentarios', RouterComentarios);
+app.use('/categorias', RouterCategorias);
 
 module.exports = app;
