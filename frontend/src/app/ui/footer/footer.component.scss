@@ -19,28 +19,18 @@
   height: 100%;
 }
 
-// #leftFooter {
-//   display: grid;
-//   grid-template-rows: 1fr 1fr 1fr;
-// }
-
 .footerTitle {
   font-size: 24px;
   color: #ccedff;
 }
 
 .footerSocial {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 24px 24px 24px;
-  grid-gap: 1rem;
   margin-bottom: 12px;
 
-  .mat-icon {
-    height: auto;
-    width: auto;
+  span {
     color: #30bdff;
-    font-size: 1.5rem;
+    font-size: 32px;
+    font-family: FontAwesome;
   }
 }
 
@@ -48,9 +38,21 @@
   font-size: 14px;
   color: #788c95;
   margin-bottom: 0px;
+  width: auto;
+  font-weight: normal;
+  line-height: 0.5rem;
 }
 
 #rightFooter {
   font-size: 16px;
   text-align: right;
+}
+
+.footerCategories {
+  color: #30bdff;
+}
+
+.footerSubCategories {
+  color: #ccedff;
+  font-weight: normal;
 }
