@@ -5,9 +5,14 @@ import { Component } from "@angular/core";
   template: `
     <app-navbar></app-navbar>
     <div id="container">
-      <router-outlet></router-outlet>
+      <div class="bannerLogo"><img src="assets/img/bannerLogo.png" /></div>
+      <router-outlet>
+        <app-post-card></app-post-card>
+      </router-outlet>
     </div>
-    <app-footer></app-footer>
+    <div id="content-wrap">
+      <app-footer></app-footer>
+    </div>
   `,
   styles: [],
 })
