@@ -1,10 +1,18 @@
 const seeder = require('mongoose-seed');
 const mongoose = require('mongoose');
 
-const ids = [];
-for (let i = 0; i <= 10; i++) {
-    ids.push(mongoose.Types.ObjectId());
-};
+const ids = [
+    '5ef2a733ed59a23e5cbcb161',
+    '5ef2a733ed59a23e5cbcb162',
+    '5ef2a733ed59a23e5cbcb163',
+    '5ef2a733ed59a23e5cbcb164',
+    '5ef2a733ed59a23e5cbcb165',
+    '5ef2a733ed59a23e5cbcb166',
+    '5ef2a733ed59a23e5cbcb167',
+    '5ef2a733ed59a23e5cbcb168',
+    '5ef2a733ed59a23e5cbcb169',
+    '5ef2a733ed59a23e5cbcb16a'
+];
  
 // Connect to MongoDB via Mongoose
 seeder.connect('mongodb://localhost:27017/BlogGMRelacional', () => {

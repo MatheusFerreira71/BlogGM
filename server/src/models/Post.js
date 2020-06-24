@@ -17,7 +17,7 @@ const schema = mongoose.Schema({
     banner: {
         type: String
     }, 
-    avaliacao: {
+    visualizacao: {
         type: Number,
         default: 0,
         required: true,

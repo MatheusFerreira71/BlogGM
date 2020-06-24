@@ -156,7 +156,7 @@ module.exports = {
       res.status(500).send(erro);
     }
   },
-  avaliar: async (req, res) => {
+  visualizacao: async (req, res) => {
     try {
       const { _id } = req.body;
       const post = await Post.findByIdAndUpdate(_id, req.body);
@@ -182,4 +182,12 @@ module.exports = {
       res.status(500).send(erro);
     }
   },
+  indexDestaques: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ visualizacao: -1 })
+    } catch (erro) {
+      res.status(500).send(erro);
+      console.log(erro);
+    }
+  }
 };
