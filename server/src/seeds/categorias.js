@@ -58,19 +58,23 @@ var data = [
             // Subcategorias de games
             {
                 '_id': ids[6],
-                'titulo': "Consoles"
+                'titulo': "Consoles",
+                'isSub': true
             },
             {
                 '_id': ids[7],
-                'titulo': "Jogos"
+                'titulo': "Jogos",
+                'isSub': true
             },
             {
                 '_id': ids[8],
-                'titulo': "Notícias"
+                'titulo': "Notícias",
+                'isSub': true
             },
             {
                 '_id': ids[9],
-                'titulo': "Análises"
+                'titulo': "Análises",
+                'isSub': true
             }
         ]
     },
