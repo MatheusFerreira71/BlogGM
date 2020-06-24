@@ -1,6 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment as env } from "./../../environments/environment";
+import { Post } from "./Post";
+import { Observable } from "rxjs";
+
+interface PostData {
+  _id: string;
+  postId: Post;
+}
 
 @Injectable({
   providedIn: "root",
@@ -11,11 +18,12 @@ export class PostService {
   // como parâmetro do construtor.
   constructor(private http: HttpClient) {}
 
-  private apiUri: string = env.apiBaseUri + "post";
+  private apiUri: string = env.apiBaseUri + "posts";
+  // private allPosts = [] as Post[];
+  // private postsAnalises = [] as PostData[];
 
-  listar() {
-    // toPromise = É uma promessa de conclusão, não o dado real.
-    return this.http.get(this.apiUri).toPromise();
+  listarAll(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUri);
   }
 
   excluir(id: string) {

@@ -10,6 +10,9 @@ import { FooterComponent } from "./ui/footer/footer.component";
 import { PostCardComponent } from "./post/post-card/post-card.component";
 import { PostNewsComponent } from "./post/post-news/post-news.component";
 import { HttpClientModule } from "@angular/common/http";
+import { DestaqueCardComponent } from './destaque/destaque-card/destaque-card.component';
+import { ReviewCardComponent } from './review/review-card/review-card.component';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,9 @@ import { HttpClientModule } from "@angular/common/http";
     FooterComponent,
     PostCardComponent,
     PostNewsComponent,
+    DestaqueCardComponent,
+    ReviewCardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

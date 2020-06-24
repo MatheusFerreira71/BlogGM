@@ -1,8 +1,11 @@
-<div class="postNews">
+<div *ngFor="let post of allPosts" class="postNews">
   <img src="https://via.placeholder.com/160x80.png" />
   <div class="postTitle">
     <p>
-      Título da notícia
+      {{ post.titulo }}
+    </p>
+    <p>
+      {{ post.descricao }}
     </p>
   </div>
 </div>
