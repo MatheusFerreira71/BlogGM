@@ -9,7 +9,6 @@ import { Component } from "@angular/core";
       <router-outlet>
         <mat-card>
           <app-post-card></app-post-card>
-          <app-post-news></app-post-news>
         </mat-card>
       </router-outlet>
     </div>
