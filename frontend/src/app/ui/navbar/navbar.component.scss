@@ -1,0 +1,34 @@
+.mat-toolbar {
+  background-color: #212121;
+  color: #f1f1f1;
+  min-height: 64px !important;
+  height: auto !important;
+}
+
+.navbarItem {
+  font-size: 1rem;
+  padding: 0 1rem;
+}
+
+.navbarDD {
+  background-color: #313131;
+  color: #f1f1f1;
+}
+
+.mat-icon {
+  height: auto;
+  width: auto;
+  color: #30bdff;
+  font-size: 36px;
+}
+
+::ng-deep .mat-menu-content,
+::ng-deep .mat-menu-panel {
+  background-color: #313131;
+}
+
+.mat-menu-item {
+  &:hover {
+    background-color: #414141;
+  }
+}

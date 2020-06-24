@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <a mat-button class="navbarItem"><mat-icon>games</mat-icon></a>
+  <a mat-button class="navbarItem">Início</a>
+  <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item class="navbarDD">Notícias</button>
+    <button mat-menu-item class="navbarDD">Análises</button>
+  </mat-menu>
+  <a mat-button class="navbarItem">Assuntos</a>
+  <a mat-button class="navbarItem">Sobre nós</a>
+</mat-toolbar>
