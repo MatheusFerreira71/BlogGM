@@ -5,6 +5,11 @@ const schema = mongoose.Schema({
     titulo: {
         type: String,
         required: true
+    },
+    isSub: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 });
 
