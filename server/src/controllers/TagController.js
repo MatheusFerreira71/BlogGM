@@ -4,7 +4,7 @@ const PostTag = require('../models/PostTag');
 module.exports = {
     index: async (req, res) => {
         try {
-            const tags = await Tag.find().sort({titulo: 'asc'});
+            const tags = await Tag.find().sort({ titulo: 'asc' });
             const tages = tags.map(tag => {
                 const { _id, titulo } = tag;
                 return { _id, titulo, qtdePosts: 0 };
@@ -12,8 +12,8 @@ module.exports = {
             const postTages = await PostTag.find();
 
             for (const pt of postTages) {
-                for(const tag of tages) {
-                    if(String(tag._id) == String(pt.tagId)) {
+                for (const tag of tages) {
+                    if (String(tag._id) == String(pt.tagId)) {
                         tag.qtdePosts++
                     }
                 }
@@ -33,6 +33,30 @@ module.exports = {
             console.log(erro);
             // HTTP 500: Internal Server Error
             res.status(500).send(erro);
+        }
+    },
+    indexByName: async (req, res) => {
+        try {
+            const { titulo } = req.query;
+            const tags = await Tag.find({
+                titulo: { $regex: ".*" + titulo + ".*" }
+            }).sort({ titulo: 'asc' });
+            const tages = tags.map(tag => {
+                const { _id, titulo } = tag;
+                return { _id, titulo, qtdePosts: 0 };
+            })
+            const postTages = await PostTag.find();
+
+            for (const pt of postTages) {
+                for (const tag of tages) {
+                    if (String(tag._id) == String(pt.tagId)) {
+                        tag.qtdePosts++
+                    }
+                }
+            }
+            res.json(tages);
+        } catch (erro) {
+            console.log(erro);
         }
     }
 }
