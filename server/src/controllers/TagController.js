@@ -22,9 +22,7 @@ module.exports = {
     index: async (req, res) => {
         try {
             const tags = await Tag.find().sort({ titulo: 'asc' });
-            countPosts(tags).then(response => {
-                res.json(response)
-            });
+            res.json(await countPosts(tags));
         } catch (erro) {
             console.log(erro);
             res.status(500).send(erro);
@@ -47,9 +45,7 @@ module.exports = {
             const tags = await Tag.find({
                 titulo: { $regex: ".*" + titulo + ".*" }
             }).sort({ titulo: 'asc' });
-            countPosts(tags).then(response => {
-                res.json(response)
-            });
+            res.json(await countPosts(tags));
         } catch (erro) {
             console.log(erro);
         }
