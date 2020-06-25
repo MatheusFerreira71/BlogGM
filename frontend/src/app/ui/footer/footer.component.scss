@@ -6,17 +6,12 @@
   padding: 2rem 1rem;
   position: absolute;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 290px 1fr;
 
   a + a {
     margin-left: 16px;
   }
-}
-
-#leftFooter,
-#rightFooter {
-  height: 100%;
 }
 
 .footerTitle {
@@ -43,9 +38,12 @@
   line-height: 0.5rem;
 }
 
-#rightFooter {
+.rightFooter {
   font-size: 16px;
   text-align: right;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .footerCategories {

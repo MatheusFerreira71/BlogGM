@@ -22,6 +22,7 @@ body {
 }
 
 #content-wrap {
+  margin-top: 2rem;
   padding-bottom: 165px; /* Footer height */
 }
 
@@ -32,6 +33,9 @@ body {
 
   img {
     max-width: 100%;
+  }
+  @media (max-width: 768px) {
+    display: none !important;
   }
 }
 
@@ -45,7 +49,19 @@ body {
 }
 
 .destaqueWrapper {
-  max-width: 80%;
+  width: 80%;
+  display: grid !important;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+  grid-template-columns: 384px 1fr;
+  grid-template-rows: 320px;
+  @media (max-width: 1010px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 96px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
 }
 
 .mat-card-title {
@@ -71,10 +87,23 @@ body {
   grid-gap: 2rem;
   grid-template-columns: 3fr 2fr;
   justify-content: stretch !important;
+  @media (max-width: 1010px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .newsReviews {
   margin: 0;
-  margin-bottom: 2rem;
   height: auto;
+
+  @media (max-width: 1010px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.reviewsCard {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 }

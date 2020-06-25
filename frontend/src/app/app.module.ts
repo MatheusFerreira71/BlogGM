@@ -13,6 +13,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { DestaqueCardComponent } from "./destaque/destaque-card/destaque-card.component";
 import { ReviewCardComponent } from "./review/review-card/review-card.component";
 import { HomeComponent } from "./home/home.component";
+import { ReviewNewsComponent } from './review/review-news/review-news.component';
+import { DestaqueNewsComponent } from './destaque/destaque-news/destaque-news.component';
+import { DestaqueBignewsComponent } from './destaque/destaque-bignews/destaque-bignews.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,9 @@ import { HomeComponent } from "./home/home.component";
     DestaqueCardComponent,
     ReviewCardComponent,
     HomeComponent,
+    ReviewNewsComponent,
+    DestaqueNewsComponent,
+    DestaqueBignewsComponent,
   ],
   imports: [
     BrowserModule,
