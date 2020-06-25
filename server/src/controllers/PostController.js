@@ -104,15 +104,24 @@ module.exports = {
   },
   indexCatOrTag: async (req, res) => {
     try {
-      const { id, type } = req.query;
+      const { id, type, limite } = req.query;
       const collections = {
-        PostCategoria: await PostCategoria.find({ catId: id })
-          .populate("postId")
-          .sort({ postId: -1 }),
+        PostCategoria: '',
         PostTag: await PostTag.find({ tagId: id })
           .populate("postId")
           .sort({ postId: -1 }),
       };
+      console.log(limite)
+      if(limite) {
+        collections.PostCategoria = await PostCategoria.find({ catId: id })
+        .populate("postId")
+        .limit(Number(limite))
+        .sort({ postId: -1 })
+      } else {
+        collections.PostCategoria = await PostCategoria.find({ catId: id })
+        .populate("postId")
+        .sort({ postId: -1 })
+      } 
       const posts = collections[type];
       res.json(posts);
     } catch (erro) {
@@ -184,7 +193,8 @@ module.exports = {
   },
   indexDestaques: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ visualizacao: -1 })
+      const posts = await Post.find().limit(4).sort({ visualizacao: -1, createdAt: -1 });
+      res.json(posts);
     } catch (erro) {
       res.status(500).send(erro);
       console.log(erro);
