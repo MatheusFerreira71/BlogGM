@@ -1,11 +1,12 @@
 <div *ngFor="let post of allPosts" class="postNews">
-  <img src="https://via.placeholder.com/160x80.png" />
-  <div class="postTitle">
-    <p>
-      {{ post.titulo }}
-    </p>
-    <p>
-      {{ post.descricao }}
-    </p>
+  <div class="postImg">
+    <img src="{{ post.banner }}" />
+  </div>
+  <div>
+    <a href="/">
+      <p class="postTitle">
+        {{ post.titulo }}
+      </p>
+    </a>
   </div>
 </div>

@@ -1,6 +1,11 @@
 @import "~material-design-icons/iconfont/material-icons.css";
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  box-sizing: border-box;
+  line-height: 150%;
+}
+
 html,
 body {
   min-height: 100vh;
@@ -33,18 +38,21 @@ body {
 .mat-card {
   margin: 2rem auto;
   margin-top: -0.4rem;
-  padding: 2rem !important;
-  max-width: 75%;
-  height: auto;
+  padding: 1.5rem !important;
   background-color: #fdfdfd;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35) !important;
   border-radius: 8px !important;
+}
+
+.destaqueWrapper {
+  max-width: 80%;
 }
 
 .mat-card-title {
   color: #0096dd;
   display: flex !important;
   align-items: center; /* making vertical centerign of all children */
+  margin-bottom: 1.5rem !important;
 }
 
 .mat-card-title::after {
@@ -56,8 +64,17 @@ body {
   margin-left: 0.5em;
 }
 
-.PostWrapper {
-  justify-content: center;
+.postWrapper {
+  width: 80%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-gap: 2rem;
+  grid-template-columns: 3fr 2fr;
+  justify-content: stretch !important;
+}
+
+.newsReviews {
+  margin: 0;
+  margin-bottom: 2rem;
+  height: auto;
 }
