@@ -25,6 +25,17 @@ body {
   background-color: #30bdff;
 }
 
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.mobileHiden {
+  @media (max-width: 650px) {
+    display: none !important;
+  }
+}
+
 .wrapperGm {
   width: 100%;
   margin: 0 auto;
@@ -44,6 +55,10 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   text-transform: uppercase;
+
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 }
 .titleGm::after {
   content: "";
@@ -52,4 +67,19 @@ body {
   height: 4px;
   border-radius: 20px;
   margin-left: 0.5em;
+
+  @media (max-width: 650px) {
+    height: 2px;
+  }
+}
+
+.titleGm::before {
+  @media (max-width: 650px) {
+    content: "";
+    flex: 1;
+    background-color: #0096dd;
+    height: 2px;
+    border-radius: 20px;
+    margin-right: 0.5em;
+  }
 }
