@@ -13,6 +13,7 @@ import { Component } from "@angular/core";
   // `,
   template: `
     <app-navbar></app-navbar>
+    <app-home></app-home>
     <app-footer></app-footer>
   `,
   styles: [],

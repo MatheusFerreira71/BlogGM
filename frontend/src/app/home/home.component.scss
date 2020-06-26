@@ -1,0 +1,21 @@
+.homeContainer {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.homeBanner {
+  width: auto;
+  height: 325px;
+  background-image: url(../../assets/img/BlogGMLogo.png),
+    url(../../assets/img/GMBlogBanner.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center, bottom center;
+  background-size: auto, contain;
+
+  @media (max-width: 768px) {
+    height: 130px;
+    background-image: url(../../assets/img/BlogGMLogo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
