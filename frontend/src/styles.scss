@@ -4,6 +4,10 @@
 * {
   box-sizing: border-box;
   line-height: 150%;
+
+  ul {
+    padding: 0;
+  }
 }
 
 html,
@@ -19,91 +23,4 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #30bdff;
-}
-
-#content-wrap {
-  margin-top: 2rem;
-  padding-bottom: 165px; /* Footer height */
-}
-
-.bannerLogo {
-  max-width: 75%;
-  height: auto;
-  margin: 0 auto;
-
-  img {
-    max-width: 100%;
-  }
-  @media (max-width: 768px) {
-    display: none !important;
-  }
-}
-
-.mat-card {
-  margin: 2rem auto;
-  margin-top: -0.4rem;
-  padding: 1.5rem !important;
-  background-color: #fdfdfd;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35) !important;
-  border-radius: 8px !important;
-}
-
-.destaqueWrapper {
-  width: 80%;
-  display: grid !important;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-  grid-template-columns: 384px 1fr;
-  grid-template-rows: 320px;
-  @media (max-width: 1010px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 96px;
-  }
-  @media (max-width: 768px) {
-    margin-top: 2rem;
-  }
-}
-
-.mat-card-title {
-  color: #0096dd;
-  display: flex !important;
-  align-items: center; /* making vertical centerign of all children */
-  margin-bottom: 1.5rem !important;
-}
-
-.mat-card-title::after {
-  content: "";
-  flex: 1; /* helps elemet to occupy all free space */
-  background-color: #0096dd;
-  height: 4px;
-  border-radius: 20px;
-  margin-left: 0.5em;
-}
-
-.postWrapper {
-  width: 80%;
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 3fr 2fr;
-  justify-content: stretch !important;
-  @media (max-width: 1010px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.newsReviews {
-  margin: 0;
-  height: auto;
-
-  @media (max-width: 1010px) {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
-.reviewsCard {
-  @media (max-width: 768px) {
-    display: none !important;
-  }
 }
