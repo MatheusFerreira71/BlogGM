@@ -24,3 +24,32 @@ body {
   background-size: cover;
   background-color: #30bdff;
 }
+
+.wrapperGm {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.titleGm {
+  font-family: "Saira", sans-serif;
+  color: #0096dd;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.titleGm::after {
+  content: "";
+  flex: 1;
+  background-color: #0096dd;
+  height: 4px;
+  border-radius: 20px;
+  margin-left: 0.5em;
+}
