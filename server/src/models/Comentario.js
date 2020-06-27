@@ -16,11 +16,6 @@ const schema = mongoose.Schema({
         type: String,
         required: true
     },
-    createdAt: {
-        type: Date,
-        required: true,
-        default: new Date()
-    }, 
     avaliacao: {
         type: Number,
         default: 0,
@@ -31,7 +26,7 @@ const schema = mongoose.Schema({
         ref: 'Post',
         required: true
     }
-});
+}, { timestamps: true });
 
 // 1° parametro: Nome do modelo
 // 2° parametro: Esquema do modelo 

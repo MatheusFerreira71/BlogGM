@@ -26,13 +26,8 @@ const schema = mongoose.Schema({
         type: mongoose.ObjectId,
         ref: 'Usuario',
         required: true
-    },
-    createdAt: {
-        type: Date,
-        required: true,
-        default: new Date
-    },
-});
+    }
+}, { timestamps: true });
 
 // 1° parametro: Nome do modelo
 // 2° parametro: Esquema do modelo 

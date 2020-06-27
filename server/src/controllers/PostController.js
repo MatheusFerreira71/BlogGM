@@ -195,27 +195,42 @@ module.exports = {
     try {
       const posts = await Post.find();
       const today = new Date();
-      const currentMonth = today.getMonth();
+      let currentMonth = today.getMonth();
       const currentYear = today.getFullYear();
-      let filteredPosts = [], counter = 1;
+      let filteredPosts = [], counterM = 1, counterY = 0;
       filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth && post.createdAt.getFullYear() === currentYear);
       
       while (filteredPosts.length < 4) {
-        filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth - counter && post.createdAt.getFullYear() === currentYear);
-        counter++;
+        filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth - counterM && post.createdAt.getFullYear() === currentYear - counterY);
+        if(currentMonth - counterM === 0){
+          currentMonth = 11
+          counterM = 0
+          counterY++
+        } else {
+          counter++;
+        }
       }
 
-      const sortedAndFilteredPosts = filteredPosts.sort((a, b) => {
-        if (a.visualizacao < b.visualizacao || a.titulo > b.titulo) {
+      const sortedByTitle = filteredPosts.sort((a, b) => {
+        if (a.titulo > b.titulo) {
           return 1;
         }
-        if (a.visualizacao > b.visualizacao || a.titulo < b.titulo) {
+        if (a.titulo < b.titulo) {
           return -1;
         }
         return 0;
       });
-      console.log(filteredPosts)
-      console.log(sortedAndFilteredPosts)
+      
+      const sortedAndFilteredPosts = sortedByTitle.sort((a,b) => {
+        if (a.visualizacao < b.visualizacao) {
+          return 1;
+        }
+        if (a.visualizacao > b.visualizacao) {
+          return -1;
+        }
+        return 0;
+      });
+
       res.json([
         sortedAndFilteredPosts[0],
         sortedAndFilteredPosts[1],
