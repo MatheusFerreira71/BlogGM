@@ -20,13 +20,8 @@ const schema = mongoose.Schema({
     },
     avatar: {
         type: String
-    },
-    createdAt: {
-        type: Date,
-        required: true,
-        default: new Date()
-    },
-});
+    }
+}, { timestamps: true });
 
 schema.plugin(findOneOrCreate);
 

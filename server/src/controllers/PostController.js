@@ -104,15 +104,24 @@ module.exports = {
   },
   indexCatOrTag: async (req, res) => {
     try {
-      const { id, type } = req.query;
+      const { id, type, limite } = req.query;
       const collections = {
-        PostCategoria: await PostCategoria.find({ catId: id })
-          .populate("postId")
-          .sort({ postId: -1 }),
+        PostCategoria: '',
         PostTag: await PostTag.find({ tagId: id })
           .populate("postId")
           .sort({ postId: -1 }),
       };
+      console.log(limite)
+      if (limite) {
+        collections.PostCategoria = await PostCategoria.find({ catId: id })
+          .populate("postId")
+          .limit(Number(limite))
+          .sort({ postId: -1 })
+      } else {
+        collections.PostCategoria = await PostCategoria.find({ catId: id })
+          .populate("postId")
+          .sort({ postId: -1 })
+      }
       const posts = collections[type];
       res.json(posts);
     } catch (erro) {
@@ -184,7 +193,50 @@ module.exports = {
   },
   indexDestaques: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ visualizacao: -1 })
+      const posts = await Post.find();
+      const today = new Date();
+      let currentMonth = today.getMonth();
+      const currentYear = today.getFullYear();
+      let filteredPosts = [], counterM = 1, counterY = 0;
+      filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth && post.createdAt.getFullYear() === currentYear);
+      
+      while (filteredPosts.length < 4) {
+        filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth - counterM && post.createdAt.getFullYear() === currentYear - counterY);
+        if(currentMonth - counterM === 0){
+          currentMonth = 11
+          counterM = 0
+          counterY++
+        } else {
+          counter++;
+        }
+      }
+
+      const sortedByTitle = filteredPosts.sort((a, b) => {
+        if (a.titulo > b.titulo) {
+          return 1;
+        }
+        if (a.titulo < b.titulo) {
+          return -1;
+        }
+        return 0;
+      });
+      
+      const sortedAndFilteredPosts = sortedByTitle.sort((a,b) => {
+        if (a.visualizacao < b.visualizacao) {
+          return 1;
+        }
+        if (a.visualizacao > b.visualizacao) {
+          return -1;
+        }
+        return 0;
+      });
+
+      res.json([
+        sortedAndFilteredPosts[0],
+        sortedAndFilteredPosts[1],
+        sortedAndFilteredPosts[2],
+        sortedAndFilteredPosts[3],
+      ]);
     } catch (erro) {
       res.status(500).send(erro);
       console.log(erro);
