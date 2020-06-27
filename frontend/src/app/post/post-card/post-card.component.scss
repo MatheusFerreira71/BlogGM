@@ -1,2 +1,13 @@
-.postCard {
+.postsCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: 100%;
+  }
 }

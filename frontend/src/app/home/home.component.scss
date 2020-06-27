@@ -32,16 +32,21 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 2rem;
-  text-align: center;
+  text-align: left;
 
   @media (max-width: 799px) {
-    grid-template-columns: 1fr;
-    grid-gap: 0px;
+    display: block;
   }
 }
 
 .reviewHiden {
   @media (max-width: 799px) {
     display: none;
+  }
+}
+
+.centerReview {
+  @media (max-width: 1023px) {
+    text-align: center;
   }
 }
