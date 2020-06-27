@@ -112,16 +112,16 @@ module.exports = {
           .sort({ postId: -1 }),
       };
       console.log(limite)
-      if(limite) {
+      if (limite) {
         collections.PostCategoria = await PostCategoria.find({ catId: id })
-        .populate("postId")
-        .limit(Number(limite))
-        .sort({ postId: -1 })
+          .populate("postId")
+          .limit(Number(limite))
+          .sort({ postId: -1 })
       } else {
         collections.PostCategoria = await PostCategoria.find({ catId: id })
-        .populate("postId")
-        .sort({ postId: -1 })
-      } 
+          .populate("postId")
+          .sort({ postId: -1 })
+      }
       const posts = collections[type];
       res.json(posts);
     } catch (erro) {
@@ -193,8 +193,35 @@ module.exports = {
   },
   indexDestaques: async (req, res) => {
     try {
-      const posts = await Post.find().limit(4).sort({ visualizacao: -1, createdAt: -1 });
-      res.json(posts);
+      const posts = await Post.find();
+      const today = new Date();
+      const currentMonth = today.getMonth();
+      const currentYear = today.getFullYear();
+      let filteredPosts = [], counter = 1;
+      filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth && post.createdAt.getFullYear() === currentYear);
+      
+      while (filteredPosts.length < 4) {
+        filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth - counter && post.createdAt.getFullYear() === currentYear);
+        counter++;
+      }
+
+      const sortedAndFilteredPosts = filteredPosts.sort((a, b) => {
+        if (a.visualizacao < b.visualizacao || a.titulo > b.titulo) {
+          return 1;
+        }
+        if (a.visualizacao > b.visualizacao || a.titulo < b.titulo) {
+          return -1;
+        }
+        return 0;
+      });
+      console.log(filteredPosts)
+      console.log(sortedAndFilteredPosts)
+      res.json([
+        sortedAndFilteredPosts[0],
+        sortedAndFilteredPosts[1],
+        sortedAndFilteredPosts[2],
+        sortedAndFilteredPosts[3],
+      ]);
     } catch (erro) {
       res.status(500).send(erro);
       console.log(erro);

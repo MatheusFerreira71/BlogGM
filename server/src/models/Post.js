@@ -30,7 +30,7 @@ const schema = mongoose.Schema({
     createdAt: {
         type: Date,
         required: true,
-        default: new Date()
+        default: new Date
     },
 });
 
