@@ -1,4 +1,4 @@
-.homeContainer {
+.headerContainer {
   max-width: 80%;
   margin: 0 auto;
 }
@@ -23,5 +23,25 @@
     background-image: url(../../assets/img/BGMLogo128.png);
     background-repeat: no-repeat;
     background-position: center;
+  }
+}
+
+.contentContainer {
+  max-width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 2rem;
+  text-align: center;
+
+  @media (max-width: 799px) {
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
+  }
+}
+
+.reviewHiden {
+  @media (max-width: 799px) {
+    display: none;
   }
 }
