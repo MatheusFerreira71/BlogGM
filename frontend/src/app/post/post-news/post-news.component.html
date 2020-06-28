@@ -1,12 +1,30 @@
-<div *ngFor="let post of allPosts" class="postNews">
-  <div class="postImg">
-    <img src="{{ post.banner }}" />
+<div
+  *ngFor="
+    let post of allPosts
+      | paginate: { itemsPerPage: 5, currentPage: paginaAtual };
+    let i = index
+  "
+  class="postNews"
+>
+  <div class="imgPostNews">
+    <a [routerLink]="['/']">
+      <img src="{{ post.banner }}" />
+    </a>
   </div>
-  <div>
-    <a href="/">
-      <p class="postTitle">
+  <div class="tituloPostNews">
+    <a [routerLink]="['/']">
+      <p>
         {{ post.titulo }}
       </p>
     </a>
   </div>
 </div>
+<pagination-controls
+  (pageChange)="paginaAtual = $event"
+  autoHide="true"
+  previousLabel="Anterior"
+  nextLabel="Próximo"
+  screenReaderPaginationLabel="shazam"
+  class="paginacaoNews"
+  responsive="true"
+></pagination-controls>

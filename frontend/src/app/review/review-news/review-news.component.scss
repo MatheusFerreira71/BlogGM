@@ -1,0 +1,89 @@
+.reviewCard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 128px 128px;
+  grid-gap: 1.3rem;
+  justify-content: space-around;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 80px 80px;
+    grid-gap: 0.5rem;
+  }
+}
+
+.reviewWrapper {
+  width: 128px;
+  height: 128px;
+  background-color: #f1f1f1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  p {
+    margin: 0 !important;
+  }
+
+  @media (max-width: 1023px) {
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.reviewTitulo {
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  position: absolute;
+  background-color: hsla(199, 100%, 43%, 0.5);
+  padding: 0.5rem;
+  font-size: 14px;
+  opacity: 0;
+
+  top: 200px;
+  transition-duration: 0.5s;
+  transition-delay: 0.1s;
+  .imgReviewPost:hover {
+    opacity: 1;
+  }
+}
+
+.imgReviewPost {
+  width: 128px;
+  height: 128px;
+  border-radius: inherit;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: linear 0.2s;
+  border: solid 0px #0096dd;
+
+  img {
+    max-height: 228px;
+    width: auto;
+  }
+
+  &:hover {
+    border: solid 4px #0096dd;
+  }
+
+  @media (max-width: 1023px) {
+    width: 80px;
+    height: 80px;
+
+    img {
+      max-height: 180px;
+      width: auto;
+    }
+
+    &:hover {
+      border: solid 2px #0096dd;
+    }
+  }
+}
+
+.imgReviewPost:hover > .reviewTitulo {
+  opacity: 1;
+  top: 87px;
+}

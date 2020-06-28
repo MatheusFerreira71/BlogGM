@@ -18,6 +18,7 @@ export class PostNewsComponent implements OnInit {
   public postsAnalises = [] as PostData[]; //Vetor vazio
   public postsDestaques = [] as PostData[]; //Vetor vazio
   allPosts: Post[]; //Vetor vazio
+  public paginaAtual = 1;
 
   displayedColumns: string[] = [
     "titulo",

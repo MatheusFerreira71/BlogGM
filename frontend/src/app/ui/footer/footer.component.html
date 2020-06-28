@@ -1,24 +1,34 @@
-<mat-toolbar>
-  <div id="leftFooter">
-    <p class="footerTitle">GM Blog</p>
-    <div class="footerSocial">
-      <a><span class="fab fa-facebook"></span></a>
-      <a><span class="fab fa-twitter"></span></a>
-      <a><span class="fab fa-instagram"></span></a>
-    </div>
-    <p id="copyright">© 2020 GMBlog. Todos os direitos reservados.</p>
+<footer class="footerWrapper">
+  <div class="footerSocial">
+    <ul class="footerTitle">
+      <p>GM Blog</p>
+    </ul>
+    <ul class="footerRedes">
+      <a href="http://facebook.com" target="_blank"
+        ><span class="fab fa-facebook"></span
+      ></a>
+      <a href="http://twitter.com" target="_blank"
+        ><span class="fab fa-twitter"></span
+      ></a>
+      <a href="http://instagram.com" target="_blank"
+        ><span class="fab fa-instagram"></span
+      ></a>
+    </ul>
+    <ul class="footerCopyright">
+      <p>© 2020 GMDev</p>
+      <p>Todos os direitos reservados</p>
+    </ul>
   </div>
-  <div id="rightFooter">
-    <div id="footerCatWrapper">
-      <a class="footerCategories">Notícias</a>
-      <a class="footerCategories">Análises</a>
-    </div>
-    <p>
-      <a class="footerSubCategories">Playstation</a>
-      <a class="footerSubCategories">Xbox</a>
-      <a class="footerSubCategories">Nintendo</a>
-      <a class="footerSubCategories">PC</a>
-      <a class="footerSubCategories">Mobile</a>
-    </p>
+  <div class="footerConteudo">
+    <ul class="footerCategorias">
+      <a [routerLink]="['/']" target="_blank">Notícias</a>
+      <a [routerLink]="['/']" target="_blank">Análises</a>
+    </ul>
+    <ul class="footerTags">
+      <a [routerLink]="['/']" target="_blank">Games</a>
+      <a [routerLink]="['/']" target="_blank">Smartphones</a>
+      <a [routerLink]="['/']" target="_blank">Tecnologia</a>
+      <a [routerLink]="['/']" target="_blank">Entretenimento</a>
+    </ul>
   </div>
-</mat-toolbar>
+</footer>

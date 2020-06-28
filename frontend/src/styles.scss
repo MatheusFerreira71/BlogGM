@@ -4,6 +4,10 @@
 * {
   box-sizing: border-box;
   line-height: 150%;
+
+  ul {
+    padding: 0;
+  }
 }
 
 html,
@@ -21,60 +25,66 @@ body {
   background-color: #30bdff;
 }
 
-#content-wrap {
-  padding-bottom: 165px; /* Footer height */
+a {
+  text-decoration: none;
+  color: unset;
 }
 
-.bannerLogo {
-  max-width: 75%;
-  height: auto;
-  margin: 0 auto;
-
-  img {
-    max-width: 100%;
+.mobileHiden {
+  @media (max-width: 649px) {
+    display: none !important;
   }
 }
 
-.mat-card {
-  margin: 2rem auto;
-  margin-top: -0.4rem;
-  padding: 1.5rem !important;
+.center1024 {
+  @media (max-width: 1023px) {
+    text-align: center;
+  }
+}
+
+.wrapperGm {
+  width: 100%;
   background-color: #fdfdfd;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35) !important;
-  border-radius: 8px !important;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
-.destaqueWrapper {
-  max-width: 80%;
-}
-
-.mat-card-title {
+.titleGm {
+  font-family: "Saira", sans-serif;
   color: #0096dd;
-  display: flex !important;
-  align-items: center; /* making vertical centerign of all children */
-  margin-bottom: 1.5rem !important;
-}
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 
-.mat-card-title::after {
+  @media (max-width: 649px) {
+    font-size: 18px;
+  }
+}
+.titleGm::after {
   content: "";
-  flex: 1; /* helps elemet to occupy all free space */
+  flex: 1;
   background-color: #0096dd;
   height: 4px;
   border-radius: 20px;
   margin-left: 0.5em;
+
+  @media (max-width: 649px) {
+    height: 2px;
+  }
 }
 
-.postWrapper {
-  width: 80%;
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 3fr 2fr;
-  justify-content: stretch !important;
-}
-
-.newsReviews {
-  margin: 0;
-  margin-bottom: 2rem;
-  height: auto;
+.titleGm::before {
+  @media (max-width: 649px) {
+    content: "";
+    flex: 1;
+    background-color: #0096dd;
+    height: 2px;
+    border-radius: 20px;
+    margin-right: 0.5em;
+  }
 }

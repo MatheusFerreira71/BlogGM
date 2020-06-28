@@ -1,17 +1,9 @@
-<div id="container">
-  <div class="bannerLogo"><img src="assets/img/bannerLogo.png" /></div>
+<div class="headerContainer">
+  <div class="homeBanner"></div>
+  <app-destaque-card></app-destaque-card>
+</div>
 
-  <mat-card class="destaqueWrapper">
-    <app-destaque-card></app-destaque-card>
-  </mat-card>
-
-  <div class="postWrapper">
-    <mat-card class="newsReviews">
-      <app-post-card></app-post-card>
-    </mat-card>
-
-    <mat-card class="newsReviews">
-      <app-review-card></app-review-card>
-    </mat-card>
-  </div>
+<div class="contentContainer">
+  <app-post-card></app-post-card>
+  <app-review-card class="reviewHiden"></app-review-card>
 </div>
