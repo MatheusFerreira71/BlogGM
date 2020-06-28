@@ -1,79 +1,30 @@
-<div class="postNews">
+<div
+  *ngFor="
+    let post of allPosts
+      | paginate: { itemsPerPage: 5, currentPage: paginaAtual };
+    let i = index
+  "
+  class="postNews"
+>
   <div class="imgPostNews">
     <a [routerLink]="['/']">
-      <img src="https://via.placeholder.com/1280x768.png" />
+      <img src="{{ post.banner }}" />
     </a>
   </div>
   <div class="tituloPostNews">
     <a [routerLink]="['/']">
       <p>
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix sobre
-        Sherlock Holmes
+        {{ post.titulo }}
       </p>
     </a>
   </div>
 </div>
-
-<div class="postNews">
-  <div class="imgPostNews">
-    <a [routerLink]="['/']">
-      <img src="https://via.placeholder.com/1280x768.png" />
-    </a>
-  </div>
-  <div class="tituloPostNews">
-    <a [routerLink]="['/']">
-      <p>
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix sobre
-        Sherlock Holmes
-      </p>
-    </a>
-  </div>
-</div>
-
-<div class="postNews">
-  <div class="imgPostNews">
-    <a [routerLink]="['/']">
-      <img src="https://via.placeholder.com/1280x768.png" />
-    </a>
-  </div>
-  <div class="tituloPostNews">
-    <a [routerLink]="['/']">
-      <p>
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix sobre
-        Sherlock Holmes
-      </p>
-    </a>
-  </div>
-</div>
-
-<div class="postNews">
-  <div class="imgPostNews">
-    <a [routerLink]="['/']">
-      <img src="https://via.placeholder.com/1280x768.png" />
-    </a>
-  </div>
-  <div class="tituloPostNews">
-    <a [routerLink]="['/']">
-      <p>
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix sobre
-        Sherlock Holmes
-      </p>
-    </a>
-  </div>
-</div>
-
-<div class="postNews">
-  <div class="imgPostNews">
-    <a [routerLink]="['/']">
-      <img src="https://via.placeholder.com/1280x768.png" />
-    </a>
-  </div>
-  <div class="tituloPostNews">
-    <a [routerLink]="['/']">
-      <p>
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix sobre
-        Sherlock Holmes
-      </p>
-    </a>
-  </div>
-</div>
+<pagination-controls
+  (pageChange)="paginaAtual = $event"
+  autoHide="true"
+  previousLabel="Anterior"
+  nextLabel="Próximo"
+  screenReaderPaginationLabel="shazam"
+  class="paginacaoNews"
+  responsive="true"
+></pagination-controls>

@@ -36,6 +36,12 @@ a {
   }
 }
 
+.center1024 {
+  @media (max-width: 1023px) {
+    text-align: center;
+  }
+}
+
 .wrapperGm {
   width: 100%;
   background-color: #fdfdfd;
