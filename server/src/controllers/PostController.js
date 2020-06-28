@@ -144,8 +144,10 @@ module.exports = {
       const tags = await PostTag.find({ postId: id })
         .populate({ path: "tagId", select: "titulo" })
         .select("tagId");
+      
+        const comentarios = await Comentario.find({ postId: id }).populate({ path: 'usuario' });
 
-      res.json({ post, categorias, tags });
+      res.json({ post, categorias, tags, comentarios });
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error

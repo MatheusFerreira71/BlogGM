@@ -1,17 +1,6 @@
 const Comentario = require('../models/Comentario');
 
 module.exports = {
-    index: async (req, res) => {
-        try {
-            const { postId } = req.query;
-            const comentarios = await Comentario.find({ postId }).populate({ path: 'usuario' });
-            res.json(comentarios);
-        } catch (erro) {
-            console.log(erro);
-            // HTTP 500: Internal Server Error
-            res.status(500).send(erro);
-        }
-    },
     create: async (req, res) => {
         try {
             await Comentario.create(req.body)// Categoria é um modelo, logo podemos usar os métodos do mongoose.
