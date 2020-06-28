@@ -17,6 +17,7 @@ import { ReviewNewsComponent } from "./home/review/review-news/review-news.compo
 import { DestaqueNewsComponent } from "./destaque/destaque-news/destaque-news.component";
 import { DestaqueBignewsComponent } from "./destaque/destaque-bignews/destaque-bignews.component";
 import { NgxPaginationModule } from "ngx-pagination";
+import { PostagemComponent } from './postagem/postagem.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     ReviewNewsComponent,
     DestaqueNewsComponent,
     DestaqueBignewsComponent,
+    PostagemComponent,
   ],
   imports: [
     BrowserModule,
