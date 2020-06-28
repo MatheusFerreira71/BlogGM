@@ -6,6 +6,7 @@
   align-items: center;
   background-color: #f1f1f1;
   border-radius: 8px;
+  transition: ease-in-out 0.2s;
 
   p {
     margin: 0 !important;
@@ -16,6 +17,10 @@
     height: auto;
     grid-template-columns: 1fr;
     margin: 0;
+  }
+
+  &:hover {
+    background-color: #e8e8e8;
   }
 }
 
