@@ -18,6 +18,8 @@ import { DestaqueNewsComponent } from "./destaque/destaque-news/destaque-news.co
 import { DestaqueBignewsComponent } from "./destaque/destaque-bignews/destaque-bignews.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { PostagemComponent } from './postagem/postagem.component';
+import { PostagemCardComponent } from './postagem/postagem-card/postagem-card.component';
+import { PostagemContentComponent } from './postagem/postagem-content/postagem-content.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { PostagemComponent } from './postagem/postagem.component';
     DestaqueNewsComponent,
     DestaqueBignewsComponent,
     PostagemComponent,
+    PostagemCardComponent,
+    PostagemContentComponent,
   ],
   imports: [
     BrowserModule,

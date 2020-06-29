@@ -9,6 +9,10 @@
   @media (max-width: 799px) {
     display: block;
   }
+
+  @media (max-width: 649px) {
+    max-width: 90%;
+  }
 }
 
 .reviewHiden {

@@ -15,6 +15,10 @@
 .headerContainer {
   max-width: 80%;
   margin: 0 auto;
+
+  @media (max-width: 649px) {
+    max-width: 90%;
+  }
 }
 
 .homeBanner {
@@ -39,10 +43,3 @@
     background-position: center;
   }
 }
-
-// .secundariosCard {
-//   height: 500px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-// }

@@ -1,0 +1,152 @@
+* {
+  p {
+    margin: 0;
+  }
+}
+
+// Título
+
+.postagemHeader {
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  background-color: #ccedff;
+  height: 100%;
+  color: #2c4574;
+}
+
+.postagemTitulo {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .pSubtitulo {
+    font-size: 18px;
+    font-weight: 400;
+
+    @media (max-width: 649px) {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 649px) {
+    font-size: 21px;
+  }
+}
+
+// Compartilhamento e usuário
+
+.postagemSocial {
+  width: 100%;
+  // background-color: #f1f1f1;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 649px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.postagemInfo {
+  font-size: 36px;
+  color: #0096dd;
+
+  i + i {
+    margin-left: 0.5rem;
+  }
+
+  i:hover {
+    color: #2c4574;
+  }
+  @media (max-width: 649px) {
+    text-align: center;
+    align-content: center;
+  }
+}
+
+.postagemInfo {
+  .postagemData {
+    font-size: 14px;
+    color: #0a0a0a;
+  }
+}
+
+.postagemUsuario {
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  align-items: center;
+  max-width: 180px;
+
+  @media (max-width: 649px) {
+    margin: 0 auto;
+  }
+}
+
+.nomeUsuario {
+  padding-right: 1rem;
+  margin-right: -0.5rem;
+  color: #0a0a0a;
+  border-bottom: 3px solid #30bdff;
+}
+
+.porUsuario {
+  color: #2c4574;
+  margin-right: 0.5rem;
+}
+
+.fotoUsuario {
+  height: 32px;
+  width: 32px;
+  overflow: none;
+
+  img {
+    height: inherit;
+    width: inherit;
+    border-radius: 25px;
+  }
+}
+
+// Corpo
+
+.postagemTexto {
+  padding: 2rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  text-align: justify;
+  color: #0a0a0a;
+  font-size: 16px;
+  font-family: "Roboto Slab", serif;
+  // letter-spacing: 0.03em;
+  font-weight: 400;
+
+  p {
+    margin: 1rem;
+    margin-top: 0;
+  }
+
+  @media (max-width: 649px) {
+    text-align: left;
+  }
+}
+
+// Família (Tags/Categorias)
+
+.postagemFamilia {
+  border-top: 1px solid #c4c4c4;
+  padding: 1rem;
+  color: #c4c4c4;
+  font-size: 14px;
+}
+
+.postagemCategorias::before {
+  content: "Categorias: ";
+}
+
+.postagemTags::before {
+  content: "Assuntos: ";
+}
