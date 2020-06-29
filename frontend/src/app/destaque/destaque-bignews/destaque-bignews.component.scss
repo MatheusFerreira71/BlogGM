@@ -6,6 +6,7 @@
   align-items: center;
   background-color: #f1f1f1;
   border-radius: 8px;
+  transition: ease-in-out 0.2s;
 
   p {
     margin: 0 !important;
@@ -23,11 +24,15 @@
     flex-direction: column;
     margin: 0;
   }
+
+  &:hover {
+    background-color: #e8e8e8;
+  }
 }
 
 .imgBigNews {
   width: 376px;
-  height: 282px;
+  height: 256px;
   border-radius: 8px 8px 0px 0px;
   overflow: hidden;
   display: flex;
@@ -35,7 +40,7 @@
   align-items: top;
 
   img {
-    max-height: 382px;
+    max-height: 356px;
     width: auto;
   }
 
@@ -71,7 +76,7 @@
 }
 
 .tituloBigNews {
-  height: 74px;
+  height: 100px;
   color: #2c4574;
   font-size: 18px;
   text-align: center;
