@@ -1,0 +1,21 @@
+// p {
+//   margin: 0;
+// }
+
+.tags {
+  margin-top: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-basis: 60%;
+}
+
+a {
+  margin-left: 2rem;
+  color: #2c4574;
+
+  &:hover {
+    color: #30bdff;
+    font-weight: bold;
+  }
+}

@@ -20,6 +20,9 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { PostagemComponent } from './postagem/postagem.component';
 import { PostagemCardComponent } from './postagem/postagem-card/postagem-card.component';
 import { PostagemContentComponent } from './postagem/postagem-content/postagem-content.component';
+import { TagsCardComponent } from './tags/tags-card/tags-card.component';
+import { TagsContentComponent } from './tags/tags-content/tags-content.component';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { PostagemContentComponent } from './postagem/postagem-content/postagem-c
     PostagemComponent,
     PostagemCardComponent,
     PostagemContentComponent,
+    TagsCardComponent,
+    TagsContentComponent,
+    TagsComponent,
   ],
   imports: [
     BrowserModule,

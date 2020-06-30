@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { PostagemComponent } from "./postagem/postagem.component";
+import { TagsComponent } from "./tags/tags.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "post",
     component: PostagemComponent,
+  },
+  {
+    path: "tags",
+    component: TagsComponent,
   },
 ];
 
