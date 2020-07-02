@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { PostagemComponent } from "./postagem/postagem.component";
 import { TagsComponent } from "./tags/tags.component";
+import { SearchComponent } from "./search/search.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "tags",
     component: TagsComponent,
+  },
+  {
+    path: "busca/nome",
+    component: SearchComponent,
   },
 ];
 
