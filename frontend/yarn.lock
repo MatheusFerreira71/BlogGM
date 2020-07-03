@@ -1011,6 +1011,13 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.6.4"
 
+"@kolkov/angular-editor@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@kolkov/angular-editor/-/angular-editor-1.1.2.tgz#d23819340d754ac3fb094bddba043702c75524cb"
+  integrity sha512-ae6v4XDLxIZhHyMAWma4QZvGIDvsn7eeqE+sQIm+9VbXn2jWaS3Mqg4nnKbZSB7p0xhbWviKG2Frb1I8s+ne0Q==
+  dependencies:
+    tslib "^1.9.0"
+
 "@ngtools/webpack@9.1.9":
   version "9.1.9"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-9.1.9.tgz#2098afd6f1f028238468262df2ad10afa81b82a5"

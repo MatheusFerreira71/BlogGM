@@ -27,6 +27,7 @@ import { SearchComponent } from "./search/search.component";
 import { SearchContentComponent } from "./search/search-content/search-content.component";
 import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
 import { CreateFormComponent } from "./postcreate/create-form/create-form.component";
+import { AngularEditorModule } from "@kolkov/angular-editor";
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CreateFormComponent } from "./postcreate/create-form/create-form.compon
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    AngularEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -12,19 +12,18 @@
   <mat-form-field>
     <mat-label>Categoria</mat-label>
     <mat-select required>
-      <mat-option value="noticia">Notícia</mat-option>
-      <mat-option value="analise">Análise</mat-option>
+      <mat-option value="analise">Análises</mat-option>
+      <mat-option value="noticia">Notícias/Games</mat-option>
+      <mat-option value="noticia">Notícias/Smartphones</mat-option>
+      <mat-option value="noticia">Notícias/Tecnologia</mat-option>
+      <mat-option value="noticia">Notícias/Entretenimento</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Texto</mat-label>
-    <textarea
-      matInput
-      required
-      placeholder="Coloque o conteúdo do post aqui"
-    ></textarea>
-  </mat-form-field>
+  <angular-editor
+    required
+    [placeholder]="'Enter text here...'"
+  ></angular-editor>
 
   <mat-toolbar>
     <mat-toolbar-row class="formButtons">
