@@ -23,8 +23,10 @@ import { PostagemContentComponent } from "./postagem/postagem-content/postagem-c
 import { TagsCardComponent } from "./tags/tags-card/tags-card.component";
 import { TagsContentComponent } from "./tags/tags-content/tags-content.component";
 import { TagsComponent } from "./tags/tags.component";
-import { SearchComponent } from './search/search.component';
-import { SearchContentComponent } from './search/search-content/search-content.component';
+import { SearchComponent } from "./search/search.component";
+import { SearchContentComponent } from "./search/search-content/search-content.component";
+import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
+import { CreateFormComponent } from "./postcreate/create-form/create-form.component";
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { SearchContentComponent } from './search/search-content/search-content.c
     TagsComponent,
     SearchComponent,
     SearchContentComponent,
+    CreateCardComponent,
+    CreateFormComponent,
   ],
   imports: [
     BrowserModule,

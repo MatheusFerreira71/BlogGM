@@ -1,0 +1,39 @@
+<form class="std-form">
+  <mat-form-field>
+    <mat-label>Título</mat-label>
+    <input matInput required placeholder="Informe o título do post" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Descrição</mat-label>
+    <input matInput required placeholder="Informe a descrição do post" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select required>
+      <mat-option value="noticia">Notícia</mat-option>
+      <mat-option value="analise">Análise</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Texto</mat-label>
+    <textarea
+      matInput
+      required
+      placeholder="Coloque o conteúdo do post aqui"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-toolbar>
+    <mat-toolbar-row class="formButtons">
+      <button mat-raised-button type="submit" class="enviarButton">
+        Salvar
+      </button>
+      <button mat-raised-button type="button">
+        Voltar
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</form>
