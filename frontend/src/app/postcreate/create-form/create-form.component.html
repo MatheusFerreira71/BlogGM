@@ -11,12 +11,19 @@
 
   <mat-form-field>
     <mat-label>Categoria</mat-label>
-    <mat-select required>
+    <mat-select onchange="categoria2check(this)" required>
       <mat-option value="analise">Análises</mat-option>
-      <mat-option value="noticia">Notícias/Games</mat-option>
-      <mat-option value="noticia">Notícias/Smartphones</mat-option>
-      <mat-option value="noticia">Notícias/Tecnologia</mat-option>
-      <mat-option value="noticia">Notícias/Entretenimento</mat-option>
+      <mat-option value="noticia">Notícias</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field id="catSecSelector">
+    <mat-label>Categoria Secundária</mat-label>
+    <mat-select required>
+      <mat-option value="noticia">Games</mat-option>
+      <mat-option value="noticia">Smartphones</mat-option>
+      <mat-option value="noticia">Tecnologia</mat-option>
+      <mat-option value="noticia">Entretenimento</mat-option>
     </mat-select>
   </mat-form-field>
 

@@ -1,13 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
-
 @Component({
   selector: "app-create-form",
   templateUrl: "./create-form.component.html",
   styleUrls: ["./create-form.component.scss"],
 })
 export class CreateFormComponent implements OnInit {
-  constructor() {}
+  constructor() {
+    function categoria2check(categoria) {
+      if (categoria.value == "noticia") {
+        document.getElementById("catSecSelector").style.display = "block";
+      } else {
+        document.getElementById("catSecSelector").style.display = "none";
+      }
+    }
+  }
 
   ngOnInit(): void {}
 
