@@ -12,6 +12,7 @@ import { Component } from "@angular/core";
   //   </div>
   // `,
   template: `
+    <app-navbar></app-navbar>
     <app-destaque-card></app-destaque-card>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
