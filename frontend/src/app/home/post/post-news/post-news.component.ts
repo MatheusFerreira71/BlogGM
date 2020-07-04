@@ -34,7 +34,6 @@ export class PostNewsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllPosts();
-    console.log(this.allPosts);
   }
 
   getAllPosts(): void {

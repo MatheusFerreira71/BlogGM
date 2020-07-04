@@ -106,21 +106,21 @@ module.exports = {
     try {
       const { id, type, limite } = req.query;
       const collections = {
-        PostCategoria: '',
+        PostCategoria: "",
         PostTag: await PostTag.find({ tagId: id })
           .populate("postId")
           .sort({ postId: -1 }),
       };
-      console.log(limite)
+      console.log(limite);
       if (limite) {
         collections.PostCategoria = await PostCategoria.find({ catId: id })
           .populate("postId")
           .limit(Number(limite))
-          .sort({ postId: -1 })
+          .sort({ postId: -1 });
       } else {
         collections.PostCategoria = await PostCategoria.find({ catId: id })
           .populate("postId")
-          .sort({ postId: -1 })
+          .sort({ postId: -1 });
       }
       const posts = collections[type];
       res.json(posts);
@@ -144,8 +144,10 @@ module.exports = {
       const tags = await PostTag.find({ postId: id })
         .populate({ path: "tagId", select: "titulo" })
         .select("tagId");
-      
-        const comentarios = await Comentario.find({ postId: id }).populate({ path: 'usuario' });
+
+      const comentarios = await Comentario.find({ postId: id }).populate({
+        path: "usuario",
+      });
 
       res.json({ post, categorias, tags, comentarios });
     } catch (erro) {
@@ -199,15 +201,25 @@ module.exports = {
       const today = new Date();
       let currentMonth = today.getMonth();
       const currentYear = today.getFullYear();
-      let filteredPosts = [], counterM = 1, counterY = 0;
-      filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth && post.createdAt.getFullYear() === currentYear);
-      
+      let filteredPosts = [],
+        counterM = 1,
+        counterY = 0;
+      filteredPosts = posts.filter(
+        (post) =>
+          post.createdAt.getMonth() === currentMonth &&
+          post.createdAt.getFullYear() === currentYear
+      );
+
       while (filteredPosts.length < 4) {
-        filteredPosts = posts.filter(post => post.createdAt.getMonth() === currentMonth - counterM && post.createdAt.getFullYear() === currentYear - counterY);
-        if(currentMonth - counterM === 0){
-          currentMonth = 11
-          counterM = 0
-          counterY++
+        filteredPosts = posts.filter(
+          (post) =>
+            post.createdAt.getMonth() === currentMonth - counterM &&
+            post.createdAt.getFullYear() === currentYear - counterY
+        );
+        if (currentMonth - counterM === 0) {
+          currentMonth = 11;
+          counterM = 0;
+          counterY++;
         } else {
           counter++;
         }
@@ -222,8 +234,8 @@ module.exports = {
         }
         return 0;
       });
-      
-      const sortedAndFilteredPosts = sortedByTitle.sort((a,b) => {
+
+      const sortedAndFilteredPosts = sortedByTitle.sort((a, b) => {
         if (a.visualizacao < b.visualizacao) {
           return 1;
         }
@@ -233,15 +245,17 @@ module.exports = {
         return 0;
       });
 
-      res.json([
-        sortedAndFilteredPosts[0],
-        sortedAndFilteredPosts[1],
-        sortedAndFilteredPosts[2],
-        sortedAndFilteredPosts[3],
-      ]);
+      res.json({
+        bigPost: sortedAndFilteredPosts[0],
+        postNews: [
+          sortedAndFilteredPosts[1],
+          sortedAndFilteredPosts[2],
+          sortedAndFilteredPosts[3],
+        ],
+      });
     } catch (erro) {
       res.status(500).send(erro);
       console.log(erro);
     }
-  }
+  },
 };

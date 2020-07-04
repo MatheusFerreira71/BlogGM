@@ -126,6 +126,17 @@ li a:hover,
   background-color: #313131;
 }
 
+.newsArrow:after {
+  content: "▼";
+  margin-left: 50%;
+  font-size: 16px;
+  color: #f1f1f1;
+}
+
+.navbarDropdownNews:hover .newsArrow:after {
+  content: "▲";
+}
+
 li a,
 .dropbtn {
   display: inline-block;
