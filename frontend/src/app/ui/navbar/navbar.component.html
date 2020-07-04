@@ -1,24 +1,53 @@
-<!-- <mat-toolbar>
-  <a mat-button class="navbarItem"><mat-icon>games</mat-icon></a>
-  <a mat-button class="navbarItem">Início</a>
-  <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item class="navbarDD">Notícias</button>
-    <button mat-menu-item class="navbarDD">Análises</button>
-  </mat-menu>
-  <a mat-button class="navbarItem">Assuntos</a>
-  <a mat-button class="navbarItem">Sobre nós</a>
-</mat-toolbar> -->
-
-<div class="navbarWrapper">
+<!-- <div class="navbarWrapper">
   <div class="navLogo">
     <a [routerLink]="['/']"><img src="" /><mat-icon>games</mat-icon></a>
   </div>
   <div class="navbar">
-    <ul>
-      <a>Início</a>
-      <a>Categorias</a>
-      <a>Assuntos</a>
-    </ul>
+    <a>Início</a>
+    <a class="navDropdown">
+      <span>Categorias</span>
+      <div class="navDropdown-content">
+        <a>Análises</a>
+        <a
+          >Notícias
+          <div class="navDropdown-content">
+            <a>1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>4</a>
+          </div>
+        </a>
+      </div>
+    </a>
+    <a>Assuntos</a>
+  </div>
+</div> -->
+
+<div class="navbarWrapper">
+  <div class="leftContent">
+    <div class="navLogo">
+      <a [routerLink]="['/']"><img src="" /><mat-icon>games</mat-icon></a>
+    </div>
+    <div class="navbarMenu">
+      <ul>
+        <li><a [routerLink]="['/']">Início</a></li>
+        <li class="navbarDropdown">
+          <a href="javascript:void(0)" class="dropbtn">Categorias</a>
+          <div class="navbarDropdown-content">
+            <a [routerLink]="['/']">Análises</a>
+            <li class="navbarDropdownNews">
+              <a [routerLink]="['/']" class="newsArrow">Notícias</a>
+              <ul class="navbarDropdownCats">
+                <li><a [routerLink]="['/']">Games</a></li>
+                <li><a [routerLink]="['/']">Smartphones</a></li>
+                <li><a [routerLink]="['/']">Tecnologia</a></li>
+                <li><a [routerLink]="['/']">Entretenimento</a></li>
+              </ul>
+            </li>
+          </div>
+        </li>
+        <li><a [routerLink]="['/tags']">Assuntos</a></li>
+      </ul>
+    </div>
   </div>
 </div>

@@ -17,9 +17,17 @@ import { ReviewNewsComponent } from "./home/review/review-news/review-news.compo
 import { DestaqueNewsComponent } from "./destaque/destaque-news/destaque-news.component";
 import { DestaqueBignewsComponent } from "./destaque/destaque-bignews/destaque-bignews.component";
 import { NgxPaginationModule } from "ngx-pagination";
-import { PostagemComponent } from './postagem/postagem.component';
-import { PostagemCardComponent } from './postagem/postagem-card/postagem-card.component';
-import { PostagemContentComponent } from './postagem/postagem-content/postagem-content.component';
+import { PostagemComponent } from "./postagem/postagem.component";
+import { PostagemCardComponent } from "./postagem/postagem-card/postagem-card.component";
+import { PostagemContentComponent } from "./postagem/postagem-content/postagem-content.component";
+import { TagsCardComponent } from "./tags/tags-card/tags-card.component";
+import { TagsContentComponent } from "./tags/tags-content/tags-content.component";
+import { TagsComponent } from "./tags/tags.component";
+import { SearchComponent } from "./search/search.component";
+import { SearchContentComponent } from "./search/search-content/search-content.component";
+import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
+import { CreateFormComponent } from "./postcreate/create-form/create-form.component";
+import { AngularEditorModule } from "@kolkov/angular-editor";
 
 @NgModule({
   declarations: [
@@ -37,6 +45,13 @@ import { PostagemContentComponent } from './postagem/postagem-content/postagem-c
     PostagemComponent,
     PostagemCardComponent,
     PostagemContentComponent,
+    TagsCardComponent,
+    TagsContentComponent,
+    TagsComponent,
+    SearchComponent,
+    SearchContentComponent,
+    CreateCardComponent,
+    CreateFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +60,7 @@ import { PostagemContentComponent } from './postagem/postagem-content/postagem-c
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    AngularEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

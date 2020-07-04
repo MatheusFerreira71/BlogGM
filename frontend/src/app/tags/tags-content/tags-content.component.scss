@@ -1,0 +1,33 @@
+// p {
+//   margin: 0;
+// }
+
+.tags {
+  margin-top: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+
+  @media (max-width: 1049px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 649px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+p {
+  margin-left: 2rem;
+}
+
+a {
+  margin-left: 2rem;
+  color: #2c4574;
+
+  &:hover {
+    color: #30bdff;
+    font-weight: bold;
+  }
+}

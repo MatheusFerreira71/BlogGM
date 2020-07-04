@@ -1,4 +1,4 @@
-<mat-toolbar>
+<!-- <mat-toolbar>
   <a mat-button class="navbarItem"><mat-icon>games</mat-icon></a>
   <a mat-button class="navbarItem">Início</a>
   <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
@@ -8,4 +8,17 @@
   </mat-menu>
   <a mat-button class="navbarItem">Assuntos</a>
   <a mat-button class="navbarItem">Sobre nós</a>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<div class="navbarWrapper">
+  <div class="navLogo">
+    <a [routerLink]="['/']"><img src="" /><mat-icon>games</mat-icon></a>
+  </div>
+  <div class="navbar">
+    <ul>
+      <a>Início</a>
+      <a>Categorias</a>
+      <a>Assuntos</a>
+    </ul>
+  </div>
+</div>

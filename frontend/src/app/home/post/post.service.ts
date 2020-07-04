@@ -4,11 +4,6 @@ import { environment as env } from "./../../../environments/environment";
 import { Post } from "./Post";
 import { Observable } from "rxjs";
 
-interface PostData {
-  _id: string;
-  postId: Post;
-}
-
 @Injectable({
   providedIn: "root",
 })
@@ -19,8 +14,6 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   private apiUri: string = env.apiBaseUri + "posts";
-  // private allPosts = [] as Post[];
-  // private postsAnalises = [] as PostData[];
 
   listarAll(): Observable<Post[]> {
     return this.http.get<Post[]>(this.apiUri);

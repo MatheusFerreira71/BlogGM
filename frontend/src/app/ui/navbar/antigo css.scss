@@ -1,34 +1,40 @@
-.mat-toolbar {
+.navbarWrapper {
+  width: 100%;
+  height: 64px;
+  position: relative;
   background-color: #212121;
+  display: flex;
+  padding: 0 4rem;
   color: #f1f1f1;
-  min-height: 64px !important;
-  height: auto !important;
+  align-items: center;
+
+  @media (max-width: 799px) {
+    padding: 0;
+    justify-content: center;
+  }
 }
 
-.navbarItem {
-  font-size: 1rem;
-  padding: 0 1rem;
+.navLogo {
+  margin-right: 2rem;
+  .mat-icon {
+    color: #30bdff;
+    font-size: 40px;
+  }
 }
 
-.navbarDD {
-  background-color: #313131;
-  color: #f1f1f1;
-}
+.navbar {
+  font-size: 16px;
 
-.mat-icon {
-  height: auto;
-  width: auto;
-  color: #30bdff;
-  font-size: 36px;
-}
+  a {
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: linear 0.2s;
+    &:active {
+      background-color: #383838;
+    }
+  }
 
-::ng-deep .mat-menu-content,
-::ng-deep .mat-menu-panel {
-  background-color: #313131;
-}
-
-.mat-menu-item {
-  &:hover {
-    background-color: #414141;
+  a + a {
+    margin-left: 0.5rem;
   }
 }

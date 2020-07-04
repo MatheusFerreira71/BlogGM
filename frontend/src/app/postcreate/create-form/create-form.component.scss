@@ -1,0 +1,29 @@
+.std-form {
+  max-width: 100%;
+  // margin: 0 auto;
+
+  mat-form-field {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-right: 30px;
+  }
+}
+
+.formButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.enviarButton {
+  background-color: #0096dd;
+  color: #f1f1f1;
+}
+
+input.matInput {
+  border: 1px solid red !important;
+}
+
+#catSecSelector {
+  display: none;
+}

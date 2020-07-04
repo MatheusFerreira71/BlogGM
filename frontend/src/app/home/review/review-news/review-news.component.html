@@ -1,36 +1,9 @@
-<div class="reviewCard">
-  <div class="reviewWrapper">
+<div class="reviewCard" *ngIf="allPosts">
+  <div class="reviewWrapper" *ngFor="let post of allPosts">
     <div class="imgReviewPost">
-      <div class="reviewTitulo">Persona 5</div>
-      <a [routerLink]="['/']">
-        <img src="https://via.placeholder.com/1280x720.png" />
-      </a>
-    </div>
-  </div>
-
-  <div class="reviewWrapper">
-    <div class="imgReviewPost">
-      <div class="reviewTitulo">Persona 5</div>
-      <a [routerLink]="['/']">
-        <img src="https://via.placeholder.com/1280x720.png" />
-      </a>
-    </div>
-  </div>
-
-  <div class="reviewWrapper">
-    <div class="imgReviewPost">
-      <div class="reviewTitulo">Persona 5</div>
-      <a [routerLink]="['/']">
-        <img src="https://via.placeholder.com/1280x720.png" />
-      </a>
-    </div>
-  </div>
-
-  <div class="reviewWrapper">
-    <div class="imgReviewPost">
-      <div class="reviewTitulo">Persona 5</div>
-      <a [routerLink]="['/']">
-        <img src="https://via.placeholder.com/1280x720.png" />
+      <div class="reviewTitulo">{{ post.postId.titulo }}</div>
+      <a routerLink="/post/{{ post.postId._id }}">
+        <img src="{{ post.postId.banner }}" />
       </a>
     </div>
   </div>

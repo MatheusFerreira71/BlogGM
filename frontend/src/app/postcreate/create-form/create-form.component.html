@@ -1,0 +1,45 @@
+<form class="std-form">
+  <mat-form-field>
+    <mat-label>Título</mat-label>
+    <input matInput required placeholder="Informe o título do post" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Descrição</mat-label>
+    <input matInput required placeholder="Informe a descrição do post" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select onchange="categoria2check(this)" required>
+      <mat-option value="analise">Análises</mat-option>
+      <mat-option value="noticia">Notícias</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field id="catSecSelector">
+    <mat-label>Categoria Secundária</mat-label>
+    <mat-select required>
+      <mat-option value="noticia">Games</mat-option>
+      <mat-option value="noticia">Smartphones</mat-option>
+      <mat-option value="noticia">Tecnologia</mat-option>
+      <mat-option value="noticia">Entretenimento</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <angular-editor
+    required
+    [placeholder]="'Enter text here...'"
+  ></angular-editor>
+
+  <mat-toolbar>
+    <mat-toolbar-row class="formButtons">
+      <button mat-raised-button type="submit" class="enviarButton">
+        Salvar
+      </button>
+      <button mat-raised-button type="button">
+        Voltar
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</form>
