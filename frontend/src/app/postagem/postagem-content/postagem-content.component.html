@@ -1,12 +1,11 @@
-<div class="postagemWrapper">
+<div class="postagemWrapper" *ngIf="uniquePost && categorias && tags">
   <div class="postagemHeader">
     <div class="postagemTitulo">
       <p>
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix sobre
-        Sherlock Holmes
+        {{ uniquePost.post.titulo }}
       </p>
       <p class="pSubtitulo">
-        Millie Bobby Brown e Henry Cavill estrelam filme da Netflix
+        {{ uniquePost.post.descricao }}
       </p>
     </div>
   </div>
@@ -22,43 +21,25 @@
     </div>
     <div class="postagemUsuario">
       <span class="nomeUsuario"
-        ><span class="porUsuario">Por:</span>Gustavo Pazeto</span
+        ><span class="porUsuario">Por:</span
+        >{{ uniquePost.post.usuario.username }}</span
       >
       <div class="fotoUsuario">
-        <img
-          src="https://pbs.twimg.com/profile_images/1104230019600134144/rK0eJls6_400x400.png"
-        />
+        <img src="{{ uniquePost.post.usuario.avatar }}" />
       </div>
     </div>
   </div>
   <div class="postagemTexto">
     <div>
-      <p>
-        Como bem sabemos, ele nem sempre foi assim. Não, longe disso. Toda a
-        jornada de Naruto no primeiro período da história, que se encerra com
-        Sasuke fugindo da Vila da Folha, inclui algumas pequenas vitórias e uma
-        derrota retumbante. Evidentemente, nos apegamos a ele porque sabemos o
-        quanto Naruto se esforça para melhorar a cada dia. Mais do que isso:
-        sabemos que ele sonha muito alto. Tornar-se Hokage de Konoha é algo que
-        pouquíssimos ninjas conseguem.
-      </p>
-      <p>
-        Conforme o tempo passa, Naruto até acumula certo prestígio entre colegas
-        e mentores. Contudo, ele realmente precisava fazer algo inacreditável
-        para conquistar todos aqueles que, de certa forma, o desprezavam
-        constantemente. Na batalha decisiva contra Sasuke, a mais importante da
-        vida dele até o final da era clássica, Naruto perde. E este
-        acontecimento não é, simplesmente, mais uma desculpa para drama barato
-        com consequências apenas a curto prazo. Esta derrota, mais do que
-        qualquer conquista do jovem Uzumaki, muda a vida dele para sempre.
-        Convencido de que precisaria salvar o amigo para se considerar digno de
-        tornar-se um Hokage, Naruto parte para treinar com Jiraiya. Quando volta
-        à Vila da Folha, ele é outra pessoa.
-      </p>
+      {{ uniquePost.post.corpo }}
     </div>
   </div>
   <div class="postagemFamilia">
-    <p class="postagemCategorias">Notícias, Teste</p>
-    <p class="postagemTags">Aquilo, isso, aquele outro, shazam</p>
+    <p class="postagemCategorias">
+      {{ categorias.join(", ") }}
+    </p>
+    <p class="postagemTags">
+      {{ tags.join(", ") }}
+    </p>
   </div>
 </div>

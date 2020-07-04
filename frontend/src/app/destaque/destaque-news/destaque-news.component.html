@@ -1,12 +1,12 @@
 <div *ngIf="postData">
   <div class="destaqueNews" *ngFor="let post of postData.postNews">
     <div class="imgNews">
-      <a [routerLink]="['/']">
+      <a routerLink="/post/{{ post._id }}">
         <img src="{{ post.banner }}" />
       </a>
     </div>
     <div class="tituloNews">
-      <a [routerLink]="['/']">
+      <a routerLink="/post/{{ post._id }}">
         <p>{{ post.titulo }}</p>
       </a>
     </div>

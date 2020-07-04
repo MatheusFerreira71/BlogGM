@@ -7,12 +7,12 @@
   class="postNews"
 >
   <div class="imgPostNews">
-    <a [routerLink]="['/']">
+    <a routerLink="/post/{{ post._id }}">
       <img src="{{ post.banner }}" />
     </a>
   </div>
   <div class="tituloPostNews">
-    <a [routerLink]="['/']">
+    <a routerLink="/post/{{ post._id }}">
       <p>
         {{ post.titulo }}
       </p>

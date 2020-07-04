@@ -1,24 +1,7 @@
-<div class="tags">
-  <a [routerLink]="['/busca/nome']"><p>Activision (21)</p></a>
-  <a [routerLink]="['/']"><p>Crash (16)</p></a>
-  <a [routerLink]="['/']"><p>Resident Evil (11)</p></a>
-  <a [routerLink]="['/']"><p>Capcom (8)</p></a>
-  <a [routerLink]="['/']"><p>Activision (21)</p></a>
-  <a [routerLink]="['/']"><p>Crash (16)</p></a>
-  <a [routerLink]="['/']"><p>Resident Evil (11)</p></a>
-  <a [routerLink]="['/']"><p>Capcom (8)</p></a>
-  <a [routerLink]="['/']"><p>Activision (21)</p></a>
-  <a [routerLink]="['/']"><p>Crash (16)</p></a>
-  <a [routerLink]="['/']"><p>Resident Evil (11)</p></a>
-  <a [routerLink]="['/']"><p>Capcom (8)</p></a>
-  <a [routerLink]="['/']"><p>Activision (21)</p></a>
-  <a [routerLink]="['/']"><p>Crash (16)</p></a>
-  <a [routerLink]="['/']"><p>Resident Evil (11)</p></a>
-  <a [routerLink]="['/']"><p>Capcom (8)</p></a>
-  <a [routerLink]="['/']"><p>Activision (21)</p></a>
-  <a [routerLink]="['/']"><p>Crash (16)</p></a>
-  <a [routerLink]="['/']"><p>Resident Evil (11)</p></a>
-  <a [routerLink]="['/']"><p>Capcom (8)</p></a>
-  <a [routerLink]="['/']"><p>Resident Evil (11)</p></a>
-  <a [routerLink]="['/']"><p>Capcom (8)</p></a>
+<div class="tags" *ngIf="allTags">
+  <div *ngFor="let tag of allTags">
+    <a [routerLink]="['/busca/nome']"
+      ><p>{{ tag.titulo }} ({{ tag.qtdePosts }})</p></a
+    >
+  </div>
 </div>

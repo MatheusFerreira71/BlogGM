@@ -1,12 +1,12 @@
 <div *ngIf="postData">
   <div class="destaqueBigNews">
     <div class="imgBigNews">
-      <a [routerLink]="['/']">
+      <a routerLink="/post/{{ postData.bigPost._id }}">
         <img src="{{ postData.bigPost.banner }}" />
       </a>
     </div>
     <div class="tituloBigNews">
-      <a [routerLink]="['/']">
+      <a routerLink="/post/{{ postData.bigPost._id }}">
         <p>{{ postData.bigPost.titulo }}</p>
       </a>
     </div>
