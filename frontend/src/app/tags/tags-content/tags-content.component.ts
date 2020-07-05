@@ -15,6 +15,7 @@ export class TagsContentComponent implements OnInit {
   }
 
   allTags: Tag[];
+  public paginaAtual = 1;
 
   getAllTags(): void {
     this.tagSrv.listarAll().subscribe((tags) => (this.allTags = tags));

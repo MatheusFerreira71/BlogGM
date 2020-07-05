@@ -32,6 +32,7 @@ import { SearchContentComponent } from "./search/search-content/search-content.c
 import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
 import { CreateFormComponent } from "./postcreate/create-form/create-form.component";
 import { AngularEditorModule } from "@kolkov/angular-editor";
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AngularEditorModule } from "@kolkov/angular-editor";
     SearchContentComponent,
     CreateCardComponent,
     CreateFormComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
