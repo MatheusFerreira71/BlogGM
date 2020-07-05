@@ -1,4 +1,7 @@
-<div class="postagemWrapper" *ngIf="uniquePost && categorias && tags">
+<div
+  class="postagemWrapper"
+  *ngIf="uniquePost && categorias && tags && formatedDate"
+>
   <div class="postagemHeader">
     <div class="postagemTitulo">
       <p>
@@ -12,7 +15,10 @@
   <div class="postagemSocial">
     <div class="postagemInfo">
       <div class="postagemData">
-        Publicado 11 de Maio de 2020 às 14:37
+        <p>
+          Última atualização em:
+          {{ formatedDate }}
+        </p>
       </div>
       <div class="postagemShare">
         <i class="fab fa-facebook-square"></i>

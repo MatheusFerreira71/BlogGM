@@ -1,7 +1,9 @@
 <div class="reviewCard" *ngIf="allPosts">
   <div class="reviewWrapper" *ngFor="let post of allPosts">
     <div class="imgReviewPost">
-      <div class="reviewTitulo">{{ post.postId.titulo }}</div>
+      <div class="reviewTitulo">
+        <p>{{ post.postId.titulo }}</p>
+      </div>
       <a routerLink="/post/{{ post.postId._id }}">
         <img src="{{ post.postId.banner }}" />
       </a>

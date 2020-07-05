@@ -6,5 +6,5 @@ export interface Post {
   banner: string;
   usuario: string;
   createdAt: string;
-  avaliacao: number;
+  visualizacao: number;
 }
