@@ -30,6 +30,11 @@ a {
   color: unset;
 }
 
+#globalSection {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
 .mobileHiden {
   @media (max-width: 649px) {
     display: none !important;

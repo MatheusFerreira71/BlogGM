@@ -13,8 +13,10 @@ import { Component } from "@angular/core";
   // `,
   template: `
     <app-navbar></app-navbar>
-    <app-banner></app-banner>
-    <router-outlet></router-outlet>
+    <section id="globalSection">
+      <app-banner></app-banner>
+      <router-outlet></router-outlet>
+    </section>
     <app-footer></app-footer>
   `,
   styles: [],
