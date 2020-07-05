@@ -3,7 +3,7 @@
   // height: 64px;
   position: relative;
   background-color: #212121;
-  padding: 0 4rem;
+  padding: 4px 4rem;
   color: #f1f1f1;
   display: flex;
   align-items: center;
@@ -132,14 +132,15 @@ li.navbarDropdown {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 2rem;
 }
 
 .inputSearch {
-  height: 24px;
+  height: 100%;
   width: 180px;
   outline: none;
-  border-radius: 4px 0px 0px 4px;
   border: none;
+  border-radius: 8px 0px 0px 8px;
   background-color: #f1f1f1;
   padding-left: 8px;
   color: #2c4574;
@@ -147,14 +148,18 @@ li.navbarDropdown {
   &::placeholder {
     color: #c4c4c4;
   }
+
+  &:focus {
+    background-color: #fdfdfd;
+  }
 }
 
 .submitSearch {
   width: auto;
-  height: 24px;
-  padding: 0 4px;
+  height: 100%;
+  padding: 0 0.5rem;
   outline: none;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0px 8px 8px 0px;
   border: none;
   border-left: 1px solid #c4c4c4;
   background-color: #f1f1f1;
