@@ -30,10 +30,15 @@ export interface UniquePost {
     banner: string;
     usuario: Usuario;
     updatedAt: string;
-    avaliacao: number;
+    visualizacao: number;
   };
   categorias: Categories[];
   tags: Tagers[];
+}
+
+export interface Visualizar {
+  _id: string;
+  visualizacao: number;
 }
 
 @Injectable({
@@ -45,5 +50,10 @@ export class PostagemService {
   listarPost(id: string): Observable<UniquePost> {
     const apiUri: string = env.apiBaseUri + `posts/${id}`;
     return this.http.get<UniquePost>(apiUri);
+  }
+
+  visualizar(body: Visualizar): Observable<any> {
+    const apiUri: string = env.apiBaseUri + "posts/visualizacao";
+    return this.http.put(apiUri, body);
   }
 }
