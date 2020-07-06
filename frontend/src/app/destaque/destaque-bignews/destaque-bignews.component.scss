@@ -7,9 +7,11 @@
   background-color: #f1f1f1;
   border-radius: 8px;
   transition: ease-in-out 0.2s;
+  outline: none;
 
   p {
     margin: 0 !important;
+    cursor: pointer;
   }
 
   @media (max-width: 1023px) {
@@ -37,20 +39,21 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: center;
+  cursor: pointer;
 
   img {
-    max-height: 356px;
+    max-height: 256px;
     width: auto;
   }
 
   @media (max-width: 1023px) {
-    width: 213px;
+    width: 250px;
     height: 120px;
     border-radius: 8px 0px 0px 8px;
 
     img {
-      max-height: 220px;
+      max-height: 150px;
     }
   }
 
@@ -64,13 +67,7 @@
     align-items: top;
 
     img {
-      max-height: 256px;
-    }
-  }
-
-  @media (max-width: 588px) {
-    img {
-      max-height: 228px;
+      max-height: 300px;
     }
   }
 }
