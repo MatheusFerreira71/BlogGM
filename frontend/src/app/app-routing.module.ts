@@ -5,11 +5,16 @@ import { PostagemComponent } from "./postagem/postagem.component";
 import { TagsComponent } from "./tags/tags.component";
 import { SearchComponent } from "./search/search.component";
 import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
+import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
 
 const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
+  },
+  {
+    path: "404",
+    component: Error404CardComponent,
   },
   {
     path: "post/:id",
