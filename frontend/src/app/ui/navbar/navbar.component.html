@@ -8,21 +8,7 @@
     <div class="navbarMenu">
       <ul>
         <li><a [routerLink]="['/']">Início</a></li>
-        <li class="navbarDropdown">
-          <a href="javascript:void(0)" class="dropbtn">Categorias</a>
-          <div class="navbarDropdown-content">
-            <a [routerLink]="['/']">Análises</a>
-            <li class="navbarDropdownNews">
-              <a [routerLink]="['/']" class="newsArrow">Notícias</a>
-              <ul class="navbarDropdownCats">
-                <li><a [routerLink]="['/']">Games</a></li>
-                <li><a [routerLink]="['/']">Smartphones</a></li>
-                <li><a [routerLink]="['/']">Tecnologia</a></li>
-                <li><a [routerLink]="['/']">Entretenimento</a></li>
-              </ul>
-            </li>
-          </div>
-        </li>
+        <app-dropdown-categorias></app-dropdown-categorias>
         <li><a [routerLink]="['/tags']">Assuntos</a></li>
       </ul>
     </div>

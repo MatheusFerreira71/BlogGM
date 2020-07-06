@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { PostService } from "../post.service";
+import { Post } from "../Post";
 
 @Component({
   selector: "app-post-card",
@@ -6,7 +8,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./post-card.component.scss"],
 })
 export class PostCardComponent implements OnInit {
-  constructor() {}
+  constructor(private postSrv: PostService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.getAllPosts();
+  }
+
+  allPosts: Post[];
+
+  getAllPosts(): void {
+    this.postSrv.listarAll().subscribe((posts) => (this.allPosts = posts));
+  }
 }

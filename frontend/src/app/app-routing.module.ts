@@ -20,8 +20,9 @@ const routes: Routes = [
     component: TagsComponent,
   },
   {
-    path: "busca/nome",
+    path: "busca/:type/:id",
     component: SearchComponent,
+    runGuardsAndResolvers: "paramsChange",
   },
   {
     path: "postar",
@@ -30,7 +31,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: "top",
+      onSameUrlNavigation: "reload",
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

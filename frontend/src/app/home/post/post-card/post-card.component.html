@@ -1,6 +1,7 @@
 <div class="wrapperGm">
   <div class="titleGm">Últimas novidades</div>
   <div class="postsCard">
-    <app-post-news></app-post-news>
+    <!-- <app-post-news></app-post-news> -->
+    <app-postlist [postData]="allPosts" [itemsPerPage]="5"></app-postlist>
   </div>
 </div>
