@@ -1,4 +1,17 @@
 <div class="wrapperGm">
-  <div class="titleGm">Descubra novos assuntos</div>
+  <div class="titleSearch">
+    <div class="titleGm">Descubra novos assuntos</div>
+    <form class="searchBar">
+      <input
+        type="search"
+        placeholder="Buscar assunto..."
+        class="inputSearch"
+        id="tagSearch"
+      />
+      <button type="submit" class="submitSearch">
+        <mat-icon class="submitIcon">search</mat-icon>
+      </button>
+    </form>
+  </div>
   <app-tags-content></app-tags-content>
 </div>
