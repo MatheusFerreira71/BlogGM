@@ -13,10 +13,6 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: "404",
-    component: Error404CardComponent,
-  },
-  {
     path: "post/:id",
     component: PostagemComponent,
   },
@@ -32,6 +28,10 @@ const routes: Routes = [
   {
     path: "postar",
     component: CreateCardComponent,
+  },
+  {
+    path: "**",
+    component: Error404CardComponent,
   },
 ];
 

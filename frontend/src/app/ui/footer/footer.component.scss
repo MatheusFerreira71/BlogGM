@@ -74,7 +74,7 @@
       font-weight: 500;
     }
   }
-  .footerTags {
+  .footerSubCat {
     a {
       color: #30bdff;
       text-decoration: none;
@@ -82,7 +82,7 @@
     }
   }
 
-  @media (max-width: 799px) {
+  @media (max-width: 849px) {
     display: none;
   }
 }
