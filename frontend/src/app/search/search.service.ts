@@ -12,7 +12,12 @@ export class SearchService {
 
   listarPostTagOrCat(id: string, type: string): Observable<PostData[]> {
     const params = new HttpParams().set("type", type).set("id", id);
-    const apiUri = `${env.apiBaseUri}posts/tagcat?${params.toString()}`;
+    const apiUri = `${env.apiBaseUri}posts/busca?${params.toString()}`;
     return this.http.get<PostData[]>(apiUri);
+  }
+
+  listarPostName(name: string, type: string) {
+    const params = new HttpParams().set("type", type).set("name", name);
+    const apiUri = `${env.apiBaseUri}/posts/busca?${params.toString()}`;
   }
 }

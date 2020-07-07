@@ -104,14 +104,16 @@ module.exports = {
   },
   indexCatOrTag: async (req, res) => {
     try {
-      const { id, type, limite } = req.query;
+      const { id, type, limite, titulo } = req.query;
       const collections = {
         PostCategoria: "",
         PostTag: await PostTag.find({ tagId: id })
           .populate("postId")
           .sort({ postId: -1 }),
+        PostName: await Post.find({
+          tituloLower: { $regex: ".*" + titulo + ".*" },
+        }).sort({ createdAt: -1 }),
       };
-      console.log(limite);
       if (limite) {
         collections.PostCategoria = await PostCategoria.find({ catId: id })
           .populate("postId")
@@ -150,19 +152,6 @@ module.exports = {
       });
 
       res.json({ post, categorias, tags, comentarios });
-    } catch (erro) {
-      console.log(erro);
-      // HTTP 500: Internal Server Error
-      res.status(500).send(erro);
-    }
-  },
-  indexByName: async (req, res) => {
-    try {
-      const { titulo } = req.query;
-      const posts = await Post.find({
-        titulo: { $regex: ".*" + titulo + ".*" },
-      }).sort({ createdAt: -1 });
-      res.json(posts);
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error

@@ -34,7 +34,7 @@ const tagIds = [
   '5ef8eb540504f628ccc23632'
 ]
 
-const userIds = ['5ef8ec23cc1aae44a0f89adf', '5ef8ec73f1dd73416016d720'];
+const userIds = ['5eff962716ac4d294cb825ac', '5ef8ec73f1dd73416016d720'];
 
 const postsIds = [
   '5ef8ec23cc1aae44a0f89adb',
@@ -245,6 +245,7 @@ var data = [
             {
                 '_id': postsIds[0],
                 'titulo': "Review - Persona 5 Royal",
+                'tituloLower': "review - persona 5 royal",
                 'descricao': "O passado e o futuro rei dos JRPGs rouba nossos corações novamente",
                 'corpo': "Persona 5 já era um forte candidato à liderança de melhor JRPG de todos os tempos, e Royal realmente me faz pensar em quem mais poderia competir. A excelente história e seus adoráveis ​​personagens multidimensionais, juntamente com o desafiante combate tático, estão ainda mais refinados e voltam para outra rodada com novas surpresas e novos amigos. Existem novas áreas para explorar e novas reviravoltas para te deixar de queixo caído. Muito pouco foi deixado intocado, e quase tudo o que foi tocado mudou para melhor. Os Phantom Thieves roubaram meu coração mais uma vez -- e eu realmente não o quero de volta.",
                 'banner': "https://kg-portal.ru/img/78667/main.jpg",
@@ -253,6 +254,7 @@ var data = [
             {
                 '_id': postsIds[1],
                 'titulo': "Review - Resident Evil 3 Remake",
+                'tituloLower': "review - resident evil 3 remake",
                 'descricao': "Jill Valentine e Nemesis continuam sendo a melhor dupla de Raccoon City",
                 'corpo': "É óbvio que se você gosta de jogos do gênero, Resident Evil 3 (2020) precisa estar na sua lista do que jogar ainda este ano. Nemesis voltou para nos lembrar da razão pela qual é lembrado com tanto carinho pelos fãs e Jill Valentine, mais determinada e habilidosa do que em qualquer outro game, mostrou que continua sendo uma das, senão a melhor personagens da franquia. Com uma ambientação fenomenal, história devidamente atualizada, ritmo mais dinâmico e personagens mais humanos, a nova versão do clássico de 1999 conclui a recriação da trilogia clássica com excelência, ainda que peque em alguns aspectos de mecânica e, principalmente, pela ausência de mais enigmas, marca registrada de Resident Evil.",
                 'banner': "https://img.ibxk.com.br/2020/03/30/30023105944032.jpg",
@@ -261,6 +263,7 @@ var data = [
             {
                 '_id': postsIds[2],
                 'titulo': "Crash Bandicoot 4 vai honrar os clássicos, promete estúdio",
+                'tituloLower': "crash bandicoot 4 vai honrar os clássicos, promete estúdio",
                 'descricao': "'Maior, melhor e mais épico' do que tudo visto na série, disse Paul Yan",
                 'corpo': "Crash Bandicoot 4: It's About Time é o tão esperado jogo inédito da série, que voltou com tudo após as remasterizações da trilogia clássica e dos jogos de corrida.",
                 'banner': "https://sm.ign.com/ign_br/screenshot/default/cb4-screenshot-reveal-11_nhcd.jpg",
@@ -269,6 +272,7 @@ var data = [
             {
                 '_id': postsIds[3],
                 'titulo': "Marvel's Avengers nos fará questionar quem são os 'heróis'",
+                'tituloLower': "marvel's avengers nos fará questionar quem são os 'heróis'",
                 'descricao': "Jogo dos Vingadores será uma história de origem da Kamala Khan",
                 'corpo': "Marvel's Avengers, o jogo dos Vingadores, não vai contar apenas mais uma história na qual os heróis salvam o mundo de um vilão que quer dominá-lo. Aparentemente, os jogadores serão levados a questionar os heróis com frequência. Aliás, refletir sobre o próprio conceito de herói",
                 'banner': "https://img.ibxk.com.br/2020/06/24/24114107206409.jpg",

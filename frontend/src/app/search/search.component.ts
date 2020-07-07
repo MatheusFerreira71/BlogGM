@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PostData } from "../home/review/review.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 import { SearchService } from "./search.service";
 
 @Component({
@@ -11,8 +11,15 @@ import { SearchService } from "./search.service";
 export class SearchComponent implements OnInit {
   constructor(
     private searchSrv: SearchService,
+    private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.getTagCatData();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.getTagCatData();
@@ -23,7 +30,6 @@ export class SearchComponent implements OnInit {
   getTagCatData(): void {
     const id = this.route.snapshot.paramMap.get("id");
     const type = this.route.snapshot.paramMap.get("type");
-    console.log(type);
     this.searchSrv
       .listarPostTagOrCat(id, type)
       .subscribe((posts) => (this.data = posts));
