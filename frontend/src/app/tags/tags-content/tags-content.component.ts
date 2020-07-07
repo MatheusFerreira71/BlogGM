@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Tag } from "../Tag";
 import { TagsService } from "../tags.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-tags-content",

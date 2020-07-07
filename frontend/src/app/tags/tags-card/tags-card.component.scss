@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 210px;
   grid-gap: 1rem;
+
+  @media (max-width: 590px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .searchBar {
@@ -62,4 +66,34 @@
   font-size: 18px;
   font-weight: 600;
   color: #2c4574;
+}
+
+.tags {
+  margin-top: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+
+  @media (max-width: 1049px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 649px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+p {
+  margin-left: 2rem;
+}
+
+a {
+  margin-left: 2rem;
+  color: #2c4574;
+
+  &:hover {
+    color: #30bdff;
+    font-weight: bold;
+  }
 }

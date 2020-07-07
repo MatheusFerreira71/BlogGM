@@ -13,8 +13,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   pesquisar(form: NgForm): void {
+    const titulo: string = form.value.pesquisa;
     this.route.navigate(["busca/PostName"], {
-      queryParams: { titulo: form.value.pesquisa },
+      queryParams: { titulo: titulo.toLowerCase() },
     });
   }
 }

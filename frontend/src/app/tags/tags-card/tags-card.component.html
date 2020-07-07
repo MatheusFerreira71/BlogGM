@@ -1,17 +1,40 @@
 <div class="wrapperGm">
   <div class="titleSearch">
     <div class="titleGm">Descubra novos assuntos</div>
-    <form class="searchBar">
+    <form class="searchBar" #f="ngForm" (ngSubmit)="pesquisar(f)">
       <input
+        [(ngModel)]="pesquisa"
         type="search"
-        placeholder="Buscar assunto..."
+        placeholder="Buscar..."
         class="inputSearch"
         id="tagSearch"
+        name="pesquisa"
       />
       <button type="submit" class="submitSearch">
         <mat-icon class="submitIcon">search</mat-icon>
       </button>
     </form>
   </div>
-  <app-tags-content></app-tags-content>
+  <div class="tags" *ngIf="allTags">
+    <div
+      *ngFor="
+        let tag of allTags
+          | paginate: { itemsPerPage: 40, currentPage: paginaAtual };
+        let i = index
+      "
+    >
+      <a routerLink="/busca/PostTag" [queryParams]="{ id: tag._id }"
+        ><p>{{ tag.titulo }} ({{ tag.qtdePosts }})</p></a
+      >
+    </div>
+  </div>
+  <pagination-controls
+    (pageChange)="paginaAtual = $event"
+    autoHide="true"
+    previousLabel="Anterior"
+    nextLabel="Próximo"
+    screenReaderPaginationLabel="shazam"
+    class="paginacaoNews"
+    responsive="true"
+  ></pagination-controls>
 </div>
