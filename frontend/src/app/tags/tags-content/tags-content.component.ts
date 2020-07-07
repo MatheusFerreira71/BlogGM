@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Tag } from "../Tag";
 import { TagsService } from "../tags.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-tags-content",
@@ -15,6 +16,7 @@ export class TagsContentComponent implements OnInit {
   }
 
   allTags: Tag[];
+  public paginaAtual = 1;
 
   getAllTags(): void {
     this.tagSrv.listarAll().subscribe((tags) => (this.allTags = tags));

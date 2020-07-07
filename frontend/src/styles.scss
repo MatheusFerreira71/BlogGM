@@ -21,13 +21,19 @@ body {
   background-image: url(./assets/img/backgroundTop.png);
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   background-color: #30bdff;
+  padding-bottom: 176px;
 }
 
 a {
   text-decoration: none;
   color: unset;
+}
+
+#globalSection {
+  max-width: 1366px;
+  margin: 0 auto;
 }
 
 .mobileHiden {

@@ -32,7 +32,6 @@ export class PostagemContentComponent implements OnInit {
       this.formatedDate = formatDate(post.post.updatedAt, "fullDate", "pt-BR");
       const { _id, visualizacao } = post.post;
       const novaView = visualizacao + 1;
-      console.log(novaView);
       this.postagemSrv
         .visualizar({
           _id,

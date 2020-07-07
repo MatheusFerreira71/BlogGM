@@ -1,9 +1,24 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { environment as env } from "../../environments/environment";
+import { PostData } from "../home/review/review.service";
+import { Observable } from "rxjs";
+import { Post } from "../home/post/Post";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class SearchService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  listarPostTagOrCat(id: string, type: string): Observable<PostData[]> {
+    const params = new HttpParams().set("type", type).set("id", id);
+    const apiUri = `${env.apiBaseUri}posts/busca?${params.toString()}`;
+    return this.http.get<PostData[]>(apiUri);
+  }
+
+  listarPostName(titulo: string, type: string): Observable<Post[]> {
+    const params = new HttpParams().set("type", type).set("titulo", titulo);
+    const apiUri = `${env.apiBaseUri}posts/busca?${params.toString()}`;
+    return this.http.get<Post[]>(apiUri);
+  }
 }

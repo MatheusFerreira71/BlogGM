@@ -54,7 +54,7 @@ module.exports = {
     try {
       const { titulo } = req.query;
       const tags = await Tag.find({
-        titulo: { $regex: ".*" + titulo + ".*" },
+        tituloLower: { $regex: ".*" + titulo + ".*" },
       }).sort({ titulo: "asc" });
       res.json(await countPosts(tags));
     } catch (erro) {

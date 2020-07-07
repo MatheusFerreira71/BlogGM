@@ -5,11 +5,16 @@ import { PostagemComponent } from "./postagem/postagem.component";
 import { TagsComponent } from "./tags/tags.component";
 import { SearchComponent } from "./search/search.component";
 import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
+import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
 
 const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
+  },
+  {
+    path: "404",
+    component: Error404CardComponent,
   },
   {
     path: "post/:id",
@@ -20,8 +25,9 @@ const routes: Routes = [
     component: TagsComponent,
   },
   {
-    path: "busca/nome",
+    path: "busca/:type",
     component: SearchComponent,
+    runGuardsAndResolvers: "paramsOrQueryParamsChange",
   },
   {
     path: "postar",
@@ -30,7 +36,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: "top",
+      onSameUrlNavigation: "reload",
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -21,10 +21,9 @@ export class ReviewService {
     .set("limite", "4");
   private apiUri: string = `${
     env.apiBaseUri
-  }posts/tagcat?${this.params.toString()}`;
+  }posts/busca?${this.params.toString()}`;
 
   listarAll(): Observable<PostData[]> {
-    console.log(this.apiUri);
     return this.http.get<PostData[]>(this.apiUri);
   }
 }
