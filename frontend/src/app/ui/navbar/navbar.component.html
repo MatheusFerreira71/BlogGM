@@ -14,12 +14,14 @@
     </div>
   </div>
   <div class="rightContent">
-    <form class="searchBar">
+    <form class="searchBar" #f="ngForm" (ngSubmit)="pesquisar(f)">
       <input
+        [(ngModel)]="pesquisa"
         type="search"
         placeholder="Buscar..."
         class="inputSearch"
         id="navbarSearch"
+        name="pesquisa"
       />
       <button type="submit" class="submitSearch">
         <mat-icon class="submitIcon">search</mat-icon>

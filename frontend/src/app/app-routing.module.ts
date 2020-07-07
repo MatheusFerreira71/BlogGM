@@ -25,9 +25,9 @@ const routes: Routes = [
     component: TagsComponent,
   },
   {
-    path: "busca/:type/:id",
+    path: "busca/:type",
     component: SearchComponent,
-    runGuardsAndResolvers: "paramsChange",
+    runGuardsAndResolvers: "paramsOrQueryParamsChange",
   },
   {
     path: "postar",

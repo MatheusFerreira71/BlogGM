@@ -6,7 +6,7 @@
       let i = index
     "
   >
-    <a routerLink="/busca/PostTag/{{ tag._id }}"
+    <a routerLink="/busca/PostTag" [queryParams]="{ id: tag._id }"
       ><p>{{ tag.titulo }} ({{ tag.qtdePosts }})</p></a
     >
   </div>
