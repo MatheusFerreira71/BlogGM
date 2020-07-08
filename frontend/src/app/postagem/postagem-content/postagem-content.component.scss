@@ -136,9 +136,25 @@
 
 // Família (Tags/Categorias)
 
-.postagemFamilia {
+.postagemControl {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: 1fr 80px;
+  grid-gap: 0.5rem;
+  margin-bottom: 1rem;
   border-top: 1px solid #c4c4c4;
   padding: 1rem;
+
+  @media (max-width: 590px) {
+    grid-template-columns: 1fr;
+  }
+
+  .titleGm {
+    margin: 0;
+  }
+}
+
+.postagemFamilia {
   color: #c4c4c4;
   font-size: 14px;
 }
@@ -149,4 +165,69 @@
 
 .postagemTags::before {
   content: "Assuntos: ";
+}
+
+.buttonControl {
+  width: 40px;
+  height: 40px;
+  display: flex;
+
+  button {
+    width: inherit;
+    height: inherit;
+    background: none;
+    outline: none;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  mat-icon {
+    width: inherit;
+    height: inherit;
+    font-size: 36px;
+    color: #c4c4c4;
+    margin: 0;
+
+    &:hover {
+      color: #0096dd;
+    }
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #212121;
+  color: #fdfdfd;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: -15%;
+  margin-left: -35px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

@@ -6,7 +6,7 @@
   grid-gap: 2rem;
   text-align: left;
 
-  @media (max-width: 799px) {
+  @media (max-width: 849px) {
     display: block;
   }
 
@@ -16,7 +16,7 @@
 }
 
 .reviewHiden {
-  @media (max-width: 799px) {
+  @media (max-width: 849px) {
     display: none;
   }
 }

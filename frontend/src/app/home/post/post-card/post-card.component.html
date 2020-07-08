@@ -1,5 +1,13 @@
 <div class="wrapperGm">
-  <div class="titleGm">Últimas novidades</div>
+  <div class="postInfo">
+    <div class="titleGm">Últimas novidades</div>
+    <div class="addButton">
+      <button class="tooltip">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span class="tooltiptext">Crie um novo post</span>
+      </button>
+    </div>
+  </div>
   <div class="postsCard">
     <!-- <app-post-news></app-post-news> -->
     <app-postlist [postData]="allPosts" [itemsPerPage]="5"></app-postlist>

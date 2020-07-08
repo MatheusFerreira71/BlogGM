@@ -40,12 +40,24 @@
       {{ uniquePost.post.corpo }}
     </div>
   </div>
-  <div class="postagemFamilia">
-    <p class="postagemCategorias">
-      {{ categorias.join(", ") }}
-    </p>
-    <p class="postagemTags">
-      {{ tags.join(", ") }}
-    </p>
+  <div class="postagemControl">
+    <div class="postagemFamilia">
+      <p class="postagemCategorias">
+        {{ categorias.join(", ") }}
+      </p>
+      <p class="postagemTags">
+        {{ tags.join(", ") }}
+      </p>
+    </div>
+    <div class="buttonControl">
+      <button class="tooltip">
+        <mat-icon>create</mat-icon>
+        <span class="tooltiptext">Edite este post</span>
+      </button>
+      <button class="tooltip">
+        <mat-icon>clear</mat-icon>
+        <span class="tooltiptext">Remova este post</span>
+      </button>
+    </div>
   </div>
 </div>

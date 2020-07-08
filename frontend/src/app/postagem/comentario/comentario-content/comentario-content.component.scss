@@ -9,10 +9,8 @@ p {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  background-color: #f1f1f1;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin-bottom: 2rem;
 
   .infoUser {
     display: grid;
@@ -46,24 +44,59 @@ mat-toolbar {
   color: #f1f1f1;
 }
 
-input.matInput {
-  border: 1px solid red !important;
+mat-label {
+  padding-left: 0.5rem;
+}
+
+textarea,
+input {
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 0.5rem !important;
 }
 
 // Comentário
 
 .comentarioWrapper {
+  bottom: 0;
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
-  background-color: #f1f1f1;
   padding: 1rem;
+  word-wrap: break-word;
+  background-color: #f1f1f1;
+}
+
+.comentarioControl {
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.comentarioControl + .comentarioControl {
+  margin-top: 1rem;
+}
+
+.buttonControl {
+  text-align: right;
+
+  span {
+    font-size: 12px;
+    padding: 8px;
+    color: #cdcdcd;
+    cursor: pointer;
+
+    &:hover {
+      color: #0096dd;
+    }
+  }
+
+  span + span {
+    margin-left: 8px;
+  }
 }
 
 .comentarioContent {
-  min-height: 150px;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #d1d1d1;
+  max-width: 100%;
+  // padding-bottom: 1rem;
   background: url("../../../../assets/img/commentBackground.png");
   background-position: center right;
   background-repeat: no-repeat;
@@ -72,10 +105,6 @@ input.matInput {
     background-image: none;
     min-height: auto;
   }
-}
-
-.comentarioContent + .comentarioContent {
-  margin-top: 1rem;
 }
 
 .comentarioUser {
@@ -109,12 +138,19 @@ input.matInput {
 }
 
 .comentarioText {
-  width: calc(100% - 166px);
+  width: calc(100% - 118px);
   padding-left: 1rem;
   font-size: 14px;
   color: #212121;
 
   @media (max-width: 599px) {
     width: 100%;
+    padding: 0;
+    font-size: 12px;
+  }
+
+  p {
+    width: 90%;
+    margin: 0 auto;
   }
 }
