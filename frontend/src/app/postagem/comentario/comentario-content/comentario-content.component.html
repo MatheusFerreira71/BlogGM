@@ -1,0 +1,85 @@
+<!-- Form de Envio de Comentários -->
+<form class="std-form">
+  <div class="infoUser">
+    <mat-form-field>
+      <mat-label>Diga seu nome</mat-label>
+      <input matInput required placeholder="Informe seu nome" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Diga seu email</mat-label>
+      <input
+        matInput
+        required
+        placeholder="Informe seu email (Não será exibido em tela)"
+      />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Faça seu comentário</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="5"
+      required
+      placeholder="Digite seu comentário"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-toolbar>
+    <mat-toolbar-row class="formButtons">
+      <button mat-raised-button type="submit" class="enviarButton">
+        Enviar comentário
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</form>
+
+<!-- Comentário dos Usuários -->
+<div class="comentarioWrapper">
+  <div class="comentarioContent">
+    <div class="comentarioUser">
+      <div class="userImg">
+        <img
+          src="https://pm1.narvii.com/6276/d704919d797d1018e301b119d10dc431ca001cf4_hq.jpg"
+          alt="Imagem do usuário"
+        />
+      </div>
+      <span class="userName">João Rodrigo</span>
+    </div>
+
+    <div class="comentarioText">
+      <p>
+        VTNC ESSES CARA FALANDO QUE LOL É DE VEADO! Cu, AQUILO Q VC GOSTA DE DAR
+        Cu, AQUILO QUE SUA MÃE ME DEU Cu, AQUILO QUE SUA MÃE VENDE Buceta Pinto
+        e buceta Pau vao todos vcs a merdaaaaaaaaaaa, SKSKSKKS SUA MÃE CHUPOU
+        MINHA PICONA HAHAHAHAHAHAHAHAHAHAHAH CHORA BICNHA BURRA! KSKSKS
+        FLAGALINHA No Seu Cu Cu Boceta LEIA EM VOZ ALTA: DAKO É BOM, QUE PENA
+        QUE DÁ DOR NAS COSTAS! Seus vandalizando ze bulcetas Que caralho
+        porra,tu é um filho da puta da porra!!!! Porra, eu estudei pra disgraça
+        Eu fiz vestibular caralho no maternal 666666666666!!!!!!!!!!!!!!!!!!!1
+        Porra Ó men!... Obrigado por me dar a oportunidade de me expressar nesta
+        pagina
+      </p>
+    </div>
+  </div>
+  <div class="comentarioContent">
+    <div class="comentarioUser">
+      <div class="userImg">
+        <img
+          src="https://pbs.twimg.com/media/Cw8Qw8rXgAA28Hx.jpg"
+          alt="Imagem do usuário"
+        />
+      </div>
+      <span class="userName">Kaio Kadastro</span>
+    </div>
+
+    <div class="comentarioText">
+      <p>
+        Que lixo, se mata.
+      </p>
+    </div>
+  </div>
+</div>

@@ -36,6 +36,8 @@ import { DropdownCategoriasComponent } from "./ui/navbar/dropdown-categorias/dro
 import { PostlistComponent } from "./postlist/postlist.component";
 import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
 import { Error404ContentComponent } from "./error404/error404-content/error404-content.component";
+import { ComentarioCardComponent } from './postagem/comentario/comentario-card/comentario-card.component';
+import { ComentarioContentComponent } from './postagem/comentario/comentario-content/comentario-content.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { Error404ContentComponent } from "./error404/error404-content/error404-c
     PostlistComponent,
     Error404CardComponent,
     Error404ContentComponent,
+    ComentarioCardComponent,
+    ComentarioContentComponent,
   ],
   imports: [
     BrowserModule,
