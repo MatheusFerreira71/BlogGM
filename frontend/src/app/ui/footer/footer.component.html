@@ -19,16 +19,24 @@
       <p>Todos os direitos reservados</p>
     </ul>
   </div>
-  <div class="footerConteudo">
+  <div class="footerConteudo" *ngIf="allPrincipais && allSubs">
     <ul class="footerCategorias">
-      <a [routerLink]="['/']" target="_blank">Notícias</a>
-      <a [routerLink]="['/']" target="_blank">Análises</a>
+      <a
+        routerLink="/busca/PostCategoria"
+        [queryParams]="{ id: catPri._id }"
+        *ngFor="let catPri of allPrincipais"
+      >
+        {{ catPri.titulo }}
+      </a>
     </ul>
-    <ul class="footerTags">
-      <a [routerLink]="['/']" target="_blank">Games</a>
-      <a [routerLink]="['/']" target="_blank">Smartphones</a>
-      <a [routerLink]="['/']" target="_blank">Tecnologia</a>
-      <a [routerLink]="['/']" target="_blank">Entretenimento</a>
+    <ul class="footerSubCat">
+      <a
+        routerLink="/busca/PostCategoria"
+        [queryParams]="{ id: catSec._id }"
+        *ngFor="let catSec of allSubs"
+      >
+        {{ catSec.titulo }}
+      </a>
     </ul>
   </div>
 </footer>

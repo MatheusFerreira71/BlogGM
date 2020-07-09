@@ -1,0 +1,30 @@
+<!-- Comentário começa aqui -->
+<div class="comentarioControl">
+  <div class="comentarioContent">
+    <div class="comentarioUser">
+      <div class="userImg">
+        <img
+          src="{{
+            coment.usuario
+              ? coment.usuario.avatar
+              : '../../../../assets/img/profileAvatar.png'
+          }}"
+          alt="Imagem do usuário"
+        />
+      </div>
+      <span class="userName">{{
+        coment.usuario ? coment.usuario.username : coment.nome
+      }}</span>
+    </div>
+
+    <div class="comentarioText">
+      <p>
+        {{ coment.texto }}
+      </p>
+    </div>
+  </div>
+  <div class="buttonControl">
+    <span>Excluir</span>
+  </div>
+  <!-- Comentário termina aqui -->
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PostagemService, UniquePost } from "../postagem.service";
+import { PostagemService, UniquePost, Comentario } from "../postagem.service";
 import { ActivatedRoute } from "@angular/router";
 import { formatDate } from "@angular/common";
 
@@ -32,12 +32,7 @@ export class PostagemContentComponent implements OnInit {
       this.formatedDate = formatDate(post.post.updatedAt, "fullDate", "pt-BR");
       const { _id, visualizacao } = post.post;
       const novaView = visualizacao + 1;
-      this.postagemSrv
-        .visualizar({
-          _id,
-          visualizacao: novaView,
-        })
-        .subscribe();
+      this.postagemSrv.visualizar({ _id, visualizacao: novaView }).subscribe();
     });
   }
 }
