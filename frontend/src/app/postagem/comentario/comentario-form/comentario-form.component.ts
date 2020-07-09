@@ -19,22 +19,26 @@ export class ComentarioFormComponent implements OnInit {
   usuario: string | undefined = undefined;
 
   create(form: NgForm): void {
-    const comentario: ComentarioCreate = {
-      usuario: this.usuario,
-      nome: this.nome,
-      email: this.email,
-      texto: this.texto,
-      postId: this.postId,
-    };
-    if (form.valid) {
-      this.comentarioSrv.create(comentario).subscribe((coment) => {
-        this.nome = "";
-        this.email = "";
-        this.texto = "";
-        this.criarComentario.emit();
-      });
+    if (this.nome !== "" && this.texto !== "") {
+      const comentario: ComentarioCreate = {
+        usuario: this.usuario,
+        nome: this.nome,
+        email: this.email,
+        texto: this.texto,
+        postId: this.postId,
+      };
+      if (form.valid) {
+        this.comentarioSrv.create(comentario).subscribe((coment) => {
+          this.nome = "";
+          this.email = "";
+          this.texto = "";
+          this.criarComentario.emit();
+        });
+      } else {
+        alert("form Invalido");
+      }
     } else {
-      alert("form Invalido");
+      alert("Preencha o Nome e o Texto do comentário");
     }
   }
 }
