@@ -48,31 +48,29 @@
 </form>
 
 <!-- Comentário dos Usuários -->
-<div class="comentarioWrapper">
-  <div class="comentarioControl">
+<div class="comentarioWrapper" *ngIf="data.length !== 0">
+  <!-- Comentário começa aqui -->
+  <div class="comentarioControl" *ngFor="let coment of data">
     <div class="comentarioContent">
       <div class="comentarioUser">
         <div class="userImg">
           <img
-            src="https://pm1.narvii.com/6276/d704919d797d1018e301b119d10dc431ca001cf4_hq.jpg"
+            src="{{
+              coment.usuario
+                ? coment.usuario.avatar
+                : '../../../../assets/img/profileAvatar.png'
+            }}"
             alt="Imagem do usuário"
           />
         </div>
-        <span class="userName">João Rodrigo</span>
+        <span class="userName">{{
+          coment.usuario ? coment.usuario.username : coment.nome
+        }}</span>
       </div>
 
       <div class="comentarioText">
         <p>
-          VTNC ESSES CARA FALANDO QUE LOL É DE VEADO! Cu, AQUILO Q VC GOSTA DE
-          DAR Cu, AQUILO QUE SUA MÃE ME DEU Cu, AQUILO QUE SUA MÃE VENDE Buceta
-          Pinto e buceta Pau vao todos vcs a merdaaaaaaaaaaa, SKSKSKKS SUA MÃE
-          CHUPOU MINHA PICONA HAHAHAHAHAHAHAHAHAHAHAH CHORA BICNHA BURRA! KSKSKS
-          FLAGALINHA No Seu Cu Cu Boceta LEIA EM VOZ ALTA: DAKO É BOM, QUE PENA
-          QUE DÁ DOR NAS COSTAS! Seus vandalizando ze bulcetas Que caralho
-          porra,tu é um filho da puta da porra!!!! Porra, eu estudei pra
-          disgraça Eu fiz vestibular caralho no maternal
-          666666666666!!!!!!!!!!!!!!!!!!!1 Porra Ó men!... Obrigado por me dar a
-          oportunidade de me expressar nesta pagina
+          {{ coment.texto }}
         </p>
       </div>
     </div>
@@ -81,28 +79,5 @@
       <span>Excluir</span>
     </div>
   </div>
-
-  <div class="comentarioControl">
-    <div class="comentarioContent">
-      <div class="comentarioUser">
-        <div class="userImg">
-          <img
-            src="https://pbs.twimg.com/media/Cw8Qw8rXgAA28Hx.jpg"
-            alt="Imagem do usuário"
-          />
-        </div>
-        <span class="userName">Kaio Kadastro</span>
-      </div>
-
-      <div class="comentarioText">
-        <p>
-          Que lixo, se mata.
-        </p>
-      </div>
-    </div>
-    <div class="buttonControl">
-      <span>Editar</span>
-      <span>Excluir</span>
-    </div>
-  </div>
+  <!-- Comentário termina aqui -->
 </div>

@@ -12,6 +12,16 @@ interface Categories {
   };
 }
 
+export interface Comentario {
+  _id: string;
+  usuario: Usuario | undefined;
+  email: string | undefined;
+  nome: string | undefined;
+  texto: string;
+  postId: string;
+  updatedAt: string;
+}
+
 interface Tagers {
   _id: string;
   tagId: {
@@ -33,6 +43,7 @@ export interface UniquePost {
   };
   categorias: Categories[];
   tags: Tagers[];
+  comentarios: Comentario[];
 }
 
 export interface Visualizar {

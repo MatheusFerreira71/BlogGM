@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PostagemService, UniquePost } from "../postagem.service";
+import { PostagemService, UniquePost, Comentario } from "../postagem.service";
 import { ActivatedRoute } from "@angular/router";
 import { formatDate } from "@angular/common";
 
@@ -22,6 +22,7 @@ export class PostagemContentComponent implements OnInit {
   categorias: string[];
   tags: string[];
   formatedDate: string;
+  comentarios: Comentario[] | undefined;
 
   getPost(): void {
     const id = this.route.snapshot.paramMap.get("id");
