@@ -22,7 +22,6 @@ export class PostagemContentComponent implements OnInit {
   categorias: string[];
   tags: string[];
   formatedDate: string;
-  comentarios: Comentario[] | undefined;
 
   getPost(): void {
     const id = this.route.snapshot.paramMap.get("id");
@@ -33,12 +32,7 @@ export class PostagemContentComponent implements OnInit {
       this.formatedDate = formatDate(post.post.updatedAt, "fullDate", "pt-BR");
       const { _id, visualizacao } = post.post;
       const novaView = visualizacao + 1;
-      this.postagemSrv
-        .visualizar({
-          _id,
-          visualizacao: novaView,
-        })
-        .subscribe();
+      this.postagemSrv.visualizar({ _id, visualizacao: novaView }).subscribe();
     });
   }
 }

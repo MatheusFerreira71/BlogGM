@@ -7,7 +7,7 @@ import { Comentario } from "../../postagem.service";
   styleUrls: ["./comentario-content.component.scss"],
 })
 export class ComentarioContentComponent implements OnInit {
-  @Input() data: Comentario[];
+  @Input() coment: Comentario;
   constructor() {}
 
   ngOnInit(): void {}

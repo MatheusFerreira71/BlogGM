@@ -62,6 +62,11 @@
   </div>
 </div>
 
-<app-comentario-card
-  [comentsData]="comentarios ? comentarios : []"
-></app-comentario-card>
+<app-comentario-form
+  *ngIf="uniquePost"
+  [postId]="uniquePost.post._id"
+></app-comentario-form>
+<!-- <app-comentario-card
+  *ngIf="uniquePost.comentarios.length > 0"
+  [comentsData]="uniquePost.comentarios"
+></app-comentario-card> -->

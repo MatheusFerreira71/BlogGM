@@ -38,6 +38,7 @@ import { Error404CardComponent } from "./error404/error404-card/error404-card.co
 import { Error404ContentComponent } from "./error404/error404-content/error404-content.component";
 import { ComentarioCardComponent } from './postagem/comentario/comentario-card/comentario-card.component';
 import { ComentarioContentComponent } from './postagem/comentario/comentario-content/comentario-content.component';
+import { ComentarioFormComponent } from './postagem/comentario/comentario-form/comentario-form.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ComentarioContentComponent } from './postagem/comentario/comentario-con
     Error404ContentComponent,
     ComentarioCardComponent,
     ComentarioContentComponent,
+    ComentarioFormComponent,
   ],
   imports: [
     BrowserModule,
