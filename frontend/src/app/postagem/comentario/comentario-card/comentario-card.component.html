@@ -1,12 +1,11 @@
 <div class="wrapperGm marginTop">
-  <div class="titleGm">Comentários</div>
   <div class="comentarioCard">
-    <span>Gostaria de deixar um comentário sobre o conteúdo?</span>
     <!-- Comentário dos Usuários -->
     <div class="comentarioWrapper">
       <app-comentario-content
         *ngFor="let coment of comentsData"
         [coment]="coment"
+        class="teste"
       >
       </app-comentario-content>
     </div>

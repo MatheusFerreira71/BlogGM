@@ -2,59 +2,6 @@ p {
   margin: 0;
 }
 
-// FORM de comentário
-
-.std-form {
-  max-width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  border-radius: 0.5rem;
-  padding: 1rem;
-
-  .infoUser {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-
-    @media (max-width: 649px) {
-      grid-template-columns: 1fr;
-      grid-gap: 0;
-    }
-  }
-
-  mat-form-field {
-    min-width: 150px;
-    width: 100%;
-    margin-right: 30px;
-  }
-}
-
-mat-toolbar {
-  background: none;
-}
-
-.formButtons {
-  display: flex;
-  justify-content: space-around;
-}
-
-.enviarButton {
-  background-color: #0096dd;
-  color: #f1f1f1;
-}
-
-mat-label {
-  padding-left: 0.5rem;
-}
-
-textarea,
-input {
-  background-color: #f9f9f9;
-  border-radius: 4px;
-  padding: 0.5rem !important;
-}
-
 // Comentário
 
 .comentarioWrapper {
@@ -69,29 +16,31 @@ input {
 
 .comentarioControl {
   border-bottom: 1px solid #d1d1d1;
+  margin-bottom: 1rem;
 }
 
-.comentarioControl + .comentarioControl {
-  margin-top: 1rem;
-}
-
-.buttonControl {
-  text-align: right;
+.dataButtonControl {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 
   span {
     font-size: 12px;
     padding: 8px;
-    color: #cdcdcd;
-    cursor: pointer;
-
-    &:hover {
-      color: #0096dd;
-    }
   }
+}
 
-  span + span {
-    margin-left: 8px;
+.excluirButton {
+  color: #8d8d8d;
+  cursor: pointer;
+  &:hover {
+    color: #dd0000;
   }
+}
+
+.timestamp {
+  color: #8d8d8d;
+  cursor: default;
 }
 
 .comentarioContent {
@@ -110,7 +59,7 @@ input {
 .comentarioUser {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 32px 1fr;
+  grid-template-columns: 32px 30ch;
   align-items: center;
   max-width: 180px;
   margin-bottom: 0.5rem;
@@ -142,6 +91,7 @@ input {
   padding-left: 1rem;
   font-size: 14px;
   color: #212121;
+  word-break: break-all;
 
   @media (max-width: 599px) {
     width: 100%;
@@ -152,5 +102,6 @@ input {
   p {
     width: 90%;
     margin: 0 auto;
+    word-wrap: break-word;
   }
 }

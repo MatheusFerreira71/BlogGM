@@ -1,5 +1,7 @@
 .marginTop {
-  margin-top: 2rem;
+  width: 100%;
+  padding: 2rem;
+  padding-bottom: 1rem;
 }
 
 .comentarioCard {
@@ -14,4 +16,10 @@
   @media (max-width: 650px) {
     grid-template-columns: 100%;
   }
+}
+
+// Comentarios
+
+.teste + .teste {
+  margin-top: 1rem;
 }
