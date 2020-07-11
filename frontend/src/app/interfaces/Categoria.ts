@@ -1,4 +1,4 @@
-interface ItemCategoria {
+export interface ItemCategoria {
   _id: string;
   titulo: string;
 }

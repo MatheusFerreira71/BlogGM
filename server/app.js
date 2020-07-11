@@ -29,5 +29,9 @@ app.use("/posts", RouterPosts);
 app.use("/usuarios", RouterUsuarios);
 app.use("/comentarios", RouterComentarios);
 app.use("/categorias", RouterCategorias);
+app.use(
+  "/uploads",
+  express.static(path.resolve(__dirname, ".", "src", "uploads"))
+);
 
 module.exports = app;

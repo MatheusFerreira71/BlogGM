@@ -24,7 +24,10 @@
       "
     >
       <a routerLink="/busca/PostTag" [queryParams]="{ id: tag._id }"
-        ><p>{{ tag.titulo }} ({{ tag.qtdePosts }})</p></a
+        ><p class="tagTitle">
+          {{ tag.titulo }}
+          <span class="tagNumber">Posts: {{ tag.qtdePosts }}</span>
+        </p></a
       >
     </div>
   </div>

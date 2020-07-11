@@ -8,12 +8,12 @@ const Comentario = require("../models/Comentario");
 module.exports = {
   create: async (req, res) => {
     try {
-      const { titulo, descricao, corpo, banner, usuario } = req.body;
+      const { titulo, descricao, corpo, usuario } = req.body;
       const createdPost = await Post.create({
         titulo,
         descricao,
         corpo,
-        banner,
+        banner: req.file.filename,
         usuario,
       });
       const { _id } = createdPost;

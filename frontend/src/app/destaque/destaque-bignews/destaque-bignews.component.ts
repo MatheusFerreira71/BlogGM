@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Post } from "../../home/post/Post";
+import { Post } from "../../interfaces/Post";
 import { DestaqueService } from "../destaque.service";
 
 interface PostsDestaques {

@@ -1,9 +1,12 @@
+import multer from "multer";
+import multerConfig from "../config/multer";
+
 const express = require("express");
 const PostController = require("../controllers/PostController");
-
 const router = express.Router(); // Importação do router do express.
+const upload = multer(multerConfig);
 
-router.post("/", PostController.create);
+router.post("/", upload.single("image"), PostController.create);
 router.put("/visualizacao", PostController.visualizacao);
 router.put("/", PostController.update);
 router.delete("/", PostController.delete);

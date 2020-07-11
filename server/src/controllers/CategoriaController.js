@@ -44,4 +44,16 @@ module.exports = {
       res.status(500).send(erro);
     }
   },
+  findAllSubsByParentId: async (req, res) => {
+    try {
+      const { parentId } = req.params;
+      const subCats = await SubCategoria.find({ catPai: parentId })
+        .populate({ path: "catFilha" })
+        .select("catFilha");
+      res.json(subCats);
+    } catch (erro) {
+      console.log(erro);
+      res.status(500).send(erro);
+    }
+  },
 };

@@ -2,20 +2,30 @@ import { Component, OnInit } from "@angular/core";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatChipInputEvent } from "@angular/material/chips";
+import { Categoria, ItemCategoria } from "../../interfaces/Categoria";
+import { NavbarService } from "src/app/ui/navbar/navbar.service";
+import { MatSelectChange } from "@angular/material/select";
 
 export interface TagsCadastro {
   titulo: string;
   tituloLower: string;
 }
+
+export interface SubCat {
+  catFilha: ItemCategoria;
+}
+
 @Component({
   selector: "app-create-form",
   templateUrl: "./create-form.component.html",
   styleUrls: ["./create-form.component.scss"],
 })
 export class CreateFormComponent implements OnInit {
-  constructor() {}
+  constructor(private catsGetter: NavbarService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAll();
+  }
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -50,6 +60,11 @@ export class CreateFormComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   tags: TagsCadastro[] = [{ titulo: "Zelda", tituloLower: "zelda" }];
 
+  allCats: Categoria[];
+  selectedCatId: string;
+  selectedSubCatId: string;
+  subCats: SubCat[] = [];
+
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -74,5 +89,15 @@ export class CreateFormComponent implements OnInit {
     if (index >= 0) {
       this.tags.splice(index, 1);
     }
+  }
+
+  getAll(): void {
+    this.catsGetter.listarAll().subscribe((cats) => (this.allCats = cats));
+  }
+
+  selectCats(changeEvent: MatSelectChange): void {
+    this.catsGetter
+      .listarSubCats(this.selectedCatId)
+      .subscribe((subCats) => (this.subCats = subCats));
   }
 }

@@ -11,21 +11,35 @@
 
   <mat-form-field>
     <mat-label>Categoria</mat-label>
-    <mat-select onchange="categoria2check(this)" required>
-      <mat-option value="analise">Análises</mat-option>
-      <mat-option value="noticia">Notícias</mat-option>
+    <mat-select
+      required
+      [(ngModel)]="selectedCatId"
+      name="selectedCatId"
+      (selectionChange)="selectCats($event)"
+    >
+      <mat-option *ngFor="let cat of allCats" value="{{ cat._id }}">{{
+        cat.titulo
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field id="catSecSelector">
-    <mat-label>Categoria Secundária</mat-label>
-    <mat-select required>
-      <mat-option value="noticia">Games</mat-option>
-      <mat-option value="noticia">Smartphones</mat-option>
-      <mat-option value="noticia">Tecnologia</mat-option>
-      <mat-option value="noticia">Entretenimento</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div *ngIf="selectedCatId">
+    <mat-form-field id="catSecSelector" *ngIf="subCats.length > 0">
+      <mat-label>Categoria Secundária</mat-label>
+      <mat-select
+        required
+        (selectionChange)="selectCats($event)"
+        [(ngModel)]="selectedSubCatId"
+        name="selectedSubCatId"
+      >
+        <mat-option
+          *ngFor="let subCat of subCats"
+          value="{{ subCat.catFilha._id }}"
+          >{{ subCat.catFilha.titulo }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
 
   <mat-form-field class="example-chip-list">
     <mat-chip-list #chipList aria-label="Fruit selection">
@@ -49,7 +63,7 @@
   </mat-form-field>
 
   <form>
-    <label for="">Upload de imagem principal</label>
+    <label for="imgpost">Upload de imagem principal</label>
     <input id="imgpost" type="file" />
   </form>
 
