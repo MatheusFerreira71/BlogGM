@@ -1,53 +1,51 @@
-
 <!-- Form de Envio de Comentários -->
-<form class="std-form" #f="ngForm" (ngSubmit)="create(f)">
-  <div class="infoUser">
-    <mat-form-field>
-      <mat-label>Diga seu nome</mat-label>
-      <input
-        matInput
-        [(ngModel)]="nome"
-        maxlength="50"
-        name="nome"
-        required
-        placeholder="Ex: Samus Aran"
-      />
-    </mat-form-field>
+<div class="formWrapper">
+  <form class="std-form" #f="ngForm" (ngSubmit)="create(f)">
+    <div class="infoUser">
+      <mat-form-field>
+        <mat-label>Diga seu nome</mat-label>
+        <input
+          matInput
+          [(ngModel)]="nome"
+          maxlength="30"
+          name="nome"
+          placeholder="Ex: Samus Aran"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Diga seu email</mat-label>
+        <input
+          type="e-mail"
+          name="email"
+          [(ngModel)]="email"
+          matInput
+          maxlength="40"
+          placeholder="Ex: megamanX@reploid.com"
+        />
+      </mat-form-field>
+    </div>
 
     <mat-form-field>
-      <mat-label>Diga seu email</mat-label>
-      <input
-        type="email"
-        name="email"
-        [(ngModel)]="email"
+      <mat-label>Faça seu comentário</mat-label>
+      <textarea
         matInput
-        maxlength="40"
-        required
-        placeholder="Ex: megamanX@reploid.com"
-      />
+        [(ngModel)]="texto"
+        name="texto"
+        [maxLength]="280"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="4"
+        placeholder="Digite seu comentário (Você tem 280 caracteres)"
+      ></textarea>
     </mat-form-field>
-  </div>
 
-  <mat-form-field>
-    <mat-label>Faça seu comentário</mat-label>
-    <textarea
-      matInput
-      [(ngModel)]="texto"
-      name="texto"
-      [maxLength]="280"
-      cdkTextareaAutosize
-      cdkAutosizeMinRows="2"
-      cdkAutosizeMaxRows="4"
-      required
-      placeholder="Digite seu comentário (Você tem 280 caracteres)"
-    ></textarea>
-  </mat-form-field>
-
-  <mat-toolbar>
-    <mat-toolbar-row class="formButtons">
-      <button mat-raised-button type="submit" class="enviarButton">
-        Enviar comentário
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</form>
+    <mat-toolbar>
+      <mat-toolbar-row class="formButtons">
+        <button mat-raised-button type="submit" class="enviarButton">
+          Enviar comentário
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </form>
+</div>

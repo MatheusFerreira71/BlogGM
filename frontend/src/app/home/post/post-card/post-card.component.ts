@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PostService } from "../post.service";
-import { Post } from "../Post";
+import { Post } from "../../../interfaces/Post";
 
 @Component({
   selector: "app-post-card",

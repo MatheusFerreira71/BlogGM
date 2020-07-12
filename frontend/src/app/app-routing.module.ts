@@ -15,6 +15,7 @@ const routes: Routes = [
   {
     path: "post/:id",
     component: PostagemComponent,
+    runGuardsAndResolvers: "always",
   },
   {
     path: "tags",

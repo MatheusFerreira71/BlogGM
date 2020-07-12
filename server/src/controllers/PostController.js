@@ -8,27 +8,36 @@ const Comentario = require("../models/Comentario");
 module.exports = {
   create: async (req, res) => {
     try {
-      const { titulo, descricao, corpo, banner, usuario } = req.body;
+      const { titulo, tituloLower, descricao, corpo, usuario } = req.body;
       const createdPost = await Post.create({
         titulo,
+        tituloLower,
         descricao,
         corpo,
-        banner,
+        banner: `http://localhost:3000/uploads/${req.file.filename}`,
         usuario,
       });
       const { _id } = createdPost;
 
       const { categorias, tags } = req.body;
+
+      const stringfiedTags = tags.split(";");
+      const transformedTags = [];
+      stringfiedTags.forEach((tag) => {
+        transformedTags.push(JSON.parse(tag));
+      });
       const createdTags = [];
 
-      for (const tag of tags) {
+      for (const tag of transformedTags) {
         createdTags.push(await Tag.findOneOrCreate(tag, tag));
       }
 
+      const catIds = categorias.split(",");
+
       const tagIds = createdTags.map((tag) => tag._id);
 
-      const parsedCatIds = categorias.map((categoria) => ({
-        catId: categoria,
+      const parsedCatIds = catIds.map((catId) => ({
+        catId,
         postId: _id,
       }));
       const parsedTagIds = tagIds.map((tagId) => ({ tagId, postId: _id }));
@@ -36,7 +45,7 @@ module.exports = {
       await PostCategoria.create(parsedCatIds);
       await PostTag.create(parsedTagIds);
 
-      res.sendStatus(201);
+      res.json({ createdPostId: _id });
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error

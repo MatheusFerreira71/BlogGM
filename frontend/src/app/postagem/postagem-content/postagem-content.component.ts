@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { PostagemService, UniquePost, Comentario } from "../postagem.service";
-import { ActivatedRoute } from "@angular/router";
+import { PostagemService, UniquePost } from "../postagem.service";
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 import { formatDate } from "@angular/common";
 
 @Component({
@@ -11,8 +11,15 @@ import { formatDate } from "@angular/common";
 export class PostagemContentComponent implements OnInit {
   constructor(
     private postagemSrv: PostagemService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.getPost();
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.getPost();
@@ -33,6 +40,13 @@ export class PostagemContentComponent implements OnInit {
       const { _id, visualizacao } = post.post;
       const novaView = visualizacao + 1;
       this.postagemSrv.visualizar({ _id, visualizacao: novaView }).subscribe();
+      this.uniquePost.comentarios.forEach((coment) => {
+        coment.updatedAt = formatDate(coment.updatedAt, "medium", "pt-Br");
+      });
     });
+  }
+  refreshComents(): void {
+    const id = this.route.snapshot.paramMap.get("id");
+    this.router.navigate([`post/${id}`]);
   }
 }

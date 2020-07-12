@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { PostData } from "../home/review/review.service";
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 import { SearchService } from "./search.service";
-import { Post } from "../home/post/Post";
+import { Post } from "../interfaces/Post";
 
 @Component({
   selector: "app-search",

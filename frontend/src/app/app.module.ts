@@ -26,7 +26,6 @@ import { PostagemComponent } from "./postagem/postagem.component";
 import { PostagemCardComponent } from "./postagem/postagem-card/postagem-card.component";
 import { PostagemContentComponent } from "./postagem/postagem-content/postagem-content.component";
 import { TagsCardComponent } from "./tags/tags-card/tags-card.component";
-import { TagsContentComponent } from "./tags/tags-content/tags-content.component";
 import { TagsComponent } from "./tags/tags.component";
 import { SearchComponent } from "./search/search.component";
 import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
@@ -36,9 +35,10 @@ import { DropdownCategoriasComponent } from "./ui/navbar/dropdown-categorias/dro
 import { PostlistComponent } from "./postlist/postlist.component";
 import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
 import { Error404ContentComponent } from "./error404/error404-content/error404-content.component";
-import { ComentarioCardComponent } from './postagem/comentario/comentario-card/comentario-card.component';
-import { ComentarioContentComponent } from './postagem/comentario/comentario-content/comentario-content.component';
-import { ComentarioFormComponent } from './postagem/comentario/comentario-form/comentario-form.component';
+import { ComentarioCardComponent } from "./postagem/comentario/comentario-card/comentario-card.component";
+import { ComentarioContentComponent } from "./postagem/comentario/comentario-content/comentario-content.component";
+import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/comentario-form.component";
+import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usuario.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,6 @@ import { ComentarioFormComponent } from './postagem/comentario/comentario-form/c
     PostagemCardComponent,
     PostagemContentComponent,
     TagsCardComponent,
-    TagsContentComponent,
     TagsComponent,
     SearchComponent,
     CreateCardComponent,
@@ -69,6 +68,7 @@ import { ComentarioFormComponent } from './postagem/comentario/comentario-form/c
     ComentarioCardComponent,
     ComentarioContentComponent,
     ComentarioFormComponent,
+    SeletorUsuarioComponent,
   ],
   imports: [
     BrowserModule,

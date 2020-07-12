@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
-import { Usuario } from "./Usuario";
+import { Usuario } from "../interfaces/Usuario";
 
 interface Categories {
   _id: string;

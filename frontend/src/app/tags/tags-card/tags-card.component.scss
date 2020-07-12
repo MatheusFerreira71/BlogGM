@@ -73,7 +73,7 @@
   width: 100%;
   flex-wrap: wrap;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 
   @media (max-width: 1049px) {
     grid-template-columns: repeat(4, 1fr);
@@ -96,4 +96,19 @@ a {
     color: #30bdff;
     font-weight: bold;
   }
+}
+
+p.tagTitle {
+  margin: 0;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.tagNumber {
+  background-color: #0096dd;
+  border-radius: 16px;
+  color: #fdfdfd;
+  width: 96px;
 }

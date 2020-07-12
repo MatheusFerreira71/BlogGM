@@ -63,21 +63,20 @@ li a:hover,
 }
 
 .newsArrow:after {
-  content: "▼";
+  content: "►";
   margin-left: 50%;
   font-size: 16px;
   color: #f1f1f1;
 }
 
 .navbarDropdownNews:hover .newsArrow:after {
-  content: "▲";
+  content: "◀";
 }
 
 li a,
 .dropbtn {
   display: inline-block;
   color: white;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -93,9 +92,9 @@ li.navbarDropdown {
 .navbarDropdown-content {
   display: none;
   position: relative;
-  background-color: #383838;
+  // background-color: #383838;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -118,6 +117,12 @@ li.navbarDropdown {
 .navbarDropdownNews {
   width: 100%;
   position: relative;
+}
+
+.navbarDropdownCats {
+  position: absolute;
+  top: 0;
+  left: 100%;
 }
 
 .navbarDropdownNews:hover .navbarDropdownCats {

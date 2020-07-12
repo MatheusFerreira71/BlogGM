@@ -1,31 +1,56 @@
-<form class="std-form">
+<form class="std-form" #f (ngSubmit)="handleSubmit(f)">
   <mat-form-field>
     <mat-label>Título</mat-label>
-    <input matInput required placeholder="Informe o título do post" />
+    <input
+      matInput
+      required
+      placeholder="Informe o título do post"
+      [(ngModel)]="postBody.titulo"
+      name="postBody.titulo"
+    />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Descrição</mat-label>
-    <input matInput required placeholder="Informe a descrição do post" />
+    <input
+      matInput
+      required
+      placeholder="Informe a descrição do post"
+      [(ngModel)]="postBody.descricao"
+      name="postBody.descricao"
+    />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Categoria</mat-label>
-    <mat-select onchange="categoria2check(this)" required>
-      <mat-option value="analise">Análises</mat-option>
-      <mat-option value="noticia">Notícias</mat-option>
+    <mat-select
+      required
+      [(ngModel)]="selectedCatId"
+      name="selectedCatId"
+      (selectionChange)="selectCats($event)"
+    >
+      <mat-option *ngFor="let cat of allCats" value="{{ cat._id }}">{{
+        cat.titulo
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field id="catSecSelector">
-    <mat-label>Categoria Secundária</mat-label>
-    <mat-select required>
-      <mat-option value="noticia">Games</mat-option>
-      <mat-option value="noticia">Smartphones</mat-option>
-      <mat-option value="noticia">Tecnologia</mat-option>
-      <mat-option value="noticia">Entretenimento</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div *ngIf="selectedCatId">
+    <mat-form-field id="catSecSelector" *ngIf="subCats.length > 0">
+      <mat-label>Categoria Secundária</mat-label>
+      <mat-select
+        required
+        [(ngModel)]="selectedSubCatId"
+        name="selectedSubCatId"
+      >
+        <mat-option
+          *ngFor="let subCat of subCats"
+          value="{{ subCat.catFilha._id }}"
+          >{{ subCat.catFilha.titulo }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
 
   <mat-form-field class="example-chip-list">
     <mat-chip-list #chipList aria-label="Fruit selection">
@@ -49,13 +74,19 @@
   </mat-form-field>
 
   <form>
-    <label for="">Upload de imagem principal</label>
-    <input id="imgpost" type="file" />
+    <label for="imgpost">Upload de imagem principal</label>
+    <input
+      id="imgpost"
+      type="file"
+      (change)="handleFileInput($event.target.files[0])"
+    />
   </form>
 
   <angular-editor
     required
     [placeholder]="'Enter text here...'"
+    [(ngModel)]="postBody.corpo"
+    name="postBody.corpo"
   ></angular-editor>
 
   <mat-toolbar>
