@@ -11,8 +11,8 @@
     <ng-template class="Segundo" #elseBlock>
       <li class="navbarDropdownNews">
         <a class="newsArrow">{{ categoria.titulo }}</a>
-        <ul class="navbarDropdownCats" *ngFor="let subCat of categoria.subs">
-          <li>
+        <ul class="navbarDropdownCats">
+          <li class="navbarDropdownLi" *ngFor="let subCat of categoria.subs">
             <a
               routerLink="/busca/PostCategoria"
               [queryParams]="{ id: subCat._id }"

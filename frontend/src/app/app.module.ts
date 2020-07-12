@@ -38,6 +38,7 @@ import { Error404ContentComponent } from "./error404/error404-content/error404-c
 import { ComentarioCardComponent } from "./postagem/comentario/comentario-card/comentario-card.component";
 import { ComentarioContentComponent } from "./postagem/comentario/comentario-content/comentario-content.component";
 import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/comentario-form.component";
+import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usuario.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/c
     ComentarioCardComponent,
     ComentarioContentComponent,
     ComentarioFormComponent,
+    SeletorUsuarioComponent,
   ],
   imports: [
     BrowserModule,

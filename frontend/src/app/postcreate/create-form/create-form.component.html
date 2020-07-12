@@ -1,12 +1,24 @@
-<form class="std-form">
+<form class="std-form" #f (ngSubmit)="handleSubmit(f)">
   <mat-form-field>
     <mat-label>Título</mat-label>
-    <input matInput required placeholder="Informe o título do post" />
+    <input
+      matInput
+      required
+      placeholder="Informe o título do post"
+      [(ngModel)]="postBody.titulo"
+      name="postBody.titulo"
+    />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Descrição</mat-label>
-    <input matInput required placeholder="Informe a descrição do post" />
+    <input
+      matInput
+      required
+      placeholder="Informe a descrição do post"
+      [(ngModel)]="postBody.descricao"
+      name="postBody.descricao"
+    />
   </mat-form-field>
 
   <mat-form-field>
@@ -28,7 +40,6 @@
       <mat-label>Categoria Secundária</mat-label>
       <mat-select
         required
-        (selectionChange)="selectCats($event)"
         [(ngModel)]="selectedSubCatId"
         name="selectedSubCatId"
       >
@@ -64,12 +75,18 @@
 
   <form>
     <label for="imgpost">Upload de imagem principal</label>
-    <input id="imgpost" type="file" />
+    <input
+      id="imgpost"
+      type="file"
+      (change)="handleFileInput($event.target.files[0])"
+    />
   </form>
 
   <angular-editor
     required
     [placeholder]="'Enter text here...'"
+    [(ngModel)]="postBody.corpo"
+    name="postBody.corpo"
   ></angular-editor>
 
   <mat-toolbar>
