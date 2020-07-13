@@ -151,91 +151,113 @@ var data = [
         'documents': [
             {
                 '_id': tagIds[0],
-                'titulo': "RPG"
+                'titulo': "RPG",
+		'tituloLower': "rpg"
             },
             {
                 '_id': tagIds[1],
-                'titulo': "JRPG"
+                'titulo': "JRPG",
+		'tituloLower': "jrpg"
             },
             {
                 '_id': tagIds[2],
-                'titulo': "Atlus"
+                'titulo': "Atlus",
+		'tituloLower': "atlus"
             },
             {
                 '_id': tagIds[3],
-                'titulo': "P Studio"
+                'titulo': "P Studio",
+		'tituloLower': "p studio"
             },
             {
                 '_id': tagIds[4],
-                'titulo': "Persona"
+                'titulo': "Persona",
+		'tituloLower': "persona"
             },
             {
                 '_id': tagIds[5],
-                'titulo': "Persona 5"
+                'titulo': "Persona 5",
+		'tituloLower': "persona 5"
             },
             {
                 '_id': tagIds[6],
-                'titulo': "Ação"
+                'titulo': "Ação",
+		'tituloLower': "ação"
             },
             {
                 '_id': tagIds[7],
-                'titulo': "Aventura"
+                'titulo': "Aventura",
+		'tituloLower': "aventura"
             },
             {
                 '_id': tagIds[8],
-                'titulo': "Terror"
+                'titulo': "Terror",
+		'tituloLower': "terror"
             },
             {
                 '_id': tagIds[9],
-                'titulo': "Resident Evil"
+                'titulo': "Resident Evil",
+		'tituloLower': "resident evil"
             },
             {
                 '_id': tagIds[10],
-                'titulo': "Resident Evil 3"
+                'titulo': "Resident Evil 3",
+		'tituloLower': "resident evil 3"
             },
             {
                 '_id': tagIds[11],
-                'titulo': "Capcom"
+                'titulo': "Capcom",
+		'tituloLower': "capcom"
             },
             {
                 '_id': tagIds[12],
-                'titulo': "Activision"
+                'titulo': "Activision",
+		'tituloLower': "activision"
             },
             {
                 '_id': tagIds[13],
-                'titulo': "Crash Bandicoot"
+                'titulo': "Crash Bandicoot",
+		'tituloLower': "crash bandicoot"
             },
             {
                 '_id': tagIds[14],
-                'titulo': "Crash Bandicoot 4"
+                'titulo': "Crash Bandicoot 4",
+		'tituloLower': "crash bandicoot 4"
             },
             {
                 '_id': tagIds[15],
-                'titulo': "Marvel"
+                'titulo': "Marvel",
+		'tituloLower': "marvel"
             },
             {
                 '_id': tagIds[16],
-                'titulo': "Vingadores"
+                'titulo': "Vingadores",
+		'tituloLower': "vingadores"
             },
             {
                 '_id': tagIds[17],
-                'titulo': "Marvel's Avengers"
+                'titulo': "Marvel's Avengers",
+		'tituloLower': "marvel's avengers"
             },
             {
                 '_id': tagIds[18],
-                'titulo': "Square Enix"
+                'titulo': "Square Enix",
+		'tituloLower': "square enix"
             },
             {
                 '_id': tagIds[19],
-                'titulo': "Crystal Dynamics"
+                'titulo': "Crystal Dynamics",
+		'tituloLower': "crystal dynamics"
             },
             {
                 '_id': tagIds[20],
-                'titulo': "Crystal Northwest"
+                'titulo': "Crystal Northwest",
+		'tituloLower': "crystal northwest"
             },
             {
                 '_id': tagIds[21],
-                'titulo': "Eidos Montréal"
+                'titulo': "Eidos Montréal",
+		'tituloLower': "eidos mnontréal"
             },
         ]
     },
