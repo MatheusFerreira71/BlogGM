@@ -137,6 +137,8 @@
   font-family: "Roboto Slab", serif;
   // letter-spacing: 0.03em;
   font-weight: 400;
+  word-wrap: break-word;
+  white-space: pre-line;
 
   p {
     margin: 1rem;
@@ -145,6 +147,29 @@
 
   @media (max-width: 649px) {
     text-align: left;
+  }
+}
+
+.imgPost {
+  padding: 0.5rem 2rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  height: 320px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 320px;
+    width: auto;
+  }
+  @media (max-width: 799px) {
+    height: 160px;
+
+    img {
+      max-height: 160px;
+    }
   }
 }
 
