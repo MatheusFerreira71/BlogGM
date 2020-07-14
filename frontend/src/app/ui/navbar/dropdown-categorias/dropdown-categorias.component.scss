@@ -1,41 +1,3 @@
-.navbarWrapper {
-  width: 100%;
-  // height: 64px;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background-color: #212121;
-  padding: 4px 4rem;
-  color: #f1f1f1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 799px) {
-    padding: 0;
-    justify-content: center;
-  }
-}
-
-.leftContent {
-  display: grid;
-  grid-template-columns: 50px 1fr;
-  align-items: center;
-}
-
-.navLogo {
-  text-align: center;
-  height: 36px;
-  width: 36px;
-}
-
-.miniLogo {
-  height: 36px;
-  width: 36px;
-  color: #30bdff;
-  font-size: 36px;
-}
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -67,10 +29,17 @@ li a:hover,
   margin-left: 50%;
   font-size: 16px;
   color: #f1f1f1;
+
+  @media (max-width: 799px) {
+    content: "▼";
+  }
 }
 
 .navbarDropdownNews:hover .newsArrow:after {
   content: "◀";
+  @media (max-width: 799px) {
+    content: "▲";
+  }
 }
 
 li a,
@@ -95,7 +64,7 @@ li.navbarDropdown {
   // background-color: #383838;
   min-width: 160px;
   // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 3;
 }
 
 .navbarDropdown-content a {
@@ -123,6 +92,12 @@ li.navbarDropdown {
   position: absolute;
   top: 0;
   left: 100%;
+
+  @media (max-width: 799px) {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
 }
 
 .navbarDropdownNews:hover .navbarDropdownCats {
@@ -135,65 +110,9 @@ li.navbarDropdown {
   top: 0;
   left: 100%;
   margin-top: -1px;
-}
 
-// RIGHT CONTENT
-
-.searchBar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-}
-
-.inputSearch {
-  height: 100%;
-  width: 180px;
-  outline: none;
-  border: none;
-  border-radius: 8px 0px 0px 8px;
-  background-color: #f1f1f1;
-  padding-left: 8px;
-  color: #2c4574;
-
-  &::placeholder {
-    color: #c4c4c4;
+  @media (max-width: 799px) {
+    top: auto;
+    left: auto;
   }
-
-  &:focus {
-    background-color: #fdfdfd;
-  }
-}
-
-.submitSearch {
-  width: auto;
-  height: 100%;
-  padding: 0 0.5rem;
-  outline: none;
-  border-radius: 0px 8px 8px 0px;
-  border: none;
-  border-left: 1px solid #c4c4c4;
-  background-color: #f1f1f1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:hover {
-    background-color: #e1e1e1;
-  }
-
-  &:active,
-  &:active .submitIcon {
-    background-color: #30bdff;
-    color: #f1f1f1;
-  }
-}
-
-.submitIcon {
-  width: 18px;
-  height: 18px;
-  margin: 0 auto;
-  font-size: 18px;
-  font-weight: 600;
-  color: #2c4574;
 }

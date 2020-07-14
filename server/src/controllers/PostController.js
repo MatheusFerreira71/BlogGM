@@ -55,12 +55,12 @@ module.exports = {
   update: async (req, res) => {
     try {
       const { _id } = req.body;
-      const { titulo, descricao, corpo, banner } = req.body;
+      const { titulo, descricao, corpo, usuario } = req.body;
       const post = await Post.findByIdAndUpdate(_id, {
         titulo,
         descricao,
         corpo,
-        banner,
+        usuario,
       });
       if (!post) {
         res.status(404).end();
@@ -86,7 +86,7 @@ module.exports = {
       await PostCategoria.create(parsedCatIds);
       await PostTag.create(parsedTagIds);
 
-      res.sendStatus(201);
+      res.json({ edited: true });
     } catch (erro) {
       console.log(erro);
       res.status(500).send(erro);
@@ -104,7 +104,7 @@ module.exports = {
       await PostCategoria.deleteMany({ postId: _id });
       await PostTag.deleteMany({ postId: _id });
       await Comentario.deleteMany({ postId: _id });
-      res.status(200).end();
+      res.status(200).json({ removed: true });
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error

@@ -66,4 +66,9 @@ export class PostagemService {
     const apiUri: string = env.apiBaseUri + "posts/visualizacao";
     return this.http.put(apiUri, body);
   }
+
+  removePost(body: { _id: string }): Observable<{ removed: boolean }> {
+    const apiUri: string = `${env.apiBaseUri}posts`;
+    return this.http.request<{ removed: boolean }>("DELETE", apiUri, { body });
+  }
 }

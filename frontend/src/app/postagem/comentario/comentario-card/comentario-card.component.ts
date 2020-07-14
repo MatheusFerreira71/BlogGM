@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Comentario } from "../../postagem.service";
 
 @Component({
@@ -8,6 +8,7 @@ import { Comentario } from "../../postagem.service";
 })
 export class ComentarioCardComponent implements OnInit {
   @Input() comentsData: Comentario[];
+  @Output() comentRemoved = new EventEmitter();
 
   constructor() {}
 

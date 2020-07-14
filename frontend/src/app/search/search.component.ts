@@ -22,9 +22,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.getTagCatData();
-  }
+  ngOnInit(): void {}
 
   data: PostData[] | Post[];
 
