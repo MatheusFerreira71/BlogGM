@@ -51,11 +51,11 @@
         </p>
       </div>
       <div class="buttonControl">
-        <button class="tooltip">
+        <button class="tooltip" routerLink="/editar/{{ uniquePost.post._id }}">
           <mat-icon>create</mat-icon>
           <span class="tooltiptext">Edite este post</span>
         </button>
-        <button class="tooltip">
+        <button class="tooltip" (click)="removePost()">
           <mat-icon>clear</mat-icon>
           <span class="tooltiptext">Remova este post</span>
         </button>
@@ -77,5 +77,6 @@
   <app-comentario-card
     *ngIf="uniquePost"
     [comentsData]="uniquePost.comentarios"
+    (comentRemoved)="refreshComents()"
   ></app-comentario-card>
 </div>

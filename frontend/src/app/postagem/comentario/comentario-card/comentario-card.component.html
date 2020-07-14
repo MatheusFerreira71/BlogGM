@@ -6,6 +6,8 @@
         *ngFor="let coment of comentsData"
         [coment]="coment"
         class="teste"
+        [postId]="coment.postId"
+        (comentRemoved)="comentRemoved.emit()"
       >
       </app-comentario-content>
     </div>

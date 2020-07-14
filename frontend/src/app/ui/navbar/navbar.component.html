@@ -1,4 +1,5 @@
 <div class="navbarWrapper">
+  <!-- <input type="checkbox" class="checkboxBar" name="navbarCheckbox" /> -->
   <div class="leftContent">
     <div class="navLogo">
       <a [routerLink]="['/']"
@@ -8,8 +9,8 @@
     <div class="navbarMenu">
       <ul>
         <li><a [routerLink]="['/']">Início</a></li>
-        <app-dropdown-categorias></app-dropdown-categorias>
         <li><a [routerLink]="['/tags']">Assuntos</a></li>
+        <app-dropdown-categorias></app-dropdown-categorias>
       </ul>
     </div>
   </div>
@@ -28,6 +29,6 @@
         <mat-icon class="submitIcon">search</mat-icon>
       </button>
     </form>
-    <app-seletor-usuario></app-seletor-usuario>
+    <!-- <app-seletor-usuario></app-seletor-usuario> -->
   </div>
 </div>

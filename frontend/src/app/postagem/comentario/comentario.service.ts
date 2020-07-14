@@ -22,4 +22,10 @@ export class ComentarioService {
   create(body: ComentarioCreate): Observable<any> {
     return this.http.post(this.apiUri, body);
   }
+
+  remove(body: { _id: string }): Observable<any> {
+    return this.http.request("DELETE", this.apiUri, {
+      body,
+    });
+  }
 }

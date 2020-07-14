@@ -39,6 +39,7 @@ import { ComentarioCardComponent } from "./postagem/comentario/comentario-card/c
 import { ComentarioContentComponent } from "./postagem/comentario/comentario-content/comentario-content.component";
 import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/comentario-form.component";
 import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usuario.component';
+import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usu
     ComentarioContentComponent,
     ComentarioFormComponent,
     SeletorUsuarioComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

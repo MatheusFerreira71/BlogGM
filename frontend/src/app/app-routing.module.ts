@@ -31,6 +31,10 @@ const routes: Routes = [
     component: CreateCardComponent,
   },
   {
+    path: "editar/:id",
+    component: CreateCardComponent,
+  },
+  {
     path: "**",
     component: Error404CardComponent,
   },

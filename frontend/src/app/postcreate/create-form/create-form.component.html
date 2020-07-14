@@ -1,4 +1,5 @@
-<form class="std-form" #f (ngSubmit)="handleSubmit(f)">
+<div class="titleGm">{{ titulo }}</div>
+<form class="std-form" #f="ngForm" (ngSubmit)="handleSubmit(f)">
   <mat-form-field>
     <mat-label>Título</mat-label>
     <input
@@ -29,9 +30,9 @@
       name="selectedCatId"
       (selectionChange)="selectCats($event)"
     >
-      <mat-option *ngFor="let cat of allCats" value="{{ cat._id }}">{{
-        cat.titulo
-      }}</mat-option>
+      <mat-option *ngFor="let cat of allCats" [value]="cat._id">
+        {{ cat.titulo }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -45,7 +46,7 @@
       >
         <mat-option
           *ngFor="let subCat of subCats"
-          value="{{ subCat.catFilha._id }}"
+          [value]="subCat.catFilha._id"
           >{{ subCat.catFilha.titulo }}</mat-option
         >
       </mat-select>
@@ -73,28 +74,50 @@
     </mat-chip-list>
   </mat-form-field>
 
-  <form>
+  <mat-form-field *ngIf="usuarios">
+    <mat-label>Usuários</mat-label>
+    <mat-select required [(ngModel)]="postBody.usuario" name="selectUser">
+      <mat-option *ngFor="let usuario of usuarios" [value]="usuario._id">
+        {{ usuario.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <form *ngIf="uploadEnabler">
     <label for="imgpost">Upload de imagem principal</label>
     <input
       id="imgpost"
       type="file"
+      required
       (change)="handleFileInput($event.target.files[0])"
     />
   </form>
 
-  <angular-editor
+  <mat-form-field>
+    <mat-label>Texto do post</mat-label>
+    <textarea
+      style="height: 300px;"
+      matInput
+      placeholder="Escreva o corpo do post"
+      [(ngModel)]="postBody.corpo"
+      name="postBody.corpo"
+      required
+    ></textarea>
+  </mat-form-field>
+
+  <!-- <angular-editor
     required
     [placeholder]="'Enter text here...'"
     [(ngModel)]="postBody.corpo"
     name="postBody.corpo"
-  ></angular-editor>
+  ></angular-editor> -->
 
   <mat-toolbar>
     <mat-toolbar-row class="formButtons">
       <button mat-raised-button type="submit" class="enviarButton">
         Salvar
       </button>
-      <button mat-raised-button type="button">
+      <button mat-raised-button type="button" (click)="voltar(f)">
         Voltar
       </button>
     </mat-toolbar-row>

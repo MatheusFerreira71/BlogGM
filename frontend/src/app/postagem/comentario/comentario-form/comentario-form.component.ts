@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ComentarioCreate, ComentarioService } from "../comentario.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-comentario-form",
@@ -10,7 +11,10 @@ import { ComentarioCreate, ComentarioService } from "../comentario.service";
 export class ComentarioFormComponent implements OnInit {
   @Input() postId: string;
   @Output() criarComentario = new EventEmitter();
-  constructor(private comentarioSrv: ComentarioService) {}
+  constructor(
+    private comentarioSrv: ComentarioService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
   nome: string = "";
@@ -32,13 +36,20 @@ export class ComentarioFormComponent implements OnInit {
           this.nome = "";
           this.email = "";
           this.texto = "";
+          this.snackBar.open("Comentário Criado com Sucesso!", "Entendi", {
+            duration: 50000000000000000000,
+          });
           this.criarComentario.emit();
         });
       } else {
-        alert("form Invalido");
+        this.snackBar.open("Form Inválido. 🦦", "Entendi", {
+          duration: 5000,
+        });
       }
     } else {
-      alert("Preencha o Nome e o Texto do comentário");
+      this.snackBar.open("Preencha o Nome e Texto do comentário", "Entendi", {
+        duration: 5000,
+      });
     }
   }
 }
