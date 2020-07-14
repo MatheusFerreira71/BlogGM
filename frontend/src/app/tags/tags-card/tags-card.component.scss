@@ -84,6 +84,14 @@
   }
 }
 
+.tagsFor {
+  &:hover {
+    .tagDelete {
+      display: block;
+    }
+  }
+}
+
 p {
   margin-left: 2rem;
 }
@@ -111,4 +119,15 @@ p.tagTitle {
   border-radius: 16px;
   color: #fdfdfd;
   width: 96px;
+}
+
+.tagDelete {
+  display: none;
+  position: absolute;
+  background: none;
+  outline: none;
+  border: none;
+  z-index: 20;
+  cursor: pointer;
+  color: red;
 }

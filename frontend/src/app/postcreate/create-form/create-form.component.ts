@@ -178,61 +178,74 @@ export class CreateFormComponent implements OnInit {
 
   handleSubmit(form: NgForm) {
     const id = this.routes.snapshot.paramMap.get("id");
+
     if (id) {
-      const categorias = [this.selectedCatId];
-      if (this.selectedSubCatId) {
-        categorias.push(this.selectedSubCatId);
+      if (form.valid && this.tags.length > 0) {
+        const categorias = [this.selectedCatId];
+        if (this.selectedSubCatId) {
+          categorias.push(this.selectedSubCatId);
+        }
+        this.postBody.tituloLower = this.postBody.titulo.toLowerCase();
+
+        const editionBody: PostEditionBody = {
+          _id: id,
+          ...this.postBody,
+          categorias,
+          tags: this.tags,
+        };
+
+        this.postManagementSrv.updatePost(editionBody).subscribe((response) => {
+          if (response.edited) {
+            this.router.navigate([`post/${id}`]).then(() => {
+              this.snackBar.open("Post Editado com Sucesso!", "Entendi", {
+                duration: 5000,
+              });
+            });
+          } else {
+            this.snackBar.open("Que pena!", "Entendi", {
+              duration: 5000,
+            });
+          }
+        });
+      } else {
+        this.snackBar.open("Preencha todos os Campos! ❌ 🦦", "Entendi", {
+          duration: 5000,
+        });
       }
-      this.postBody.tituloLower = this.postBody.titulo.toLowerCase();
-
-      const editionBody: PostEditionBody = {
-        _id: id,
-        ...this.postBody,
-        categorias,
-        tags: this.tags,
-      };
-
-      this.postManagementSrv.updatePost(editionBody).subscribe((response) => {
-        if (response.edited) {
-          this.router.navigate([`post/${id}`]).then(() => {
-            this.snackBar.open("Post Editado com Sucesso!", "Entendi", {
+    } else {
+      if (this.banner && form.valid && this.tags.length > 0) {
+        this.postBody.tituloLower = this.postBody.titulo.toLowerCase();
+        const data = new FormData();
+        const categorias = [this.selectedCatId];
+        if (this.selectedSubCatId) {
+          categorias.push(this.selectedSubCatId);
+        }
+        data.append("titulo", this.postBody.titulo);
+        data.append("tituloLower", this.postBody.tituloLower);
+        data.append("descricao", this.postBody.descricao);
+        data.append("corpo", this.postBody.corpo);
+        data.append("banner", this.banner);
+        data.append("usuario", this.postBody.usuario);
+        data.append("categorias", categorias.join(","));
+        const tagsStrings = [];
+        this.tags.forEach((tag) => {
+          tagsStrings.push(
+            `{"titulo": "${tag.titulo}", "tituloLower": "${tag.tituloLower}"}`
+          );
+        });
+        data.append("tags", tagsStrings.join(";"));
+        this.postManagementSrv.createPost(data).subscribe((postId) => {
+          this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
+            this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
               duration: 5000,
             });
           });
-        } else {
-          this.snackBar.open("Que pena!", "Entendi", {
-            duration: 5000,
-          });
-        }
-      });
-    } else {
-      this.postBody.tituloLower = this.postBody.titulo.toLowerCase();
-      const data = new FormData();
-      const categorias = [this.selectedCatId];
-      if (this.selectedSubCatId) {
-        categorias.push(this.selectedSubCatId);
-      }
-      data.append("titulo", this.postBody.titulo);
-      data.append("tituloLower", this.postBody.tituloLower);
-      data.append("descricao", this.postBody.descricao);
-      data.append("corpo", this.postBody.corpo);
-      data.append("banner", this.banner);
-      data.append("usuario", this.postBody.usuario);
-      data.append("categorias", categorias.join(","));
-      const tagsStrings = [];
-      this.tags.forEach((tag) => {
-        tagsStrings.push(
-          `{"titulo": "${tag.titulo}", "tituloLower": "${tag.tituloLower}"}`
-        );
-      });
-      data.append("tags", tagsStrings.join(";"));
-      this.postManagementSrv.createPost(data).subscribe((postId) => {
-        this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
-          this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
-            duration: 5000,
-          });
         });
-      });
+      } else {
+        this.snackBar.open("Preencha todos os Campos! ❌ 🦦", "Entendi", {
+          duration: 5000,
+        });
+      }
     }
   }
 
@@ -241,7 +254,6 @@ export class CreateFormComponent implements OnInit {
     console.log(form);
     if (form.dirty && form.touched) {
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        width: "50%",
         data: { question: "Há dados não salvos. Deseja realmente voltar?" },
       });
 

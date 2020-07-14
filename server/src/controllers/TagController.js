@@ -61,4 +61,17 @@ module.exports = {
       console.log(erro);
     }
   },
+  remove: async (req, res) => {
+    try {
+      const { _id } = req.body;
+      const removedTag = await Tag.findByIdAndDelete(_id);
+      if (!removedTag) {
+        res.status(404).end();
+      }
+      res.status(200).json(removedTag);
+    } catch (erro) {
+      console.log(erro);
+      res.status(500).send(erro);
+    }
+  },
 };

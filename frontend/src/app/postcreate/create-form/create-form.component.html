@@ -54,7 +54,7 @@
   </div>
 
   <mat-form-field class="example-chip-list">
-    <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip-list required #chipList aria-label="Fruit selection">
       <mat-chip
         *ngFor="let tag of tags"
         [selectable]="selectable"

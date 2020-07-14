@@ -17,14 +17,23 @@
   </div>
   <div class="tags" *ngIf="allTags">
     <div
+      class="tagsFor"
       *ngFor="
         let tag of allTags
-          | paginate: { itemsPerPage: 40, currentPage: paginaAtual };
+          | paginate: { itemsPerPage: 42, currentPage: paginaAtual };
         let i = index
       "
     >
-      <a routerLink="/busca/PostTag" [queryParams]="{ id: tag._id }"
-        ><p class="tagTitle">
+      <button
+        type="button"
+        class="tagDelete"
+        (click)="remove(tag._id)"
+        *ngIf="tag.qtdePosts === 0"
+      >
+        <mat-icon>clear</mat-icon>
+      </button>
+      <a routerLink="/busca/PostTag" [queryParams]="{ id: tag._id }">
+        <p class="tagTitle">
           {{ tag.titulo }}
           <span class="tagNumber">Posts: {{ tag.qtdePosts }}</span>
         </p></a
