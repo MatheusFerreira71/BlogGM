@@ -41,6 +41,10 @@ export class PostagemContentComponent implements OnInit {
       this.uniquePost = post;
       this.categorias = post.categorias.map((cat) => cat.catId.titulo);
       this.tags = post.tags.map((tag) => tag.tagId.titulo);
+      this.uniquePost.post.corpo = post.post.corpo.replace(
+        "/(?:\r\n|\r|\n)/g",
+        "<br>"
+      );
       this.formatedDate = formatDate(post.post.updatedAt, "fullDate", "pt-BR");
       const { _id, visualizacao } = post.post;
       const novaView = visualizacao + 1;
