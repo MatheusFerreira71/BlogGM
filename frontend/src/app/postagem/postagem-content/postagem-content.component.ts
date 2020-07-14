@@ -76,7 +76,6 @@ export class PostagemContentComponent implements OnInit {
 
   async removePost(): Promise<void> {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: "50%",
       data: { question: "Deseja realmente excluir este post?" },
     });
 

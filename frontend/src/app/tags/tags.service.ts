@@ -3,6 +3,11 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { Tag } from "../interfaces/Tag";
+import { TagsCadastro } from "../postcreate/create-form/create-form.component";
+
+interface RemovedTag extends TagsCadastro {
+  _id: string;
+}
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +25,9 @@ export class TagsService {
     const params = new HttpParams().set("titulo", titulo);
     const urlDePesquisa = `${this.apiUri}/name?${params.toString()}`;
     return this.http.get<Tag[]>(urlDePesquisa);
+  }
+
+  removeTag(body: { _id: string }): Observable<RemovedTag> {
+    return this.http.request<RemovedTag>("DELETE", this.apiUri, { body });
   }
 }
