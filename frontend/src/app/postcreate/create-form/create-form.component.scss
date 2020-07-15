@@ -58,6 +58,7 @@ input.matInput {
 
 .imgButton {
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   height: 32px;
   width: 156px;
   outline: none;
@@ -76,6 +77,11 @@ input.matInput {
     filter: brightness(0.85);
     box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.26);
   }
+}
+
+.fileName {
+  color: #939393;
+  word-break: break-word;
 }
 
 textarea {

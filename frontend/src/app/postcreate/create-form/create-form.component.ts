@@ -122,7 +122,7 @@ export class CreateFormComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-
+  imgName: string;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   tags: TagsCadastro[] = [];
   e: MatSelectChange;
@@ -173,7 +173,21 @@ export class CreateFormComponent implements OnInit {
   }
 
   handleFileInput(file: File) {
-    this.banner = file;
+    if (
+      file.type === "image/jpg" ||
+      file.type === "image/jpeg" ||
+      file.type === "image/png" ||
+      file.type === "image/bmp"
+    ) {
+      this.banner = file;
+      this.imgName = file.name;
+    } else {
+      this.snackBar.open(
+        "Selecione um arquivo JPG / JPEG / PNG / BMP",
+        "Entendi",
+        { duration: 5000 }
+      );
+    }
   }
 
   handleSubmit(form: NgForm) {

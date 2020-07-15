@@ -92,6 +92,7 @@
         required
         (change)="handleFileInput($event.target.files[0])"
         style="display: none;"
+        accept="image/jpg,image/jpeg,image/png,image/bmp"
       />
       <button
         onclick="document.querySelector('#imgpost').click()"
@@ -99,7 +100,9 @@
       >
         Escolha a imagem
       </button>
-      <!-- <span>{{ imgBanner }}</span> -->
+      <span class="fileName">{{
+        imgName ? imgName : "Nenhum arquivo selecionado"
+      }}</span>
     </form>
 
     <mat-form-field>
