@@ -37,7 +37,7 @@ export class ComentarioFormComponent implements OnInit {
           this.email = "";
           this.texto = "";
           this.snackBar.open("Comentário Criado com Sucesso!", "Entendi", {
-            duration: 50000000000000000000,
+            duration: 5000,
           });
           this.criarComentario.emit();
         });
