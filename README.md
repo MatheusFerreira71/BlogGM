@@ -1,5 +1,13 @@
 # BlogGM
 Repositório contendo a API e o Front End do Blog para a aula de Dev Web
+Protótipo inicial disponível no <a href="https://www.figma.com/file/3MBVMo6DGkNqpUlLnhwtAB/GMBlog">Figma</a>
+
+<h1>Desenvolvedores</h1>
+
+<ul>
+    <li><a href="https://github.com/Pazeto22">Gustavo Pazeto</a> - Front-End</li>
+    <li><a href="https://github.com/MatheusFerreira71">Matheus Ferreira</a> - Back-End</li>
+</ul>
 
 <h1>Back-end</h1>
 Iremos começar o nosso projeto com o back-end, abaixo irei explicar tudo que é necessário para começar o projeto e
