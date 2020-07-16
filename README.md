@@ -9,6 +9,17 @@ Protótipo inicial disponível no <a href="https://www.figma.com/file/3MBVMo6DGk
     <li><a href="https://github.com/MatheusFerreira71">Matheus Ferreira</a> - Back-End</li>
 </ul>
 
+<h1>Instalação do projeto</h1>
+<ul>
+    Dentro da pasta server: <li>yarn install</li>
+    Dentro da pasta server: <li>yarn seed</li>
+    Dentro da pasta frontend: <li>yarn install</li>
+    Em ambas as pastas: <li>yarn start</li> (Necessário rodar comando em ambos simultaneamente)
+</ul>
+
+<h1>Front-end</h1>
+O projeto foi desenvolvido utilizando Angular
+
 <h1>Back-end</h1>
 Iremos começar o nosso projeto com o back-end, abaixo irei explicar tudo que é necessário para começar o projeto e
 finalizar o back-end. Aproveitem.
