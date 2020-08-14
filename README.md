@@ -42,7 +42,7 @@ comandos. A pasta pode ser um nome que lembre o backend de um projeto, no meu ca
 Não se esqueça de entrar dentro da pasta criada, pois apartir de agora tudo será feito dentro dela.
 Use cd "nome" para poder acessar a pasta no terminal.
 
-<h1>Instalçao de Pacotes</h1>
+<h1>Instalação de Pacotes</h1>
 Iremos instalar alguns pacotes necessários para o servidor ficar operacional, para isso iremos usar o express.
 Execute os comandos na ordem.
 <ul>
