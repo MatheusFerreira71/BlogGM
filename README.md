@@ -11,10 +11,10 @@ Protótipo inicial disponível no <a href="https://www.figma.com/file/3MBVMo6DGk
 
 <h1>Instalação do projeto</h1>
 <ul>
-    Dentro da pasta server: <li>yarn install</li>
-    Dentro da pasta server: <li>yarn seed</li>
-    Dentro da pasta frontend: <li>yarn install</li>
-    Em ambas as pastas: <li>yarn start</li> (Necessário rodar comando em ambos simultaneamente)
+    <li>Dentro da pasta server: yarn install</li>
+    <li>Dentro da pasta server: yarn seed</li>
+    <li>Dentro da pasta frontend: yarn install</li>
+    <li>Em ambas as pastas: yarn start</li> (Necessário rodar comando em ambos simultaneamente)
 </ul>
 
 <h1>Front-end</h1>
