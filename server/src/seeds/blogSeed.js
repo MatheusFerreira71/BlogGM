@@ -135,7 +135,9 @@ var data = [
                 'username': "MatheusFerreira71",
                 'email': "matheus.ferreira48@fatec.sp.gov.br",
                 'bio': "Administrador, analista de games, criador de conteúdo, influenciador...",
-                'avatar': "http://localhost:3000/uploads/profile-1.jpg"
+                'avatar': "http://localhost:3000/uploads/profile-1.jpg",
+                'isAdm': true,
+                'uniqueId': 'mat123'
             },
             {
                 '_id': userIds[1],
@@ -143,7 +145,9 @@ var data = [
                 'username': "Pazeto22",
                 'email': "gustavo.pazeto@fatec.sp.gov.br",
                 'bio': "Administrador, analista de games, criador de conteúdo, influenciador...",
-                'avatar': "http://localhost:3000/uploads/profile-2.jpg"
+                'avatar': "http://localhost:3000/uploads/profile-2.jpg",
+                'isAdm': true,
+                'uniqueId': 'paz123'
             },
         ]
     },

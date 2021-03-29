@@ -21,8 +21,15 @@ const schema = mongoose.Schema(
     },
     avatar: {
       type: String,
-      required: true,
     },
+    isAdm: {
+      type: Boolean,
+      required: true
+    },
+    uniqueId: {
+      type: String,
+      required: true,
+    }
   },
   { timestamps: true }
 );
