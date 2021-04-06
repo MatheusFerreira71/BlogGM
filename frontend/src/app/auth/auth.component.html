@@ -1,0 +1,30 @@
+<div class="signIn">
+    <form class="std-form" #f="ngForm" (ngSubmit)="handleSubmit(f)">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Informe seu E-mail</mat-label>
+                <input name="email"
+                 matInput [type]="email"
+                 placeholder="pat@example.com"
+                 [(ngModel)]="email"
+                 required
+                >
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Informe sua senha</mat-label>
+            <input name="password" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-toolbar>
+            <button mat-raised-button type="submit" class="enviarButton">
+                Entrar
+            </button>
+        </mat-toolbar>
+    </form>
+</div>

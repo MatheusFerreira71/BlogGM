@@ -6,6 +6,7 @@ import { TagsComponent } from "./tags/tags.component";
 import { SearchComponent } from "./search/search.component";
 import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
 import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
+import { AuthComponent } from "./auth/auth.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "editar/:id",
     component: CreateCardComponent,
+  },
+  {
+    path: "auth",
+    component: AuthComponent
   },
   {
     path: "**",

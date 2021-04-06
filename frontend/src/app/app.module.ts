@@ -41,6 +41,11 @@ import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/c
 import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usuario.component';
 import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
 
+//Firebase
+import { AngularFireModule } from '@angular/fire';
+import { environment } from "src/environments/environment";
+import { AuthComponent } from './auth/auth.component';
+import { FirebaseService } from './auth/firebase.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +76,7 @@ import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.compo
     ComentarioFormComponent,
     SeletorUsuarioComponent,
     ConfirmDialogComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -81,11 +87,13 @@ import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.compo
     BrowserAnimationsModule,
     NgxPaginationModule,
     AngularEditorModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },
     { provide: NgForm, useValue: "ngForm" },
+    FirebaseService
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
