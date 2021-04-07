@@ -45,7 +45,7 @@ export class CreateFormComponent implements OnInit {
     private postGetter: PostagemService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -265,7 +265,6 @@ export class CreateFormComponent implements OnInit {
 
   async voltar(form: NgForm): Promise<void> {
     let result = true;
-    console.log(form);
     if (form.dirty && form.touched) {
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         data: { question: "Há dados não salvos. Deseja realmente voltar?" },
@@ -275,7 +274,11 @@ export class CreateFormComponent implements OnInit {
     }
     const id = this.routes.snapshot.paramMap.get("id");
     if (result) {
-      this.router.navigate([`/post/${id}`]);
+      if (id !== null) {
+        this.router.navigate([`/post/${id}`]);
+      } else {
+        this.router.navigate(['/'])
+      }
     }
   }
 }

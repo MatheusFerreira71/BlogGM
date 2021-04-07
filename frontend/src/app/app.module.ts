@@ -8,6 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxPaginationModule } from "ngx-pagination";
 import { AngularEditorModule } from "@kolkov/angular-editor";
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { registerLocaleData } from "@angular/common";
 import ptBr from "@angular/common/locales/pt";
@@ -46,6 +47,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from "src/environments/environment";
 import { AuthComponent } from './auth/auth.component';
 import { FirebaseService } from './auth/firebase.service';
+import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +78,8 @@ import { FirebaseService } from './auth/firebase.service';
     ComentarioFormComponent,
     SeletorUsuarioComponent,
     ConfirmDialogComponent,
-    AuthComponent
+    AuthComponent,
+    SignUpFormComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import { FirebaseService } from './auth/firebase.service';
     BrowserAnimationsModule,
     NgxPaginationModule,
     AngularEditorModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ReactiveFormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },

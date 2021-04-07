@@ -1,0 +1,17 @@
+.signUp {
+    background: white;
+
+    mat-form-field, p{
+        display: flex;
+        flex-wrap: wrap; 
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .formButtons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

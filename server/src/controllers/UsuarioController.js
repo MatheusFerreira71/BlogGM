@@ -21,9 +21,9 @@ module.exports = {
   create: async (req, res) => {
     try {
       const { email } = req.body;
-      await Usuario.findOneOrCreate({ email }, req.body); // Categoria é um modelo, logo podemos usar os métodos do mongoose.
-      // HTTP Status 201: Created
-      res.sendStatus(201);
+      const createdUser = await Usuario.findOneOrCreate({ email }, req.body); 
+      const { _id } = createdUser;
+      res.json({ createdUserId: _id });
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error

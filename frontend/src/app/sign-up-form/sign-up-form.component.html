@@ -1,0 +1,63 @@
+<div>
+    <form class="std-form" #f="ngForm" (ngSubmit)="handleSubmit(f)">
+        <div class="signUp">
+            <p>Cadastro de Usuário</p>
+            <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput required placeholder="Informe o seu nome" [(ngModel)]="nome" name="nome" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Nome de Usuário</mat-label>
+                <input matInput required placeholder="Informe o seu nome de usuário" [(ngModel)]="username"
+                    name="username" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input name="email" type="email" matInput [formControl]="emailFormControl" [(ngModel)]="email" required
+                    [errorStateMatcher]="matcher" placeholder="pat@example.com">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Por favor informe um endereço de e-mail válido
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    E-mail é <strong>obrigatório</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Biografia</mat-label>
+                <textarea style="height: 300px;" matInput placeholder="Escreva a sua biografia (opcional)"
+                    [(ngModel)]="bio" name="bio"></textarea>
+            </mat-form-field>
+
+            <mat-form-field id="isAdmSelector" *ngIf="admLog" appearance="fill">
+                <mat-label>Usuário Administrador</mat-label>
+                <mat-select required [(ngModel)]="isAdm" name="isAdm">
+                    <mat-option [value]="true">Sim</mat-option>
+                    <mat-option [value]="false">Não</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input name="password" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-toolbar>
+                <mat-toolbar-row class="formButtons">
+                    <button mat-raised-button type="submit" class="enviarButton">
+                        Salvar
+                    </button>
+                    <button mat-raised-button type="button" (click)="voltar(f)">
+                        Voltar
+                    </button>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </div>
+    </form>
+</div>

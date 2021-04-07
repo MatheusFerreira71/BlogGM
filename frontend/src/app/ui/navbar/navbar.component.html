@@ -2,9 +2,9 @@
   <!-- <input type="checkbox" class="checkboxBar" name="navbarCheckbox" /> -->
   <div class="leftContent">
     <div class="navLogo">
-      <a [routerLink]="['/']"
-        ><img src="" /><mat-icon class="miniLogo">games</mat-icon></a
-      >
+      <a [routerLink]="['/']"><img src="" />
+        <mat-icon class="miniLogo">games</mat-icon>
+      </a>
     </div>
     <div class="navbarMenu">
       <ul>
@@ -17,18 +17,18 @@
 
   <div class="rightContent">
     <form class="searchBar" #f="ngForm" (ngSubmit)="pesquisar(f)">
-      <input
-        [(ngModel)]="pesquisa"
-        type="search"
-        placeholder="Buscar..."
-        class="inputSearch"
-        id="navbarSearch"
-        name="pesquisa"
-      />
+      <input [(ngModel)]="pesquisa" type="search" placeholder="Buscar..." class="inputSearch" id="navbarSearch"
+        name="pesquisa" />
       <button type="submit" class="submitSearch">
         <mat-icon class="submitIcon">search</mat-icon>
       </button>
     </form>
     <!-- <app-seletor-usuario></app-seletor-usuario> -->
+    <div class="navbarMenu">
+      <ul>
+        <li><a [routerLink]="['/auth']">Entrar</a></li>
+        <li><a [routerLink]="['/sign-up']">Criar Conta</a></li>
+      </ul>
+    </div>
   </div>
 </div>
