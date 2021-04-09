@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../auth/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
-import { UserService, User } from './user.service'
+import { UserService, User, ReturnedUser } from './user.service'
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -14,7 +14,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
@@ -53,33 +52,42 @@ export class SignUpFormComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  async handleSubmit(f: NgForm) {
+  handleSubmit(f: NgForm) {
 
     if (!this.admLog) {
       this.isAdm = false
     }
-
     if (f.valid) {
-
-      await this.firebaseSrv.signUpWithEmail(this.email, this.password).then(res => {
-        const user: User = {
-          email: this.email,
-          nome: this.nome,
-          username: this.username,
-          bio: this.bio,
-          isAdm: this.isAdm,
-          uniqueId: res.user.uid
+      this.userSrv.findByUsername(this.username).subscribe(returnedUser => {
+        if (!returnedUser) {
+          this.firebaseSrv.signUpWithEmail(this.email, this.password).then(res => {
+            const user: User = {
+              email: this.email,
+              nome: this.nome,
+              username: this.username,
+              bio: this.bio,
+              isAdm: this.isAdm,
+              uniqueId: res.user.uid
+            }
+            this.userSrv.createUser(user).subscribe(returnedUser => {
+              console.log(returnedUser)
+              this.router.navigate(['/']).then(() => {
+                this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                  duration: 5000,
+                })
+              })
+            })
+          }).catch(err => {
+            this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
+              duration: 5000,
+            });
+          })
+        } else {
+          this.snackBar.open("Nome de usuário não disponível! ❌ 🦦", "Entendi", {
+            duration: 5000,
+          });
         }
-      }).catch(err => {
-        this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
-          duration: 5000,
-        });
       })
-
-    } else {
-      this.snackBar.open("Preencha todos os Campos! ❌ 🦦", "Entendi", {
-        duration: 5000,
-      });
     }
   }
 

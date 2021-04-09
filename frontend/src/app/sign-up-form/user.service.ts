@@ -13,6 +13,10 @@ export interface User {
   uniqueId: string
 }
 
+export interface ReturnedUser extends User {
+  _id: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +24,12 @@ export class UserService {
 
   private apiUri = `${env.apiBaseUri}usuarios`;
   constructor(private http: HttpClient) { }
-  
-  createUser(body: User): Observable<{ createdUserId: string }> {
-    return this.http.post<{ createdUserId: string }>(this.apiUri, body);
+
+  createUser(body: User): Observable<ReturnedUser> {
+    return this.http.post<ReturnedUser>(this.apiUri, body);
+  }
+
+  findByUsername(username: string): Observable<ReturnedUser> {
+    return this.http.get<ReturnedUser>(`${this.apiUri}/user-ver/${username}`);
   }
 }

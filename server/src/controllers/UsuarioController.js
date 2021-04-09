@@ -20,10 +20,12 @@ module.exports = {
   },
   create: async (req, res) => {
     try {
-      const { email } = req.body;
-      const createdUser = await Usuario.findOneOrCreate({ email }, req.body); 
-      const { _id } = createdUser;
-      res.json({ createdUserId: _id });
+      const { username } = req.body;
+      const userRepetido = await Usuario.find({ username })
+
+
+      const createdUser = await Usuario.create(req.body);
+      res.json({ createdUser });
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error
@@ -58,4 +60,14 @@ module.exports = {
       res.status(500).send(erro);
     }
   },
+  findByUsername: async (req, res) => {
+    try {
+      const { username } = req.params;
+      const user = await Usuario.findOne({ username });
+      res.json(user);
+    } catch (erro) {
+      console.log(erro);
+      res.status(500).send(erro);
+    }
+  }
 };

@@ -48,6 +48,10 @@ import { environment } from "src/environments/environment";
 import { AuthComponent } from './auth/auth.component';
 import { FirebaseService } from './auth/firebase.service';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+
+//State Management
+import { StoreModule } from "@ngrx/store";
+import { UserReducer } from './store/store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +95,10 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
     NgxPaginationModule,
     AngularEditorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      UserReducer
+    })
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },
