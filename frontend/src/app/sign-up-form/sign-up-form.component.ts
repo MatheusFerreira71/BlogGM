@@ -7,6 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../auth/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
 import { UserService, User, ReturnedUser } from './user.service'
+import { Observable } from 'rxjs'
+import { Store } from '@ngrx/store'
+import { State } from '../store/store';
+import { setUser } from '../store/actions';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -28,6 +32,7 @@ export class SignUpFormComponent implements OnInit {
   bio: string;
   isAdm: boolean;
   password: string;
+  user$: Observable<ReturnedUser>
 
   constructor(
     private routes: ActivatedRoute,
@@ -36,13 +41,20 @@ export class SignUpFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private dialog: MatDialog,
-  ) { }
+    private store: Store<State>
+  ) {
+    this.user$ = this.store.select('user')
+  }
 
   ngOnInit(): void {
     const route = this.routes.snapshot.routeConfig.path;
     if (route === 'adm-sign-up') {
       this.admLog = true
     }
+  }
+
+  setUser(user: ReturnedUser): void {
+    this.store.dispatch(setUser({ payload: user }));
   }
 
   emailFormControl = new FormControl('', [
@@ -70,7 +82,7 @@ export class SignUpFormComponent implements OnInit {
               uniqueId: res.user.uid
             }
             this.userSrv.createUser(user).subscribe(returnedUser => {
-              console.log(returnedUser)
+              this.setUser(returnedUser);
               this.router.navigate(['/']).then(() => {
                 this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                   duration: 5000,

@@ -52,6 +52,7 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 //State Management
 import { StoreModule } from "@ngrx/store";
 import { UserReducer } from './store/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,8 +98,9 @@ import { UserReducer } from './store/store';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
     StoreModule.forRoot({
-      UserReducer
-    })
+      user: UserReducer
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) : []
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },

@@ -4,7 +4,7 @@ import { setUser } from './actions';
 
 
 
-interface State {
+export interface State {
     user: ReturnedUser
 }
 
