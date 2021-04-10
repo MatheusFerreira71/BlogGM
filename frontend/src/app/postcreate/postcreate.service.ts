@@ -3,11 +3,18 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment as env } from "../../environments/environment";
 import { Usuario } from "../interfaces/Usuario";
-import {
-  PostCreationBody,
-  TagsCadastro,
-} from "./create-form/create-form.component";
+export interface PostCreationBody {
+  titulo: string;
+  tituloLower: string;
+  descricao: string;
+  corpo: string;
+  usuario: string;
+}
 
+export interface TagsCadastro {
+  titulo: string;
+  tituloLower: string;
+}
 export interface PostEditionBody extends PostCreationBody {
   _id: string;
   categorias: string[];

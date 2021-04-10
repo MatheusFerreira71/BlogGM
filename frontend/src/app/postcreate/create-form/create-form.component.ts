@@ -13,20 +13,7 @@ import { PostagemService } from "src/app/postagem/postagem.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
-
-export interface TagsCadastro {
-  titulo: string;
-  tituloLower: string;
-}
-
-export interface PostCreationBody {
-  titulo: string;
-  tituloLower: string;
-  descricao: string;
-  corpo: string;
-  usuario: string;
-}
-
+import { PostCreationBody, TagsCadastro } from '../postcreate.service';
 export interface SubCat {
   catFilha: ItemCategoria;
 }
