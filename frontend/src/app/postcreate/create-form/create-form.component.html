@@ -91,7 +91,7 @@
         type="file"
         required
         (change)="handleFileInput($event.target.files[0])"
-        style="display: none;"
+        style="display: none"
         accept="image/jpg,image/jpeg,image/png,image/bmp"
       />
       <button
@@ -108,7 +108,7 @@
     <mat-form-field>
       <mat-label>Texto do post</mat-label>
       <textarea
-        style="height: 300px;"
+        style="height: 300px"
         matInput
         placeholder="Escreva o corpo do post"
         [(ngModel)]="postBody.corpo"
