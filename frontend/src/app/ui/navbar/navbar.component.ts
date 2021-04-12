@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { State } from "src/app/store/store";
 
 @Component({
   selector: "app-navbar",
@@ -8,9 +11,14 @@ import { Router } from "@angular/router";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private route: Router) {}
+  loggedIn$: Observable<boolean>
   pesquisa: string = "";
-  ngOnInit(): void {}
+
+  constructor(private route: Router, private store: Store<State>) {
+    this.loggedIn$ = this.store.select('loggedIn');
+  }
+
+  ngOnInit(): void { }
 
   pesquisar(form: NgForm): void {
     const titulo: string = form.value.pesquisa;

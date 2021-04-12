@@ -21,7 +21,20 @@ export class FirebaseService {
     return await this.firebaseAuth.signOut()
   }
 
+  async deleteAccount() {
+    return await (await this.firebaseAuth.currentUser).delete()
+  }
+
+  getCurrentUser() {
+    return this.firebaseAuth.currentUser;
+  }
+
   uploadFile(path: string, file: File) {
     return this.firebaseStorage.ref(path).put(file);
   }
+
+  deleteFile(path: string) {
+    return this.firebaseStorage.ref(path).delete();
+  }
+
 }

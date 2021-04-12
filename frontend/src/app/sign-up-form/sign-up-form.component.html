@@ -36,7 +36,7 @@
 
           <label for="avatar">Foto de Perfil</label>
           <input id="avatar" placeholder="Escolha um arquivo" type="file" (change)="handleFileInput($event.target.files[0])" accept="image/jpg,image/jpeg,image/png,image/bmp" />
-          <mat-progress-spinner [value]="upPercentage$ | async"></mat-progress-spinner>
+          <mat-progress-spinner *ngIf="upPercentage$" [value]="upPercentage$ | async"></mat-progress-spinner>
 
         <mat-form-field id="isAdmSelector" *ngIf="admLog">
           <mat-label>Usuário Administrador</mat-label>

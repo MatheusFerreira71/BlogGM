@@ -1,15 +1,17 @@
 import { createReducer, on } from '@ngrx/store'
 import { ReturnedUser } from '../sign-up-form/user.service'
-import { setUser } from './actions';
+import { setUser, toggleAuthState } from './actions';
 
 
 
 export interface State {
     user: ReturnedUser
+    loggedIn: boolean
 }
 
 const INITIAL_STATE: State = {
-    user: null
+    user: null,
+    loggedIn: false
 }
 
 const _userReducer = createReducer(
@@ -17,6 +19,10 @@ const _userReducer = createReducer(
     on(setUser, (state, { payload }) => ({
         ...state,
         user: payload
+    })),
+    on(toggleAuthState, state => ({
+        ...state,
+        loggedIn: !state.loggedIn
     }))
 )
 

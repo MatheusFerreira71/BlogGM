@@ -10,7 +10,7 @@ import { UserService, User, ReturnedUser } from './user.service'
 import { Observable, timer } from 'rxjs'
 import { Store } from '@ngrx/store'
 import { State } from '../store/store';
-import { setUser } from '../store/actions';
+import { setUser, toggleAuthState } from '../store/actions';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -48,7 +48,7 @@ export class SignUpFormComponent implements OnInit {
     private dialog: MatDialog,
     private store: Store<State>
   ) {
-    this.user$ = this.store.select('user')
+    this.user$ = this.store.select('user');
   }
 
   ngOnInit(): void {
@@ -60,6 +60,7 @@ export class SignUpFormComponent implements OnInit {
 
   setUser(user: ReturnedUser): void {
     this.store.dispatch(setUser({ payload: user }));
+    this.store.dispatch(toggleAuthState());
   }
 
   emailFormControl = new FormControl('', [
@@ -70,27 +71,54 @@ export class SignUpFormComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   handleSubmit(f: NgForm) {
-
     if (!this.admLog) {
       this.isAdm = false
     }
     if (f.valid) {
-      this.userSrv.findByUsername(this.username).subscribe(returnedUser => {
-        if (!returnedUser) {
-          this.firebaseSrv.signUpWithEmail(this.email, this.password).then(res => {
-            const tarefaUpload = this.firebaseSrv.uploadFile(`avatars/${this.avatar}`, this.avatarImage);
-            this.upPercentage$ = tarefaUpload.percentageChanges()
-            tarefaUpload.then(() => {
-              timer(1000).subscribe(() => {
-                const user: User = {
-                  email: this.email,
-                  nome: this.nome,
-                  username: this.username,
-                  bio: this.bio,
-                  isAdm: this.isAdm,
-                  uniqueId: res.user.uid,
-                  avatar: this.avatar
-                }
+      if (this.password === this.confirmPassword) {
+        this.userSrv.findByUsername(this.username).subscribe(returnedUser => {
+          if (!returnedUser) {
+            this.firebaseSrv.signUpWithEmail(this.email, this.password).then(res => {
+              const uid = res.user.uid;
+              const user: User = {
+                email: this.email,
+                nome: this.nome,
+                username: this.username,
+                bio: this.bio,
+                isAdm: this.isAdm,
+                uniqueId: uid,
+                avatar: this.avatar
+              }
+              if (this.avatarImage) {
+                const tarefaUpload = this.firebaseSrv.uploadFile(`avatars/${this.avatar}`, this.avatarImage);
+                this.upPercentage$ = tarefaUpload.percentageChanges()
+                tarefaUpload.then(() => {
+                  timer(1000).subscribe(() => {
+                    this.userSrv.createUser(user).subscribe(returnedUser => {
+                      this.setUser(returnedUser);
+                      this.router.navigate(['/']).then(() => {
+                        this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                          duration: 5000,
+                        })
+                      })
+                    }, error => {
+                      console.log(error);
+                      this.firebaseSrv.deleteFile(`avatars/${this.avatar}`).subscribe(() => {
+                        this.upPercentage$ = undefined;
+                        this.firebaseSrv.deleteAccount().then(() => {
+                          this.snackBar.open('Algo deu errado, tente novamente', 'Entendi', {
+                            duration: 5000
+                          })
+                        })
+                      })
+                    })
+                  })
+                }).catch(err => {
+                  this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
+                    duration: 5000,
+                  });
+                })
+              } else {
                 this.userSrv.createUser(user).subscribe(returnedUser => {
                   this.setUser(returnedUser);
                   this.router.navigate(['/']).then(() => {
@@ -98,24 +126,31 @@ export class SignUpFormComponent implements OnInit {
                       duration: 5000,
                     })
                   })
+                }, error => {
+                  console.log(error);
+                  this.firebaseSrv.deleteAccount().then(() => {
+                    this.snackBar.open('Algo deu errado, tente novamente', 'Entendi', {
+                      duration: 5000
+                    })
+                  })
                 })
-              })
+              }
             }).catch(err => {
               this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
                 duration: 5000,
               });
             })
-          }).catch(err => {
-            this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
+          } else {
+            this.snackBar.open("Nome de usuário não disponível! ❌ 🦦", "Entendi", {
               duration: 5000,
             });
-          })
-        } else {
-          this.snackBar.open("Nome de usuário não disponível! ❌ 🦦", "Entendi", {
-            duration: 5000,
-          });
-        }
-      })
+          }
+        })
+      } else {
+        this.snackBar.open(`Senhas não coincidem! ❌`, "Entendi", {
+          duration: 5000,
+        });
+      }
     }
   }
 

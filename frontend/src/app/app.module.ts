@@ -100,7 +100,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
     AngularFireStorageModule,
     ReactiveFormsModule,
     StoreModule.forRoot({
-      user: UserReducer
+      AuthState: UserReducer
     }),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) : []
   ],

@@ -20,12 +20,8 @@ module.exports = {
   },
   create: async (req, res) => {
     try {
-      const { username } = req.body;
-      const userRepetido = await Usuario.find({ username })
-
-
       const createdUser = await Usuario.create(req.body);
-      res.json({ createdUser });
+      res.json(createdUser);
     } catch (erro) {
       console.log(erro);
       // HTTP 500: Internal Server Error
@@ -64,6 +60,16 @@ module.exports = {
     try {
       const { username } = req.params;
       const user = await Usuario.findOne({ username });
+      res.json(user);
+    } catch (erro) {
+      console.log(erro);
+      res.status(500).send(erro);
+    }
+  },
+  findByUniqueId: async (req, res) => {
+    try {
+      const { uniqueId } = req.params;
+      const user = await Usuario.findOne({ uniqueId });
       res.json(user);
     } catch (erro) {
       console.log(erro);
