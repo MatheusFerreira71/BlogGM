@@ -41,13 +41,14 @@ import { ComentarioContentComponent } from "./postagem/comentario/comentario-con
 import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/comentario-form.component";
 import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usuario.component';
 import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
+import { AuthComponent } from './auth/auth.component';
+import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 
 //Firebase
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "src/environments/environment";
-import { AuthComponent } from './auth/auth.component';
 import { FirebaseService } from './auth/firebase.service';
-import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import { AngularFireStorageModule } from '@angular/fire/storage'
 
 //State Management
 import { StoreModule } from "@ngrx/store";
@@ -96,6 +97,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
     NgxPaginationModule,
     AngularEditorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     ReactiveFormsModule,
     StoreModule.forRoot({
       user: UserReducer

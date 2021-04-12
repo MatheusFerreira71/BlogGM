@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../auth/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
 import { UserService, User, ReturnedUser } from './user.service'
-import { Observable } from 'rxjs'
+import { Observable, timer } from 'rxjs'
 import { Store } from '@ngrx/store'
 import { State } from '../store/store';
 import { setUser } from '../store/actions';
@@ -26,13 +26,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class SignUpFormComponent implements OnInit {
   admLog = false;
   hide = true;
+  hideConfirm = true;
+  confirmPassword: string;
   email: string;
   nome: string;
   username: string;
   bio: string;
   isAdm: boolean;
   password: string;
+  avatarImage: File;
+  avatar: string;
   user$: Observable<ReturnedUser>
+  upPercentage$: Observable<number>
 
   constructor(
     private routes: ActivatedRoute,
@@ -73,21 +78,32 @@ export class SignUpFormComponent implements OnInit {
       this.userSrv.findByUsername(this.username).subscribe(returnedUser => {
         if (!returnedUser) {
           this.firebaseSrv.signUpWithEmail(this.email, this.password).then(res => {
-            const user: User = {
-              email: this.email,
-              nome: this.nome,
-              username: this.username,
-              bio: this.bio,
-              isAdm: this.isAdm,
-              uniqueId: res.user.uid
-            }
-            this.userSrv.createUser(user).subscribe(returnedUser => {
-              this.setUser(returnedUser);
-              this.router.navigate(['/']).then(() => {
-                this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
-                  duration: 5000,
+            const tarefaUpload = this.firebaseSrv.uploadFile(`avatars/${this.avatar}`, this.avatarImage);
+            this.upPercentage$ = tarefaUpload.percentageChanges()
+            tarefaUpload.then(() => {
+              timer(1000).subscribe(() => {
+                const user: User = {
+                  email: this.email,
+                  nome: this.nome,
+                  username: this.username,
+                  bio: this.bio,
+                  isAdm: this.isAdm,
+                  uniqueId: res.user.uid,
+                  avatar: this.avatar
+                }
+                this.userSrv.createUser(user).subscribe(returnedUser => {
+                  this.setUser(returnedUser);
+                  this.router.navigate(['/']).then(() => {
+                    this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                      duration: 5000,
+                    })
+                  })
                 })
               })
+            }).catch(err => {
+              this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
+                duration: 5000,
+              });
             })
           }).catch(err => {
             this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {
@@ -114,6 +130,25 @@ export class SignUpFormComponent implements OnInit {
     }
     if (result) {
       this.router.navigate(['/'])
+    }
+  }
+
+  handleFileInput(file: File) {
+    if (
+      file.type === "image/jpg" ||
+      file.type === "image/jpeg" ||
+      file.type === "image/png" ||
+      file.type === "image/bmp"
+    ) {
+      this.avatarImage = file;
+      const hash = Math.floor(Math.random() * (9999999999 - 1000000000 + 1) + 1000000000)
+      this.avatar = `${hash}-${file.name}`;
+    } else {
+      this.snackBar.open(
+        "Selecione um arquivo JPG / JPEG / PNG / BMP",
+        "Entendi",
+        { duration: 5000 }
+      );
     }
   }
 }
