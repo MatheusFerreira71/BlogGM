@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { ReturnedUser, UserService } from "./sign-up-form/user.service";
-import { State } from "./store/store";
 import { setUser, toggleAuthState } from './store/actions';
 import { FirebaseService } from "./auth/firebase.service";
 import { AngularFireAuth } from "@angular/fire/auth";
+import { Reducers } from "./interfaces/Reducers";
 
 @Component({
   selector: "app-root",
@@ -20,7 +20,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 })
 export class AppComponent implements OnInit {
 
-  constructor(private store: Store<State>, private userSrv: UserService, private fireSrv: FirebaseService, private fireAuth: AngularFireAuth) { }
+  constructor(private store: Store<Reducers>, private userSrv: UserService, private fireSrv: FirebaseService, private fireAuth: AngularFireAuth) { }
 
   async ngOnInit() {
     await this.fireAuth.onAuthStateChanged(async user => {

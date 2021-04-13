@@ -52,7 +52,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
 
 //State Management
 import { StoreModule } from "@ngrx/store";
-import { UserReducer } from './store/store';
+import { AuthReducer } from './store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 @NgModule({
   declarations: [
@@ -100,7 +100,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
     AngularFireStorageModule,
     ReactiveFormsModule,
     StoreModule.forRoot({
-      AuthState: UserReducer
+      AuthState: AuthReducer
     }),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) : []
   ],

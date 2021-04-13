@@ -9,8 +9,8 @@ import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.comp
 import { UserService, User, ReturnedUser } from './user.service'
 import { Observable, timer } from 'rxjs'
 import { Store } from '@ngrx/store'
-import { State } from '../store/store';
 import { setUser, toggleAuthState } from '../store/actions';
+import { Reducers } from '../interfaces/Reducers';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -36,7 +36,6 @@ export class SignUpFormComponent implements OnInit {
   password: string;
   avatarImage: File;
   avatar: string;
-  user$: Observable<ReturnedUser>
   upPercentage$: Observable<number>
 
   constructor(
@@ -46,21 +45,14 @@ export class SignUpFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private dialog: MatDialog,
-    private store: Store<State>
-  ) {
-    this.user$ = this.store.select('user');
-  }
+    private store: Store<Reducers>
+  ) { }
 
   ngOnInit(): void {
     const route = this.routes.snapshot.routeConfig.path;
     if (route === 'adm-sign-up') {
       this.admLog = true
     }
-  }
-
-  setUser(user: ReturnedUser): void {
-    this.store.dispatch(setUser({ payload: user }));
-    this.store.dispatch(toggleAuthState());
   }
 
   emailFormControl = new FormControl('', [
@@ -95,7 +87,6 @@ export class SignUpFormComponent implements OnInit {
                 tarefaUpload.then(() => {
                   timer(1000).subscribe(() => {
                     this.userSrv.createUser(user).subscribe(returnedUser => {
-                      this.setUser(returnedUser);
                       this.router.navigate(['/']).then(() => {
                         this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                           duration: 5000,
@@ -120,7 +111,6 @@ export class SignUpFormComponent implements OnInit {
                 })
               } else {
                 this.userSrv.createUser(user).subscribe(returnedUser => {
-                  this.setUser(returnedUser);
                   this.router.navigate(['/']).then(() => {
                     this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                       duration: 5000,

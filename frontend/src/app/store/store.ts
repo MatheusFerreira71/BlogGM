@@ -4,17 +4,17 @@ import { setUser, toggleAuthState } from './actions';
 
 
 
-export interface State {
+export interface AuthState {
     user: ReturnedUser
     loggedIn: boolean
 }
 
-const INITIAL_STATE: State = {
+const INITIAL_STATE: AuthState = {
     user: null,
     loggedIn: false
 }
 
-const _userReducer = createReducer(
+const _authReducer = createReducer(
     INITIAL_STATE,
     on(setUser, (state, { payload }) => ({
         ...state,
@@ -26,6 +26,6 @@ const _userReducer = createReducer(
     }))
 )
 
-export function UserReducer(state: State, action: any): State {
-    return _userReducer(state, action)
+export function AuthReducer(state: AuthState, action: any): AuthState {
+    return _authReducer(state, action)
 }

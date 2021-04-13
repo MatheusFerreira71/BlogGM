@@ -1,9 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { State } from "src/app/store/store";
+import { FirebaseService } from "src/app/auth/firebase.service";
+import { Reducers } from "src/app/interfaces/Reducers";
+import { setUser, toggleAuthState } from '../../store/actions'
 
 @Component({
   selector: "app-navbar",
@@ -14,8 +17,8 @@ export class NavbarComponent implements OnInit {
   loggedIn$: Observable<boolean>
   pesquisa: string = "";
 
-  constructor(private route: Router, private store: Store<State>) {
-    this.loggedIn$ = this.store.select('loggedIn');
+  constructor(private route: Router, private store: Store<Reducers>, private fireSrv: FirebaseService, private matSnack: MatSnackBar) {
+    this.loggedIn$ = store.select(store => store.AuthState.loggedIn)
   }
 
   ngOnInit(): void { }
@@ -25,5 +28,13 @@ export class NavbarComponent implements OnInit {
     this.route.navigate(["busca/PostName"], {
       queryParams: { titulo: titulo.toLowerCase() },
     });
+  }
+
+  signOut(): void {
+    this.fireSrv.signOut().then(() => {
+      this.store.dispatch(setUser({ payload: null }))
+      this.store.dispatch(toggleAuthState())
+      this.matSnack.open('Usuário deslogado com sucesso.', 'Entendi', { duration: 5000 })
+    })
   }
 }

@@ -4,10 +4,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseService } from './firebase.service';
 import { ErrorStateMatcher } from '@angular/material/core'
 import { ReturnedUser, UserService } from '../sign-up-form/user.service';
-import { State } from '../store/store';
 import { Store } from '@ngrx/store';
 import { setUser, toggleAuthState } from '../store/actions';
 import { Router } from '@angular/router';
+import { Reducers } from '../interfaces/Reducers';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -33,7 +33,7 @@ export class AuthComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private fireService: FirebaseService, private snackBar: MatSnackBar, private userSrv: UserService, private store: Store<State>, private router: Router) { }
+  constructor(private fireService: FirebaseService, private snackBar: MatSnackBar, private userSrv: UserService, private store: Store<Reducers>, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +42,6 @@ export class AuthComponent implements OnInit {
     if (f.valid) {
       this.fireService.signInWithEmail(this.email, this.password).then(snapshot => {
         this.userSrv.findByUniqueId(snapshot.user.uid).subscribe(user => {
-          this.setUser(user);
           this.router.navigate(['/']).then(() => {
             this.snackBar.open(`Usuário Logado com Sucesso ✓`, "Entendi", {
               duration: 5000,
@@ -59,10 +58,5 @@ export class AuthComponent implements OnInit {
         duration: 5000,
       });
     }
-  }
-
-  setUser(user: ReturnedUser): void {
-    this.store.dispatch(setUser({ payload: user }));
-    this.store.dispatch(toggleAuthState());
   }
 }
