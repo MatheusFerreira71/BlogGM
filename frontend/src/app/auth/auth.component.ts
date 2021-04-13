@@ -3,9 +3,8 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseService } from './firebase.service';
 import { ErrorStateMatcher } from '@angular/material/core'
-import { ReturnedUser, UserService } from '../sign-up-form/user.service';
+import { UserService } from '../sign-up-form/user.service';
 import { Store } from '@ngrx/store';
-import { setUser, toggleAuthState } from '../store/actions';
 import { Router } from '@angular/router';
 import { Reducers } from '../interfaces/Reducers';
 
