@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { PostService } from "../post.service";
 import { Post } from "../../../interfaces/Post";
+import { Reducers } from "src/app/interfaces/Reducers";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { ReturnedUser } from "src/app/sign-up-form/user.service";
 
 @Component({
   selector: "app-post-card",
@@ -8,13 +12,17 @@ import { Post } from "../../../interfaces/Post";
   styleUrls: ["./post-card.component.scss"],
 })
 export class PostCardComponent implements OnInit {
-  constructor(private postSrv: PostService) {}
+
+  allPosts: Post[];
+  user$: Observable<ReturnedUser>;
+
+  constructor(private postSrv: PostService, private store: Store<Reducers>) {
+    this.user$ = store.select(store => store.AuthState.user);
+  }
 
   ngOnInit() {
     this.getAllPosts();
   }
-
-  allPosts: Post[];
 
   getAllPosts(): void {
     this.postSrv.listarAll().subscribe((posts) => (this.allPosts = posts));

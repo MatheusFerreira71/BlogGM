@@ -1,7 +1,7 @@
 <div class="wrapperGm">
   <div class="postInfo">
     <div class="titleGm">Últimas novidades</div>
-    <div class="addButton">
+    <div class="addButton" *ngIf="(user$ | async) && (user$ | async)?.isAdm">
       <button [routerLink]="['/postar']" class="tooltip">
         <mat-icon>add_circle_outline</mat-icon>
         <span class="tooltiptext">Crie um novo post</span>
@@ -9,7 +9,6 @@
     </div>
   </div>
   <div class="postsCard">
-    <!-- <app-post-news></app-post-news> -->
     <app-postlist [postData]="allPosts" [itemsPerPage]="5"></app-postlist>
   </div>
 </div>

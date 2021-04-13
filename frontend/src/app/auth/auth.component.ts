@@ -4,9 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseService } from './firebase.service';
 import { ErrorStateMatcher } from '@angular/material/core'
 import { UserService } from '../sign-up-form/user.service';
-import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { Reducers } from '../interfaces/Reducers';
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -32,7 +31,7 @@ export class AuthComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private fireService: FirebaseService, private snackBar: MatSnackBar, private userSrv: UserService, private store: Store<Reducers>, private router: Router) { }
+  constructor(private fireService: FirebaseService, private snackBar: MatSnackBar, private userSrv: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }

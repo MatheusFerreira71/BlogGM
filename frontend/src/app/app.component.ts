@@ -9,16 +9,21 @@ import { Reducers } from "./interfaces/Reducers";
 @Component({
   selector: "app-root",
   template: `
-    <app-navbar></app-navbar>
-    <section id="globalSection">
-      <app-banner></app-banner>
-      <router-outlet></router-outlet>
-    </section>
-    <app-footer></app-footer>
+    <app-spinner *ngIf="loading; else loaded"></app-spinner>
+    <ng-template #loaded>
+      <app-navbar></app-navbar>
+      <section id="globalSection">
+        <app-banner></app-banner>
+        <router-outlet></router-outlet>
+      </section>
+      <app-footer></app-footer>
+    </ng-template>
   `,
   styles: [],
 })
 export class AppComponent implements OnInit {
+
+  loading = true
 
   constructor(private store: Store<Reducers>, private userSrv: UserService, private fireSrv: FirebaseService, private fireAuth: AngularFireAuth) { }
 
@@ -30,6 +35,7 @@ export class AppComponent implements OnInit {
           this.setUser(returnedUser);
         })
       }
+      this.loading = false;
     })
   }
 

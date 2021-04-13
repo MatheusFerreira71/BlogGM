@@ -6,11 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../auth/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
-import { UserService, User, ReturnedUser } from './user.service'
+import { UserService, User } from './user.service'
 import { Observable, timer } from 'rxjs'
-import { Store } from '@ngrx/store'
-import { setUser, toggleAuthState } from '../store/actions';
-import { Reducers } from '../interfaces/Reducers';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -24,7 +21,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./sign-up-form.component.scss']
 })
 export class SignUpFormComponent implements OnInit {
-  admLog = false;
   hide = true;
   hideConfirm = true;
   confirmPassword: string;
@@ -32,7 +28,7 @@ export class SignUpFormComponent implements OnInit {
   nome: string;
   username: string;
   bio: string;
-  isAdm: boolean;
+  isAdm = false;
   password: string;
   avatarImage: File;
   avatar: string;
@@ -45,13 +41,12 @@ export class SignUpFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private dialog: MatDialog,
-    private store: Store<Reducers>
   ) { }
 
   ngOnInit(): void {
     const route = this.routes.snapshot.routeConfig.path;
     if (route === 'adm-sign-up') {
-      this.admLog = true
+      this.isAdm = true
     }
   }
 
@@ -63,9 +58,6 @@ export class SignUpFormComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   handleSubmit(f: NgForm) {
-    if (!this.admLog) {
-      this.isAdm = false
-    }
     if (f.valid) {
       if (this.password === this.confirmPassword) {
         this.userSrv.findByUsername(this.username).subscribe(returnedUser => {

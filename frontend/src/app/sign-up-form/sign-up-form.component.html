@@ -38,14 +38,6 @@
           <input id="avatar" placeholder="Escolha um arquivo" type="file" (change)="handleFileInput($event.target.files[0])" accept="image/jpg,image/jpeg,image/png,image/bmp" />
           <mat-progress-spinner *ngIf="upPercentage$" [value]="upPercentage$ | async"></mat-progress-spinner>
 
-        <mat-form-field id="isAdmSelector" *ngIf="admLog">
-          <mat-label>Usuário Administrador</mat-label>
-          <mat-select required [(ngModel)]="isAdm" name="isAdm">
-            <mat-option [value]="true">Sim</mat-option>
-            <mat-option [value]="false">Não</mat-option>
-          </mat-select>
-        </mat-form-field>
-
         <mat-form-field>
           <mat-label>Senha</mat-label>
           <input name="password" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required />

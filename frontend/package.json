@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
     "@kolkov/angular-editor": "^1.1.2",
+    "@ngrx/schematics": "^11.1.0",
     "@ngrx/store": "^11.1.0",
     "@ngrx/store-devtools": "^11.1.0",
     "firebase": "^8.3.2",
@@ -31,6 +32,7 @@
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.7",
     "tslib": "^2.0.0",
+    "update": "^0.7.4",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

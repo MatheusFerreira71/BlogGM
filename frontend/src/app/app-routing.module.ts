@@ -45,6 +45,10 @@ const routes: Routes = [
     component: SignUpFormComponent
   },
   {
+    path: "adm-sign-up",
+    component: SignUpFormComponent
+  },
+  {
     path: "**",
     component: Error404CardComponent,
   },
@@ -53,11 +57,11 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    scrollPositionRestoration: "top",
-    onSameUrlNavigation: "reload",
-    relativeLinkResolution: 'legacy'
-}),
+      scrollPositionRestoration: "top",
+      onSameUrlNavigation: "reload",
+      relativeLinkResolution: 'legacy'
+    }),
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

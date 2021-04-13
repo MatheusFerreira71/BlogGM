@@ -53,7 +53,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
 //State Management
 import { StoreModule } from "@ngrx/store";
 import { AuthReducer } from './store/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppSpinnerComponent } from './ui/app-spinner/app-spinner.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +86,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
     SeletorUsuarioComponent,
     ConfirmDialogComponent,
     AuthComponent,
-    SignUpFormComponent
+    SignUpFormComponent,
+    AppSpinnerComponent
   ],
   imports: [
     BrowserModule,
