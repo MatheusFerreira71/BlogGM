@@ -135,7 +135,7 @@ var data = [
                 'username': "MatheusFerreira71",
                 'email': "matheus.ferreira48@fatec.sp.gov.br",
                 'bio': "Administrador, analista de games, criador de conteúdo, influenciador...",
-                'avatar': "http://localhost:3000/uploads/profile-1.jpg",
+                'avatar': "4512F37HB69526T-profile-1.jpg",
                 'isAdm': true,
                 'uniqueId': 'mat123'
             },
@@ -145,7 +145,7 @@ var data = [
                 'username': "Pazeto22",
                 'email': "gustavo.pazeto@fatec.sp.gov.br",
                 'bio': "Administrador, analista de games, criador de conteúdo, influenciador...",
-                'avatar': "http://localhost:3000/uploads/profile-2.jpg",
+                'avatar': "4512A37JL69528Y-profile-2.jpg",
                 'isAdm': true,
                 'uniqueId': 'paz123'
             },
@@ -275,7 +275,7 @@ var data = [
                 'tituloLower': "análise: persona 5 royal",
                 'descricao': "O passado e o futuro rei dos JRPGs rouba nossos corações novamente",
                 'corpo': "Persona 5 já era um forte candidato à liderança de melhor JRPG de todos os tempos, e Royal realmente me faz pensar em quem mais poderia competir. A excelente história e seus adoráveis ​​personagens multidimensionais, juntamente com o desafiante combate tático, estão ainda mais refinados e voltam para outra rodada com novas surpresas e novos amigos. Existem novas áreas para explorar e novas reviravoltas para te deixar de queixo caído. Muito pouco foi deixado intocado, e quase tudo o que foi tocado mudou para melhor. Os Phantom Thieves roubaram meu coração mais uma vez -- e eu realmente não o quero de volta.",
-                'banner': "http://localhost:3000/uploads/persona5.jpg",
+                'banner': "4512J37SF69526P-persona5.jpg",
                 'usuario': userIds[1]
             },
             {
@@ -284,7 +284,7 @@ var data = [
                 'tituloLower': "análise: resident evil 3 remake",
                 'descricao': "Jill Valentine e Nemesis continuam sendo a melhor dupla de Raccoon City",
                 'corpo': "É óbvio que se você gosta de jogos do gênero, Resident Evil 3 Remake precisa estar na sua lista do que jogar ainda este ano. Nemesis voltou para nos lembrar da razão pela qual é lembrado com tanto carinho pelos fãs e Jill Valentine, mais determinada e habilidosa do que em qualquer outro game, mostrou que continua sendo uma das, senão a melhor personagens da franquia. Com uma ambientação fenomenal, história devidamente atualizada, ritmo mais dinâmico e personagens mais humanos, a nova versão do clássico de 1999 conclui a recriação da trilogia clássica com excelência, ainda que peque em alguns aspectos de mecânica e, principalmente, pela ausência de mais enigmas, marca registrada de Resident Evil.",
-                'banner': "http://localhost:3000/uploads/re3.jpg",
+                'banner': "4512F37VA69526H-re3.jpg",
                 'usuario': userIds[0]
             },
             {
@@ -293,7 +293,7 @@ var data = [
                 'tituloLower': "crash bandicoot 4 vai honrar os clássicos, promete estúdio",
                 'descricao': "'Maior, melhor e mais épico' do que tudo visto na série, disse Paul Yan",
                 'corpo': "Crash Bandicoot 4: It's About Time é o tão esperado jogo inédito da série, que voltou com tudo após as remasterizações da trilogia clássica e dos jogos de corrida.",
-                'banner': "http://localhost:3000/uploads/crash4.jpg",
+                'banner': "4512O37WM69526N-crash4.jpg",
                 'usuario': userIds[0]
             },
             {
@@ -302,7 +302,7 @@ var data = [
                 'tituloLower': "marvel's avengers nos fará questionar quem são os 'heróis'",
                 'descricao': "Jogo dos Vingadores será uma história de origem da Kamala Khan",
                 'corpo': "Marvel's Avengers, o jogo dos Vingadores, não vai contar apenas mais uma história na qual os heróis salvam o mundo de um vilão que quer dominá-lo. Aparentemente, os jogadores serão levados a questionar os heróis com frequência. Aliás, refletir sobre o próprio conceito de herói",
-                'banner': "http://localhost:3000/uploads/avengeiros.jpg",
+                'banner': "4512A37QJ69526K-avengeiros.jpg",
                 'usuario': userIds[1]
             },
         ]

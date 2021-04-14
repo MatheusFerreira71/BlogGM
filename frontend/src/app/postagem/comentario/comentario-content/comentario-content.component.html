@@ -3,18 +3,9 @@
   <div class="comentarioContent">
     <div class="comentarioUser">
       <div class="userImg">
-        <img
-          src="{{
-            coment.usuario
-              ? coment.usuario.avatar
-              : '../../../../assets/img/profileAvatar.png'
-          }}"
-          alt="Imagem do usuário"
-        />
+        <img src="{{avatarUrl}}" alt="Imagem do usuário" />
       </div>
-      <span class="userName">{{
-        coment.usuario ? coment.usuario.username : coment.nome
-      }}</span>
+      <span class="userName">{{coment.usuario.username}}</span>
     </div>
 
     <div class="comentarioText">
@@ -27,8 +18,6 @@
   <div class="dataButtonControl">
     <span class="timestamp">{{ coment.updatedAt }}</span>
     <span class="excluirButton" (click)="removeComent(coment._id)"
-      >Excluir</span
-    >
+      *ngIf="(loggedIn$ | async) && (user$ | async)?._id === coment.usuario._id">Excluir</span>
   </div>
 </div>
-<!-- Comentário termina aqui -->

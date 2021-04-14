@@ -5,6 +5,11 @@ import { formatDate } from "@angular/common";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog.component";
+import { Store } from "@ngrx/store";
+import { Reducers } from "src/app/interfaces/Reducers";
+import { Observable } from "rxjs";
+import { ReturnedUser } from "src/app/sign-up-form/user.service";
+import { FirebaseService } from "src/app/auth/firebase.service";
 
 @Component({
   selector: "app-postagem-content",
@@ -12,33 +17,39 @@ import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog
   styleUrls: ["./postagem-content.component.scss"],
 })
 export class PostagemContentComponent implements OnInit {
+
+  uniquePost: UniquePost;
+  categorias: string[];
+  tags: string[];
+  formatedDate: string;
+  user$: Observable<ReturnedUser>;
+  loggedIn$: Observable<boolean>;
+  userAvatar: string;
+  banner: string;
+
   constructor(
     private postagemSrv: PostagemService,
     private route: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private store: Store<Reducers>,
+    private fireSrv: FirebaseService
   ) {
-    // this.router.events.subscribe((e: any) => {
-    //   if (e instanceof NavigationEnd) {
-    //     this.getPost();
-    //   }
-    // });
+    this.user$ = store.select(store => store.AuthState.user);
+    this.loggedIn$ = store.select(store => store.AuthState.loggedIn);
   }
 
   ngOnInit(): void {
     this.getPost();
   }
 
-  uniquePost: UniquePost;
-  categorias: string[];
-  tags: string[];
-  formatedDate: string;
-
   getPost(): void {
     const id = this.route.snapshot.paramMap.get("id");
     this.postagemSrv.listarPost(id).subscribe((post) => {
       this.uniquePost = post;
+      this.fireSrv.getFileUrl(`avatars/${this.uniquePost.post.usuario.avatar}`).subscribe(url => this.userAvatar = url);
+      this.fireSrv.getFileUrl(`banners/${this.uniquePost.post.banner}`).subscribe(url => this.banner = url);
       this.categorias = post.categorias.map((cat) => cat.catId.titulo);
       this.tags = post.tags.map((tag) => tag.tagId.titulo);
       this.uniquePost.post.corpo = post.post.corpo.replace(

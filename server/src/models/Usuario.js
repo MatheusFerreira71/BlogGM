@@ -21,7 +21,7 @@ const schema = mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: '4512F37DF69526S-avatar-padrao'
+      default: '4512F37DF69526S-avatar-padrao.png'
     },
     isAdm: {
       type: Boolean,

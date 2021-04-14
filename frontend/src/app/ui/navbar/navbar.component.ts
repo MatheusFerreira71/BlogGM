@@ -34,7 +34,9 @@ export class NavbarComponent implements OnInit {
     this.fireSrv.signOut().then(() => {
       this.store.dispatch(setUser({ payload: null }))
       this.store.dispatch(toggleAuthState())
-      this.matSnack.open('Usuário deslogado com sucesso.', 'Entendi', { duration: 5000 })
+      this.route.navigate(['/']).then(() => {
+        this.matSnack.open('Usuário deslogado com sucesso.', 'Entendi', { duration: 5000 })
+      })
     })
   }
 }

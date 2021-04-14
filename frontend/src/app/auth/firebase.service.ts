@@ -7,7 +7,7 @@ import { AngularFireStorage } from '@angular/fire/storage'
 })
 export class FirebaseService {
 
-  constructor(public firebaseAuth: AngularFireAuth, public firebaseStorage: AngularFireStorage) { }
+  constructor(private firebaseAuth: AngularFireAuth, private firebaseStorage: AngularFireStorage) { }
 
   async signInWithEmail(email: string, password: string) {
     return await this.firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -35,6 +35,9 @@ export class FirebaseService {
 
   deleteFile(path: string) {
     return this.firebaseStorage.ref(path).delete();
+  }
+  getFileUrl(path: string) {
+    return this.firebaseStorage.ref(path).getDownloadURL()
   }
 
 }

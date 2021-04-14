@@ -29,14 +29,14 @@
           >{{ uniquePost.post.usuario.username }}</span
         >
         <div class="fotoUsuario">
-          <img src="{{ uniquePost.post.usuario.avatar }}" />
+          <img src="{{userAvatar}}" />
         </div>
       </div>
     </div>
     <div class="postagemTexto">
       <div class="imgPost">
         <img
-          src="{{ uniquePost.post.banner }}"
+          src="{{ banner }}"
           alt="Imagem do post: {{ uniquePost.post.titulo }}"
         />
       </div>
@@ -53,7 +53,7 @@
           {{ tags.join(", ") }}
         </p>
       </div>
-      <div class="buttonControl">
+      <div class="buttonControl" *ngIf="(loggedIn$ | async) && (user$ | async)?._id === uniquePost.post.usuario._id">
         <button class="tooltip" routerLink="/editar/{{ uniquePost.post._id }}">
           <mat-icon>create</mat-icon>
           <span class="tooltiptext">Edite este post</span>

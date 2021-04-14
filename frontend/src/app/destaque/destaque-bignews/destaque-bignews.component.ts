@@ -1,19 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { Post } from "../../interfaces/Post";
+import { FirebaseService } from "src/app/auth/firebase.service";
+import { PostsDestaques } from "../destaque-news/destaque-news.component";
 import { DestaqueService } from "../destaque.service";
-
-interface PostsDestaques {
-  bigPost: Post;
-  postNews: Post[];
-}
-
 @Component({
   selector: "app-destaque-bignews",
   templateUrl: "./destaque-bignews.component.html",
   styleUrls: ["./destaque-bignews.component.scss"],
 })
 export class DestaqueBignewsComponent implements OnInit {
-  constructor(private destaqueSrv: DestaqueService) {}
+  constructor(private destaqueSrv: DestaqueService, private fireSrv: FirebaseService) { }
 
   ngOnInit(): void {
     this.getAllPosts();
@@ -22,6 +17,9 @@ export class DestaqueBignewsComponent implements OnInit {
   postData: PostsDestaques;
 
   getAllPosts(): void {
-    this.destaqueSrv.listarAll().subscribe((posts) => (this.postData = posts));
+    this.destaqueSrv.listarAll().subscribe(async (posts) => {
+      posts.bigPost.banner = await this.fireSrv.getFileUrl(`banners/${posts.bigPost.banner}`).toPromise();
+      this.postData = posts
+    });
   }
 }

@@ -16,17 +16,6 @@ p {
   border-radius: 0.5rem;
   padding: 1rem;
 
-  .infoUser {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-
-    @media (max-width: 649px) {
-      grid-template-columns: 1fr;
-      grid-gap: 0;
-    }
-  }
-
   mat-form-field {
     min-width: 150px;
     width: 100%;

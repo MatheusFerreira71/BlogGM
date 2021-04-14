@@ -6,12 +6,7 @@ const schema = mongoose.Schema(
     usuario: {
       type: mongoose.ObjectId,
       ref: "Usuario",
-    },
-    nome: {
-      type: String,
-    },
-    email: {
-      type: String,
+      required: true
     },
     texto: {
       type: String,

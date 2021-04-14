@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FirebaseService } from "src/app/auth/firebase.service";
 import { ReviewService, PostData } from "../review.service";
 
 @Component({
@@ -7,16 +8,20 @@ import { ReviewService, PostData } from "../review.service";
   styleUrls: ["./review-news.component.scss"],
 })
 export class ReviewNewsComponent implements OnInit {
-  constructor(private reviewService: ReviewService) {}
+  constructor(private reviewService: ReviewService, private fireSrv: FirebaseService) { }
 
   allPosts: PostData[];
+
   ngOnInit(): void {
     this.getAllPosts();
   }
 
   getAllPosts() {
-    this.reviewService
-      .listarAll()
-      .subscribe((posts) => (this.allPosts = posts));
+    this.reviewService.listarAll().subscribe((posts) => {
+      posts.forEach(async post => {
+        post.postId.banner = await this.fireSrv.getFileUrl(`banners/${post.postId.banner}`).toPromise();
+      })
+      this.allPosts = posts;
+    });
   }
 }

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { Usuario } from "../interfaces/Usuario";
+import { ReturnedUser } from "../sign-up-form/user.service";
 
 interface Categories {
   _id: string;
@@ -14,9 +15,7 @@ interface Categories {
 
 export interface Comentario {
   _id: string;
-  usuario: Usuario | undefined;
-  email: string | undefined;
-  nome: string | undefined;
+  usuario: ReturnedUser
   texto: string;
   postId: string;
   updatedAt: string;

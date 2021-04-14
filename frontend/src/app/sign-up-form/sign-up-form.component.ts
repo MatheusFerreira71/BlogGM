@@ -8,6 +8,7 @@ import { FirebaseService } from '../auth/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
 import { UserService, User } from './user.service'
 import { Observable, timer } from 'rxjs'
+import { Location } from '@angular/common';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -39,8 +40,8 @@ export class SignUpFormComponent implements OnInit {
     private userSrv: UserService,
     private firebaseSrv: FirebaseService,
     private snackBar: MatSnackBar,
-    private router: Router,
     private dialog: MatDialog,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -78,11 +79,10 @@ export class SignUpFormComponent implements OnInit {
                 this.upPercentage$ = tarefaUpload.percentageChanges()
                 tarefaUpload.then(() => {
                   timer(1000).subscribe(() => {
-                    this.userSrv.createUser(user).subscribe(returnedUser => {
-                      this.router.navigate(['/']).then(() => {
-                        this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
-                          duration: 5000,
-                        })
+                    this.userSrv.createUser(user).subscribe(() => {
+                      this.location.back()
+                      this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                        duration: 5000,
                       })
                     }, error => {
                       console.log(error);
@@ -102,11 +102,10 @@ export class SignUpFormComponent implements OnInit {
                   });
                 })
               } else {
-                this.userSrv.createUser(user).subscribe(returnedUser => {
-                  this.router.navigate(['/']).then(() => {
-                    this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
-                      duration: 5000,
-                    })
+                this.userSrv.createUser(user).subscribe(() => {
+                  this.location.back()
+                  this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                    duration: 5000,
                   })
                 }, error => {
                   console.log(error);
@@ -146,7 +145,7 @@ export class SignUpFormComponent implements OnInit {
       result = await dialogRef.afterClosed().toPromise();
     }
     if (result) {
-      this.router.navigate(['/'])
+      this.location.back();
     }
   }
 

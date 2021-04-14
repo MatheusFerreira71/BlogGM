@@ -2,12 +2,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment as env } from "../../../environments/environment";
-import { Comentario } from "../../postagem/postagem.service";
 
 export interface ComentarioCreate {
-  usuario: string | undefined;
-  email: string | undefined;
-  nome: string | undefined;
+  usuario: string;
   texto: string;
   postId: string;
 }

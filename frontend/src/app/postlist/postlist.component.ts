@@ -1,18 +1,29 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input, OnChanges } from "@angular/core";
 import { Post } from "../interfaces/Post";
 import { PostData } from "../home/review/review.service";
+import { FirebaseService } from "../auth/firebase.service";
 
 @Component({
   selector: "app-postlist",
   templateUrl: "./postlist.component.html",
   styleUrls: ["./postlist.component.scss"],
 })
-export class PostlistComponent implements OnInit {
-  //Public é desnecessário, se deixar vazio fica automaticamente public
-  public paginaAtual = 1;
+export class PostlistComponent implements OnChanges {
+  paginaAtual = 1;
 
-  constructor() {}
+  constructor(private fireSrv: FirebaseService) { }
   @Input() postData: Post[] | PostData[];
   @Input() itemsPerPage: number;
-  ngOnInit(): void {}
+
+  ngOnChanges(): void {
+    if (this.postData) {
+      this.postData.forEach(async post => {
+        if (post.postId) {
+          post.postId.banner = await this.fireSrv.getFileUrl(`banners/${post.postId.banner}`).toPromise();
+        } else {
+          post.banner = await this.fireSrv.getFileUrl(`banners/${post.banner}`).toPromise();
+        }
+      })
+    }
+  }
 }
