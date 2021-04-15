@@ -75,15 +75,6 @@
       </mat-chip-list>
     </mat-form-field>
 
-    <mat-form-field *ngIf="usuarios">
-      <mat-label>Usuários</mat-label>
-      <mat-select required [(ngModel)]="postBody.usuario" name="selectUser">
-        <mat-option *ngFor="let usuario of usuarios" [value]="usuario._id">
-          {{ usuario.nome }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
     <form class="imgUploader" *ngIf="uploadEnabler">
       <label for="imgpost">Upload de imagem principal</label>
       <input
@@ -116,13 +107,6 @@
         required
       ></textarea>
     </mat-form-field>
-
-    <!-- <angular-editor
-      required
-      [placeholder]="'Enter text here...'"
-      [(ngModel)]="postBody.corpo"
-      name="postBody.corpo"
-    ></angular-editor> -->
 
     <mat-toolbar>
       <mat-toolbar-row class="formButtons">

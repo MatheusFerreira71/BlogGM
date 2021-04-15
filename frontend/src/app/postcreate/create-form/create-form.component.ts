@@ -8,12 +8,16 @@ import { MatSelectChange } from "@angular/material/select";
 import { NgForm } from "@angular/forms";
 import { PostcreateService, PostEditionBody } from "../postcreate.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Usuario } from "../../interfaces/Usuario";
 import { PostagemService } from "src/app/postagem/postagem.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { PostCreationBody, TagsCadastro } from '../postcreate.service';
+import { Reducers } from "src/app/interfaces/Reducers";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { ReturnedUser } from "src/app/sign-up-form/user.service";
+import { FirebaseService } from "src/app/auth/firebase.service";
 export interface SubCat {
   catFilha: ItemCategoria;
 }
@@ -24,6 +28,7 @@ export interface SubCat {
   styleUrls: ["./create-form.component.scss"],
 })
 export class CreateFormComponent implements OnInit {
+  user$: Observable<ReturnedUser>
   constructor(
     private catsGetter: NavbarService,
     private postManagementSrv: PostcreateService,
@@ -31,19 +36,16 @@ export class CreateFormComponent implements OnInit {
     private routes: ActivatedRoute,
     private postGetter: PostagemService,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
-  ) { }
+    private snackBar: MatSnackBar,
+    private store: Store<Reducers>,
+    private fireSrv: FirebaseService
+  ) {
+    this.user$ = store.select(store => store.AuthState.user);
+  }
 
   ngOnInit(): void {
     this.getAll();
-    this.getUsers();
     this.isUpdate();
-  }
-
-  getUsers(): void {
-    this.postManagementSrv
-      .listUsers()
-      .subscribe((users) => (this.usuarios = users));
   }
 
   isUpdate(): void {
@@ -119,7 +121,6 @@ export class CreateFormComponent implements OnInit {
   subCats: SubCat[] = [];
   banner: File;
   postBody: PostCreationBody = {} as PostCreationBody;
-  usuarios: Usuario[];
   titulo: string = "Crie um novo post";
 
   add(event: MatChipInputEvent): void {
@@ -166,8 +167,9 @@ export class CreateFormComponent implements OnInit {
       file.type === "image/png" ||
       file.type === "image/bmp"
     ) {
+      const hash = Math.floor(Math.random() * (9999999999 - 1000000000 + 1) + 1000000000)
+      this.imgName = `${hash}-${file.name}`;
       this.banner = file;
-      this.imgName = file.name;
     } else {
       this.snackBar.open(
         "Selecione um arquivo JPG / JPEG / PNG / BMP",
@@ -178,6 +180,7 @@ export class CreateFormComponent implements OnInit {
   }
 
   handleSubmit(form: NgForm) {
+    console.log('eu funciono')
     const id = this.routes.snapshot.paramMap.get("id");
 
     if (id) {
@@ -216,31 +219,38 @@ export class CreateFormComponent implements OnInit {
     } else {
       if (this.banner && form.valid && this.tags.length > 0) {
         this.postBody.tituloLower = this.postBody.titulo.toLowerCase();
-        const data = new FormData();
-        const categorias = [this.selectedCatId];
-        if (this.selectedSubCatId) {
-          categorias.push(this.selectedSubCatId);
-        }
-        data.append("titulo", this.postBody.titulo);
-        data.append("tituloLower", this.postBody.tituloLower);
-        data.append("descricao", this.postBody.descricao);
-        data.append("corpo", this.postBody.corpo);
-        data.append("banner", this.banner);
-        data.append("usuario", this.postBody.usuario);
-        data.append("categorias", categorias.join(","));
-        const tagsStrings = [];
-        this.tags.forEach((tag) => {
-          tagsStrings.push(
-            `{"titulo": "${tag.titulo}", "tituloLower": "${tag.tituloLower}"}`
-          );
-        });
-        data.append("tags", tagsStrings.join(";"));
-        this.postManagementSrv.createPost(data).subscribe((postId) => {
-          this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
-            this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
+        this.user$.subscribe(user => {
+          this.postBody.banner = this.imgName;
+          this.postBody.usuario = user._id;
+          const categorias = [this.selectedCatId];
+          if (this.selectedSubCatId) {
+            categorias.push(this.selectedSubCatId);
+          }
+          this.postBody.categorias = categorias;
+          this.postBody.tags = this.tags;
+
+          const uploadTask = this.fireSrv.uploadFile(`banners/${this.imgName}`, this.banner)
+          console.log(this.imgName, this.banner)
+          console.log(this.postBody)
+          uploadTask.then(() => {
+            console.log(this.postBody)
+            this.postManagementSrv.createPost(this.postBody).subscribe((postId) => {
+              this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
+                this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
+                  duration: 5000,
+                });
+              });
+            }, error => {
+              this.fireSrv.deleteFile(`banners/${this.imgName}`)
+              this.snackBar.open(`Algo deu errado: ${error}`, "Entendi", {
+                duration: 5000,
+              });
+            });
+          }).catch(error => {
+            this.snackBar.open(`Algo deu errado: ${error}`, "Entendi", {
               duration: 5000,
             });
-          });
+          })
         });
       } else {
         this.snackBar.open("Preencha todos os Campos! ❌ 🦦", "Entendi", {

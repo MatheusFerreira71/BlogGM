@@ -1,19 +1,14 @@
 import { Injectable } from "@angular/core";
 import { environment as env } from "./../../environments/environment";
-import { Post } from "../interfaces/Post";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-
-interface PostsDestaques {
-  bigPost: Post;
-  postNews: Post[];
-}
+import { PostsDestaques } from './destaque-news/destaque-news.component';
 
 @Injectable({
   providedIn: "root",
 })
 export class DestaqueService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private apiUri: string = env.apiBaseUri + "posts/destaques";
 

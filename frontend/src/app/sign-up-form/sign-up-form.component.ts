@@ -41,7 +41,8 @@ export class SignUpFormComponent implements OnInit {
     private firebaseSrv: FirebaseService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -80,9 +81,10 @@ export class SignUpFormComponent implements OnInit {
                 tarefaUpload.then(() => {
                   timer(1000).subscribe(() => {
                     this.userSrv.createUser(user).subscribe(() => {
-                      this.location.back()
-                      this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
-                        duration: 5000,
+                      this.router.navigate(['/']).then(() => {
+                        this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                          duration: 5000,
+                        })
                       })
                     }, error => {
                       console.log(error);
@@ -103,9 +105,10 @@ export class SignUpFormComponent implements OnInit {
                 })
               } else {
                 this.userSrv.createUser(user).subscribe(() => {
-                  this.location.back()
-                  this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
-                    duration: 5000,
+                  this.router.navigate(['/']).then(() => {
+                    this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
+                      duration: 5000,
+                    })
                   })
                 }, error => {
                   console.log(error);

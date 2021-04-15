@@ -5,7 +5,6 @@ import { FirebaseService } from './firebase.service';
 import { ErrorStateMatcher } from '@angular/material/core'
 import { UserService } from '../sign-up-form/user.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common'
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -32,7 +31,7 @@ export class AuthComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private fireService: FirebaseService, private snackBar: MatSnackBar, private userSrv: UserService, private location: Location) { }
+  constructor(private fireService: FirebaseService, private snackBar: MatSnackBar, private userSrv: UserService, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -40,10 +39,11 @@ export class AuthComponent implements OnInit {
     if (f.valid) {
       this.fireService.signInWithEmail(this.email, this.password).then(snapshot => {
         this.userSrv.findByUniqueId(snapshot.user.uid).subscribe(() => {
-          this.location.back();
-          this.snackBar.open(`Usuário Logado com Sucesso ✓`, "Entendi", {
-            duration: 5000,
-          })
+          this.router.navigate(['/']).then(() => {
+            this.snackBar.open(`Usuário Logado com Sucesso ✓`, "Entendi", {
+              duration: 5000,
+            });
+          });
         })
       }).catch(err => {
         this.snackBar.open(`Algo deu errado! ❌ ${err} `, "Entendi", {

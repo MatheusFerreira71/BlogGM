@@ -9,6 +9,9 @@ export interface PostCreationBody {
   descricao: string;
   corpo: string;
   usuario: string;
+  categorias: string[];
+  tags: TagsCadastro[];
+  banner: string;
 }
 
 export interface TagsCadastro {
@@ -25,11 +28,11 @@ export interface PostEditionBody extends PostCreationBody {
   providedIn: "root",
 })
 export class PostcreateService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private apiUri = `${env.apiBaseUri}posts`;
 
-  createPost(body: FormData): Observable<{ createdPostId: string }> {
+  createPost(body: PostCreationBody): Observable<{ createdPostId: string }> {
     return this.http.post<{ createdPostId: string }>(this.apiUri, body);
   }
 
