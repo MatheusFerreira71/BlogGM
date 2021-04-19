@@ -8,6 +8,7 @@ import { CreateCardComponent } from "./postcreate/create-card/create-card.compon
 import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
 import { AuthComponent } from "./auth/auth.component";
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component'
+import { AdminGuard } from "./guards/admin.guard";
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
   {
     path: "postar",
     component: CreateCardComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: "editar/:id",
@@ -46,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: "adm-sign-up",
-    component: SignUpFormComponent
+    component: SignUpFormComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: "**",
