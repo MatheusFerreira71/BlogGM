@@ -5,6 +5,10 @@ import { TagsService } from "../tags.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog.component";
+import { Store } from "@ngrx/store";
+import { Reducers } from "src/app/interfaces/Reducers";
+import { Observable } from "rxjs";
+import { ReturnedUser } from "src/app/sign-up-form/user.service";
 
 @Component({
   selector: "app-tags-card",
@@ -15,14 +19,20 @@ export class TagsCardComponent implements OnInit {
   constructor(
     private tagSrv: TagsService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private store: Store<Reducers>
+  ) {
+    this.user$ = store.select(store => store.AuthState.user);
+    this.loggedIn$ = store.select(store => store.AuthState.loggedIn);
+  }
 
   ngOnInit(): void {
     this.getAllTags();
   }
 
   allTags: Tag[];
+  loggedIn$: Observable<boolean>;
+  user$: Observable<ReturnedUser>;
   public paginaAtual = 1;
 
   getAllTags(): void {
