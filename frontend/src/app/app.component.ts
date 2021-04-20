@@ -30,10 +30,11 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     await this.fireAuth.onAuthStateChanged(async user => {
       if (user) {
-        const currentUser = await this.fireSrv.getCurrentUser();
-        this.userSrv.findByUniqueId(currentUser.uid).subscribe(returnedUser => {
-          this.setUser(returnedUser);
-        })
+        this.fireSrv.getCurrentUser().then(currentUser => {
+          this.userSrv.findByUniqueId(currentUser.uid).subscribe(returnedUser => {
+            this.setUser(returnedUser);
+          })
+        });
       }
       this.loading = false;
     })
@@ -42,5 +43,7 @@ export class AppComponent implements OnInit {
   setUser(user: ReturnedUser): void {
     this.store.dispatch(setUser({ payload: user }));
     this.store.dispatch(toggleAuthState());
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('loggedIn', JSON.stringify(true));
   }
 }

@@ -10,65 +10,65 @@ const categoriasIds = [
 ];
 
 const tagIds = [
-  '5ef8eb540504f628ccc2361d',
-  '5ef8eb540504f628ccc2361e',
-  '5ef8eb540504f628ccc2361f',
-  '5ef8eb540504f628ccc23620',
-  '5ef8eb540504f628ccc23621',
-  '5ef8eb540504f628ccc23622',
-  '5ef8eb540504f628ccc23623',
-  '5ef8eb540504f628ccc23624',
-  '5ef8eb540504f628ccc23625',
-  '5ef8eb540504f628ccc23626',
-  '5ef8eb540504f628ccc23627',
-  '5ef8eb540504f628ccc23628',
-  '5ef8eb540504f628ccc23629',
-  '5ef8eb540504f628ccc2362a',
-  '5ef8eb540504f628ccc2362b',
-  '5ef8eb540504f628ccc2362c',
-  '5ef8eb540504f628ccc2362d',
-  '5ef8eb540504f628ccc2362e',
-  '5ef8eb540504f628ccc2362f',
-  '5ef8eb540504f628ccc23630',
-  '5ef8eb540504f628ccc23631',
-  '5ef8eb540504f628ccc23632'
+    '5ef8eb540504f628ccc2361d',
+    '5ef8eb540504f628ccc2361e',
+    '5ef8eb540504f628ccc2361f',
+    '5ef8eb540504f628ccc23620',
+    '5ef8eb540504f628ccc23621',
+    '5ef8eb540504f628ccc23622',
+    '5ef8eb540504f628ccc23623',
+    '5ef8eb540504f628ccc23624',
+    '5ef8eb540504f628ccc23625',
+    '5ef8eb540504f628ccc23626',
+    '5ef8eb540504f628ccc23627',
+    '5ef8eb540504f628ccc23628',
+    '5ef8eb540504f628ccc23629',
+    '5ef8eb540504f628ccc2362a',
+    '5ef8eb540504f628ccc2362b',
+    '5ef8eb540504f628ccc2362c',
+    '5ef8eb540504f628ccc2362d',
+    '5ef8eb540504f628ccc2362e',
+    '5ef8eb540504f628ccc2362f',
+    '5ef8eb540504f628ccc23630',
+    '5ef8eb540504f628ccc23631',
+    '5ef8eb540504f628ccc23632'
 ]
 
-const userIds = ['5eff962716ac4d294cb825ac', '5ef8ec73f1dd73416016d720'];
+const userIds = ['5eff962716ac4d294cb825ac', '5ef8ec73f1dd73416016d720', '5ef8ec73f1dd73416016d721'];
 
 const postsIds = [
-  '5ef8ec23cc1aae44a0f89adb',
-  '5ef8ec23cc1aae44a0f89adc',
-  '5ef8ec23cc1aae44a0f89add',
-  '5ef8ec23cc1aae44a0f89ade'
+    '5ef8ec23cc1aae44a0f89adb',
+    '5ef8ec23cc1aae44a0f89adc',
+    '5ef8ec23cc1aae44a0f89add',
+    '5ef8ec23cc1aae44a0f89ade'
 ]
- 
+
 // Connect to MongoDB via Mongoose
 seeder.connect('mongodb://localhost:27017/BlogGMRelacional', () => {
- 
-  // Load Mongoose models
-  seeder.loadModels([
-    'src/models/Categoria.js',
-    'src/models/SubCategoria.js',
-    'src/models/Usuario.js',
-    'src/models/Tag.js',
-    'src/models/Post.js',
-    'src/models/PostCategoria.js',
-    'src/models/PostTag.js',
-    'src/models/Comentario'
-  ]);
- 
-  // Clear specified collections
-  seeder.clearModels(['Categoria', 'SubCategoria', 'Usuario', 'Tag', 'Post', 'PostCategoria', 'PostTag', 'Comentario'], () => {
- 
-    // Callback to populate DB once collections have been cleared
-    seeder.populateModels(data, () => {
-      seeder.disconnect();
+
+    // Load Mongoose models
+    seeder.loadModels([
+        'src/models/Categoria.js',
+        'src/models/SubCategoria.js',
+        'src/models/Usuario.js',
+        'src/models/Tag.js',
+        'src/models/Post.js',
+        'src/models/PostCategoria.js',
+        'src/models/PostTag.js',
+        'src/models/Comentario'
+    ]);
+
+    // Clear specified collections
+    seeder.clearModels(['Categoria', 'SubCategoria', 'Usuario', 'Tag', 'Post', 'PostCategoria', 'PostTag', 'Comentario'], () => {
+
+        // Callback to populate DB once collections have been cleared
+        seeder.populateModels(data, () => {
+            seeder.disconnect();
+        });
+
     });
- 
-  });
 });
- 
+
 // Data array containing seed data - documents organized by Model
 var data = [
     {
@@ -149,6 +149,16 @@ var data = [
                 'isAdm': true,
                 'uniqueId': 'paz123'
             },
+            {
+                '_id': userIds[2],
+                'nome': "Administrador Principal",
+                'username': "Admin",
+                'email': "admin@admin.com",
+                'bio': "Administrador, analista de games, criador de conteúdo, influenciador...",
+                'avatar': "4512F37DF69526S-avatar-padrao.png",
+                'isAdm': true,
+                'uniqueId': 'KK7wNHgZr8RoacCht4hRYBIW5hr1'
+            },
         ]
     },
     {
@@ -157,112 +167,112 @@ var data = [
             {
                 '_id': tagIds[0],
                 'titulo': "RPG",
-		'tituloLower': "rpg"
+                'tituloLower': "rpg"
             },
             {
                 '_id': tagIds[1],
                 'titulo': "JRPG",
-		'tituloLower': "jrpg"
+                'tituloLower': "jrpg"
             },
             {
                 '_id': tagIds[2],
                 'titulo': "Atlus",
-		'tituloLower': "atlus"
+                'tituloLower': "atlus"
             },
             {
                 '_id': tagIds[3],
                 'titulo': "P Studio",
-		'tituloLower': "p studio"
+                'tituloLower': "p studio"
             },
             {
                 '_id': tagIds[4],
                 'titulo': "Persona",
-		'tituloLower': "persona"
+                'tituloLower': "persona"
             },
             {
                 '_id': tagIds[5],
                 'titulo': "Persona 5",
-		'tituloLower': "persona 5"
+                'tituloLower': "persona 5"
             },
             {
                 '_id': tagIds[6],
                 'titulo': "Ação",
-		'tituloLower': "ação"
+                'tituloLower': "ação"
             },
             {
                 '_id': tagIds[7],
                 'titulo': "Aventura",
-		'tituloLower': "aventura"
+                'tituloLower': "aventura"
             },
             {
                 '_id': tagIds[8],
                 'titulo': "Terror",
-		'tituloLower': "terror"
+                'tituloLower': "terror"
             },
             {
                 '_id': tagIds[9],
                 'titulo': "Resident Evil",
-		'tituloLower': "resident evil"
+                'tituloLower': "resident evil"
             },
             {
                 '_id': tagIds[10],
                 'titulo': "Resident Evil 3",
-		'tituloLower': "resident evil 3"
+                'tituloLower': "resident evil 3"
             },
             {
                 '_id': tagIds[11],
                 'titulo': "Capcom",
-		'tituloLower': "capcom"
+                'tituloLower': "capcom"
             },
             {
                 '_id': tagIds[12],
                 'titulo': "Activision",
-		'tituloLower': "activision"
+                'tituloLower': "activision"
             },
             {
                 '_id': tagIds[13],
                 'titulo': "Crash Bandicoot",
-		'tituloLower': "crash bandicoot"
+                'tituloLower': "crash bandicoot"
             },
             {
                 '_id': tagIds[14],
                 'titulo': "Crash Bandicoot 4",
-		'tituloLower': "crash bandicoot 4"
+                'tituloLower': "crash bandicoot 4"
             },
             {
                 '_id': tagIds[15],
                 'titulo': "Marvel",
-		'tituloLower': "marvel"
+                'tituloLower': "marvel"
             },
             {
                 '_id': tagIds[16],
                 'titulo': "Vingadores",
-		'tituloLower': "vingadores"
+                'tituloLower': "vingadores"
             },
             {
                 '_id': tagIds[17],
                 'titulo': "Marvel's Avengers",
-		'tituloLower': "marvel's avengers"
+                'tituloLower': "marvel's avengers"
             },
             {
                 '_id': tagIds[18],
                 'titulo': "Square Enix",
-		'tituloLower': "square enix"
+                'tituloLower': "square enix"
             },
             {
                 '_id': tagIds[19],
                 'titulo': "Crystal Dynamics",
-		'tituloLower': "crystal dynamics"
+                'tituloLower': "crystal dynamics"
             },
             {
                 '_id': tagIds[20],
                 'titulo': "Crystal Northwest",
-		'tituloLower': "crystal northwest"
+                'tituloLower': "crystal northwest"
             },
             {
                 '_id': tagIds[21],
                 'titulo': "Eidos Montréal",
-		'tituloLower': "eidos mnontréal"
+                'tituloLower': "eidos mnontréal"
             },
         ]
     },

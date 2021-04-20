@@ -80,7 +80,9 @@ export class SignUpFormComponent implements OnInit {
                 this.upPercentage$ = tarefaUpload.percentageChanges()
                 tarefaUpload.then(() => {
                   timer(1000).subscribe(() => {
-                    this.userSrv.createUser(user).subscribe(() => {
+                    this.userSrv.createUser(user).subscribe(createdUser => {
+                      localStorage.setItem('user', JSON.stringify(createdUser));
+                      localStorage.setItem('loggedIn', JSON.stringify(true));
                       this.router.navigate(['/']).then(() => {
                         this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                           duration: 5000,
@@ -104,7 +106,9 @@ export class SignUpFormComponent implements OnInit {
                   });
                 })
               } else {
-                this.userSrv.createUser(user).subscribe(() => {
+                this.userSrv.createUser(user).subscribe(createdUser => {
+                  localStorage.setItem('user', JSON.stringify(createdUser));
+                  localStorage.setItem('loggedIn', JSON.stringify(true));
                   this.router.navigate(['/']).then(() => {
                     this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                       duration: 5000,

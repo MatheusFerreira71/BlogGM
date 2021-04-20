@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment as env } from "./../../../environments/environment";
 import { Post } from "../../interfaces/Post";
 import { Observable } from "rxjs";
+import { UniquePost } from "src/app/postagem/postagem.service";
 
 @Injectable({
   providedIn: "root",
@@ -11,7 +12,7 @@ export class PostService {
   // Injeção de dependência: Em vez de criarmos manualmente as dependências
   // necessárias, o próprio Angular as cria e INJETA o objeto já instanciado
   // como parâmetro do construtor.
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private apiUri: string = env.apiBaseUri + "posts";
 
@@ -36,6 +37,6 @@ export class PostService {
   }
 
   obterUm(id: string) {
-    return this.http.get(this.apiUri + "/" + id).toPromise();
+    return this.http.get<UniquePost>(this.apiUri + "/" + id).toPromise();
   }
 }
