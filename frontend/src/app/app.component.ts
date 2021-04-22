@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { ReturnedUser, UserService } from "./sign-up-form/user.service";
-import { setUser, toggleAuthState } from './store/actions';
+import { setUser, setAuthState } from './store/actions';
 import { FirebaseService } from "./auth/firebase.service";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Reducers } from "./interfaces/Reducers";
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
 
   setUser(user: ReturnedUser): void {
     this.store.dispatch(setUser({ payload: user }));
-    this.store.dispatch(toggleAuthState());
+    this.store.dispatch(setAuthState({ payload: true }));
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('loggedIn', JSON.stringify(true));
   }

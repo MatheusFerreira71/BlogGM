@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
 import { ReturnedUser } from '../sign-up-form/user.service'
-import { setUser, toggleAuthState } from './actions';
+import { setUser, setAuthState } from './actions';
 
 
 
@@ -20,9 +20,9 @@ const _authReducer = createReducer(
         ...state,
         user: payload
     })),
-    on(toggleAuthState, state => ({
+    on(setAuthState, (state, { payload }) => ({
         ...state,
-        loggedIn: !state.loggedIn
+        loggedIn: payload
     }))
 )
 

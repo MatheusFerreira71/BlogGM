@@ -6,7 +6,7 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { FirebaseService } from "src/app/auth/firebase.service";
 import { Reducers } from "src/app/interfaces/Reducers";
-import { setUser, toggleAuthState } from '../../store/actions'
+import { setUser, setAuthState } from '../../store/actions'
 
 @Component({
   selector: "app-navbar",
@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   signOut(): void {
     this.fireSrv.signOut().then(() => {
       this.store.dispatch(setUser({ payload: null }))
-      this.store.dispatch(toggleAuthState())
+      this.store.dispatch(setAuthState({ payload: false }));
       localStorage.removeItem('user');
       localStorage.removeItem('loggedIn')
       this.route.navigate(['/']).then(() => {

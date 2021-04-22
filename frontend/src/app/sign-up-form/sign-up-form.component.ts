@@ -6,9 +6,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../auth/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
-import { UserService, User } from './user.service'
+import { UserService, User, ReturnedUser } from './user.service'
 import { Observable, timer } from 'rxjs'
 import { Location } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { Reducers } from '../interfaces/Reducers';
+import { setUser, setAuthState } from '../store/actions';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -42,7 +45,8 @@ export class SignUpFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private store: Store<Reducers>
   ) { }
 
   ngOnInit(): void {
@@ -81,8 +85,7 @@ export class SignUpFormComponent implements OnInit {
                 tarefaUpload.then(() => {
                   timer(1000).subscribe(() => {
                     this.userSrv.createUser(user).subscribe(createdUser => {
-                      localStorage.setItem('user', JSON.stringify(createdUser));
-                      localStorage.setItem('loggedIn', JSON.stringify(true));
+                      this.setUser(createdUser);
                       this.router.navigate(['/']).then(() => {
                         this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                           duration: 5000,
@@ -107,8 +110,7 @@ export class SignUpFormComponent implements OnInit {
                 })
               } else {
                 this.userSrv.createUser(user).subscribe(createdUser => {
-                  localStorage.setItem('user', JSON.stringify(createdUser));
-                  localStorage.setItem('loggedIn', JSON.stringify(true));
+                  this.setUser(createdUser);
                   this.router.navigate(['/']).then(() => {
                     this.snackBar.open(`Usuário Criado com Sucesso ✓`, "Entendi", {
                       duration: 5000,
@@ -154,6 +156,13 @@ export class SignUpFormComponent implements OnInit {
     if (result) {
       this.location.back();
     }
+  }
+
+  setUser(user: ReturnedUser): void {
+    this.store.dispatch(setUser({ payload: user }));
+    this.store.dispatch(setAuthState({ payload: true }));
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('loggedIn', JSON.stringify(true));
   }
 
   handleFileInput(file: File) {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { PostService } from '../home/post/post.service';
 import { ReturnedUser } from '../sign-up-form/user.service';
 
@@ -19,7 +18,7 @@ export class OwnerGuard implements CanActivate {
     const user: ReturnedUser = JSON.parse(localStorage.getItem('user'));
     const uniquePost = await this.postSrv.obterUm(id);
     if (uniquePost && user) {
-      if (uniquePost.post.usuario._id = user._id) {
+      if (uniquePost.post.usuario._id === user._id) {
         return new Promise(resolve => resolve(true));
       }
     }

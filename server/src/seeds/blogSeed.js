@@ -157,7 +157,7 @@ var data = [
                 'bio': "Administrador, analista de games, criador de conteúdo, influenciador...",
                 'avatar': "4512F37DF69526S-avatar-padrao.png",
                 'isAdm': true,
-                'uniqueId': 'KK7wNHgZr8RoacCht4hRYBIW5hr1'
+                'uniqueId': 'mgmd2cWxPlhqxcfNbU3qn7ViZwd2'
             },
         ]
     },

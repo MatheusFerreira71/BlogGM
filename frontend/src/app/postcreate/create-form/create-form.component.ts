@@ -180,7 +180,6 @@ export class CreateFormComponent implements OnInit {
   }
 
   handleSubmit(form: NgForm) {
-    console.log('eu funciono')
     const id = this.routes.snapshot.paramMap.get("id");
 
     if (id) {
@@ -230,10 +229,7 @@ export class CreateFormComponent implements OnInit {
           this.postBody.tags = this.tags;
 
           const uploadTask = this.fireSrv.uploadFile(`banners/${this.imgName}`, this.banner)
-          console.log(this.imgName, this.banner)
-          console.log(this.postBody)
           uploadTask.then(() => {
-            console.log(this.postBody)
             this.postManagementSrv.createPost(this.postBody).subscribe((postId) => {
               this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
                 this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
