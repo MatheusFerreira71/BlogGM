@@ -1,13 +1,17 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "./home/home.component";
-import { PostagemComponent } from "./postagem/postagem.component";
-import { TagsComponent } from "./tags/tags.component";
-import { SearchComponent } from "./search/search.component";
-import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
-import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
-import { AuthComponent } from "./auth/auth.component";
-import { SignUpFormComponent } from './sign-up-form/sign-up-form.component'
+
+//Pages
+import { HomeComponent } from "./pages/home/home.component";
+import { PostagemComponent } from "./pages/postagem/postagem.component";
+import { TagsComponent } from "./pages/tags/tags.component";
+import { SearchComponent } from "./pages/search/search.component";
+import { CreateCardComponent } from "./pages/create-card/create-card.component";
+import { Error404CardComponent } from "./pages/error404-card/error404-card.component";
+import { AuthComponent } from "./pages/auth/auth.component";
+import { SignUpFormComponent } from './pages/sign-up-form/sign-up-form.component'
+
+//Guards
 import { AdminGuard } from "./guards/admin.guard";
 import { LoggedGuard } from "./guards/logged.guard";
 import { OwnerGuard } from "./guards/owner.guard";

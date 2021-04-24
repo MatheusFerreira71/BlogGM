@@ -14,35 +14,35 @@ import { registerLocaleData } from "@angular/common";
 import ptBr from "@angular/common/locales/pt";
 registerLocaleData(ptBr);
 
-import { NavbarComponent } from "./ui/navbar/navbar.component";
-import { FooterComponent } from "./ui/footer/footer.component";
-import { PostCardComponent } from "./home/post/post-card/post-card.component";
-import { DestaqueCardComponent } from "./destaque/destaque-card/destaque-card.component";
-import { ReviewCardComponent } from "./home/review/review-card/review-card.component";
-import { HomeComponent } from "./home/home.component";
-import { ReviewNewsComponent } from "./home/review/review-news/review-news.component";
-import { DestaqueNewsComponent } from "./destaque/destaque-news/destaque-news.component";
-import { DestaqueBignewsComponent } from "./destaque/destaque-bignews/destaque-bignews.component";
-import { PostagemComponent } from "./postagem/postagem.component";
-import { PostagemCardComponent } from "./postagem/postagem-card/postagem-card.component";
-import { PostagemContentComponent } from "./postagem/postagem-content/postagem-content.component";
-import { TagsCardComponent } from "./tags/tags-card/tags-card.component";
-import { TagsComponent } from "./tags/tags.component";
-import { SearchComponent } from "./search/search.component";
-import { CreateCardComponent } from "./postcreate/create-card/create-card.component";
-import { CreateFormComponent } from "./postcreate/create-form/create-form.component";
-import { BannerComponent } from "./banner/banner.component";
-import { DropdownCategoriasComponent } from "./ui/navbar/dropdown-categorias/dropdown-categorias.component";
-import { PostlistComponent } from "./postlist/postlist.component";
-import { Error404CardComponent } from "./error404/error404-card/error404-card.component";
-import { Error404ContentComponent } from "./error404/error404-content/error404-content.component";
-import { ComentarioCardComponent } from "./postagem/comentario/comentario-card/comentario-card.component";
-import { ComentarioContentComponent } from "./postagem/comentario/comentario-content/comentario-content.component";
-import { ComentarioFormComponent } from "./postagem/comentario/comentario-form/comentario-form.component";
-import { SeletorUsuarioComponent } from './ui/navbar/seletor-usuario/seletor-usuario.component';
-import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
-import { AuthComponent } from './auth/auth.component';
-import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { PostCardComponent } from "./components/post-card/post-card.component";
+import { DestaqueCardComponent } from "./components/destaque-card/destaque-card.component";
+import { ReviewCardComponent } from "./components/review-card/review-card.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { ReviewNewsComponent } from "./components/review-news/review-news.component";
+import { DestaqueNewsComponent } from "./components/destaque-news/destaque-news.component";
+import { DestaqueBignewsComponent } from "./components/destaque-bignews/destaque-bignews.component";
+import { PostagemComponent } from "./pages/postagem/postagem.component";
+import { PostagemCardComponent } from "./components/postagem-card/postagem-card.component";
+import { PostagemContentComponent } from "./components/postagem-content/postagem-content.component";
+import { TagsCardComponent } from "./components/tags-card/tags-card.component";
+import { TagsComponent } from "./pages/tags/tags.component";
+import { SearchComponent } from "./pages/search/search.component";
+import { CreateCardComponent } from "./pages/create-card/create-card.component";
+import { CreateFormComponent } from "./components/create-form/create-form.component";
+import { BannerComponent } from "./components/banner/banner.component";
+import { DropdownCategoriasComponent } from "./components/dropdown-categorias/dropdown-categorias.component";
+import { PostlistComponent } from "./components/postlist/postlist.component";
+import { Error404CardComponent } from "./pages/error404-card/error404-card.component";
+import { Error404ContentComponent } from "./components/error404-content/error404-content.component";
+import { ComentarioCardComponent } from "./components/comentario-card/comentario-card.component";
+import { ComentarioContentComponent } from "./components/comentario-content/comentario-content.component";
+import { ComentarioFormComponent } from "./components/comentario-form/comentario-form.component";
+import { SeletorUsuarioComponent } from './components/seletor-usuario/seletor-usuario.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { SignUpFormComponent } from './pages/sign-up-form/sign-up-form.component';
 
 //Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -54,7 +54,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
 import { StoreModule } from "@ngrx/store";
 import { AuthReducer } from './store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AppSpinnerComponent } from './ui/app-spinner/app-spinner.component'
+import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component'
 @NgModule({
   declarations: [
     AppComponent,

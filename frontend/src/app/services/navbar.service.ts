@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { Categoria } from "../interfaces/Categoria";
-import { SubCat } from "../postcreate/create-form/create-form.component";
+import { SubCat } from "../components/create-form/create-form.component";
 
 @Injectable({
   providedIn: "root",
