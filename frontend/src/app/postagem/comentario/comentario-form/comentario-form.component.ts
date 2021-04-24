@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { ComentarioCreate, ComentarioService } from "../comentario.service";
+import { ComentarioCreate, ComentarioService } from "../../../services/comentario.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/sign-up-form/user.service";
+import { ReturnedUser } from "src/app/services/user.service";
 import { Reducers } from "src/app/interfaces/Reducers";
 import { Store } from "@ngrx/store";
 

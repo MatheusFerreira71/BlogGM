@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { Comentario } from "../../postagem.service";
-import { ComentarioService } from "../comentario.service";
+import { Comentario } from "../../../services/postagem.service";
+import { ComentarioService } from "../../../services/comentario.service";
 import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
-import { FirebaseService } from "src/app/auth/firebase.service";
-import { ReturnedUser } from "src/app/sign-up-form/user.service";
+import { FirebaseService } from "src/app/services/firebase.service";
+import { ReturnedUser } from "src/app/services/user.service";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Reducers } from "src/app/interfaces/Reducers";

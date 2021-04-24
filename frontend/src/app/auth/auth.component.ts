@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FirebaseService } from './firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 import { ErrorStateMatcher } from '@angular/material/core'
-import { UserService } from '../sign-up-form/user.service';
+import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
 

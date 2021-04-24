@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store'
-import { ReturnedUser } from '../sign-up-form/user.service'
+import { ReturnedUser } from '../services/user.service'
 import { setUser, setAuthState } from './actions';
 
 

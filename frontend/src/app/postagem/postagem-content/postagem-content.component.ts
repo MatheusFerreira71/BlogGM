@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PostagemService, UniquePost } from "../postagem.service";
+import { PostagemService, UniquePost } from "../../services/postagem.service";
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 import { formatDate } from "@angular/common";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -8,8 +8,8 @@ import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog
 import { Store } from "@ngrx/store";
 import { Reducers } from "src/app/interfaces/Reducers";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/sign-up-form/user.service";
-import { FirebaseService } from "src/app/auth/firebase.service";
+import { ReturnedUser } from "src/app/services/user.service";
+import { FirebaseService } from "src/app/services/firebase.service";
 
 @Component({
   selector: "app-postagem-content",

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from "@angular/core";
 import { Post } from "../interfaces/Post";
-import { PostData } from "../home/review/review.service";
-import { FirebaseService } from "../auth/firebase.service";
+import { PostData } from "../services/review.service";
+import { FirebaseService } from "../services/firebase.service";
 
 @Component({
   selector: "app-postlist",

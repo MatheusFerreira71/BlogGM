@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { Tag } from "../interfaces/Tag";
-import { TagsCadastro } from "../postcreate/postcreate.service";
+import { TagsCadastro } from "./postcreate.service";
 
 interface RemovedTag extends TagsCadastro {
   _id: string;

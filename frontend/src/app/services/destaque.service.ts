@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { environment as env } from "./../../environments/environment";
+import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { PostsDestaques } from './destaque-news/destaque-news.component';
+import { PostsDestaques } from '../destaque/destaque-news/destaque-news.component';
 
 @Injectable({
   providedIn: "root",

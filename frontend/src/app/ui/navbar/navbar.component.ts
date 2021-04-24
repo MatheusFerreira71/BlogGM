@@ -4,7 +4,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { FirebaseService } from "src/app/auth/firebase.service";
+import { FirebaseService } from "src/app/services/firebase.service";
 import { Reducers } from "src/app/interfaces/Reducers";
 import { setUser, setAuthState } from '../../store/actions'
 

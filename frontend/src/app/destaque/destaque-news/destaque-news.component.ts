@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FirebaseService } from "src/app/auth/firebase.service";
+import { FirebaseService } from "src/app/services/firebase.service";
 import { Post } from "../../interfaces/Post";
-import { DestaqueService } from "../destaque.service";
+import { DestaqueService } from "../../services/destaque.service";
 
 export interface PostsDestaques {
   bigPost: Post;

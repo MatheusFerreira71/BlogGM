@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { FirebaseService } from "src/app/auth/firebase.service";
-import { ReviewService, PostData } from "../review.service";
+import { FirebaseService } from "src/app/services/firebase.service";
+import { ReviewService, PostData } from "../../../services/review.service";
 
 @Component({
   selector: "app-review-news",

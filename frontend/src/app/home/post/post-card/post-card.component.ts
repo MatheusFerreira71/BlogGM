@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { PostService } from "../post.service";
+import { PostService } from "../../../services/post.service";
 import { Post } from "../../../interfaces/Post";
 import { Reducers } from "src/app/interfaces/Reducers";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/sign-up-form/user.service";
+import { ReturnedUser } from "src/app/services/user.service";
 
 @Component({
   selector: "app-post-card",

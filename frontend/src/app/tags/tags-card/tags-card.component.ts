@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Tag } from "../../interfaces/Tag";
-import { TagsService } from "../tags.service";
+import { TagsService } from "../../services/tags.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/ui/confirm-dialog/confirm-dialog.component";
 import { Store } from "@ngrx/store";
 import { Reducers } from "src/app/interfaces/Reducers";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/sign-up-form/user.service";
+import { ReturnedUser } from "src/app/services/user.service";
 
 @Component({
   selector: "app-tags-card",

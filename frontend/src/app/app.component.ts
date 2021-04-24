@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { ReturnedUser, UserService } from "./sign-up-form/user.service";
+import { ReturnedUser, UserService } from "./services/user.service";
 import { setUser, setAuthState } from './store/actions';
-import { FirebaseService } from "./auth/firebase.service";
+import { FirebaseService } from "./services/firebase.service";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Reducers } from "./interfaces/Reducers";
 

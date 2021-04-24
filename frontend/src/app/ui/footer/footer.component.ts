@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FooterService, CatNoFilter } from "./footer.service";
+import { FooterService, CatNoFilter } from "../../services/footer.service";
 
 @Component({
   selector: "app-footer",

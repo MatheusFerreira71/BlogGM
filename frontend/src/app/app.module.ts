@@ -47,7 +47,7 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 //Firebase
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "src/environments/environment";
-import { FirebaseService } from './auth/firebase.service';
+import { FirebaseService } from './services/firebase.service';
 import { AngularFireStorageModule } from '@angular/fire/storage'
 
 //State Management

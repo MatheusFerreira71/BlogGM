@@ -4,9 +4,9 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FirebaseService } from '../auth/firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
-import { UserService, User, ReturnedUser } from './user.service'
+import { UserService, User, ReturnedUser } from '../services/user.service'
 import { Observable, timer } from 'rxjs'
 import { Location } from '@angular/common';
 import { Store } from '@ngrx/store';

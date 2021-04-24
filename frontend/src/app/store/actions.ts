@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { ReturnedUser } from '../sign-up-form/user.service'
+import { ReturnedUser } from '../services/user.service'
 
 export enum ActionTypes {
     SetUser = 'SetUser',

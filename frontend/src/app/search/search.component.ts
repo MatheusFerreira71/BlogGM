@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { PostData } from "../home/review/review.service";
+import { PostData } from "../services/review.service";
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
-import { SearchService } from "./search.service";
+import { SearchService } from "../services/search.service";
 import { Post } from "../interfaces/Post";
 
 @Component({

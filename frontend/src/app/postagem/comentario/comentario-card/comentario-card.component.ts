@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { Comentario } from "../../postagem.service";
+import { Comentario } from "../../../services/postagem.service";
 
 @Component({
   selector: "app-comentario-card",

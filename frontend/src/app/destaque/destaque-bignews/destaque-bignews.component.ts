@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FirebaseService } from "src/app/auth/firebase.service";
+import { FirebaseService } from "src/app/services/firebase.service";
 import { PostsDestaques } from "../destaque-news/destaque-news.component";
-import { DestaqueService } from "../destaque.service";
+import { DestaqueService } from "../../services/destaque.service";
 @Component({
   selector: "app-destaque-bignews",
   templateUrl: "./destaque-bignews.component.html",
