@@ -1,12 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { ComentarioCreate, ComentarioService } from "../../services/comentario.service";
+import { ComentarioService } from "../../services/comentario.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/services/user.service";
-import { Reducers } from "src/app/interfaces/Reducers";
 import { Store } from "@ngrx/store";
-
+import { ComentarioCreate, Reducers, ReturnedUser } from '../../interfaces';
 @Component({
   selector: "app-comentario-form",
   templateUrl: "./comentario-form.component.html",

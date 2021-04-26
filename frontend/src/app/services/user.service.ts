@@ -2,20 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
-
-export interface User {
-  nome: string
-  username: string
-  email: string
-  bio?: string
-  avatar?: string
-  isAdm: boolean
-  uniqueId: string
-}
-
-export interface ReturnedUser extends User {
-  _id: string
-}
+import { ReturnedUser, User } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'

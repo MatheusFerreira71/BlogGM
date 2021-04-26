@@ -2,12 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment as env } from "../../environments/environment";
-
-export interface ComentarioCreate {
-  usuario: string;
-  texto: string;
-  postId: string;
-}
+import { ComentarioCreate } from "../interfaces";
 
 @Injectable({
   providedIn: "root",

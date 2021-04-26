@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { PostData } from "../../services/review.service";
 import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 import { SearchService } from "../../services/search.service";
-import { Post } from "../../interfaces/Post";
+import { Post, PostData } from "../../interfaces";
 
 @Component({
   selector: "app-search",

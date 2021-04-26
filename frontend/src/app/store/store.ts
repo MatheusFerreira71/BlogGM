@@ -1,13 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
-import { ReturnedUser } from '../services/user.service'
 import { setUser, setAuthState } from './actions';
-
-
-
-export interface AuthState {
-    user: ReturnedUser
-    loggedIn: boolean
-}
+import { AuthState } from '../interfaces';
 
 const INITIAL_STATE: AuthState = {
     user: null,

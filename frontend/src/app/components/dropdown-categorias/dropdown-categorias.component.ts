@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NavbarService } from "../../services/navbar.service";
-import { Categoria } from "../../interfaces/Categoria";
+import { Categoria } from "../../interfaces";
 
 @Component({
   selector: "app-dropdown-categorias",

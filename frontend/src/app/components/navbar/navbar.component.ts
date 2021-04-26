@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { Reducers } from "src/app/interfaces/Reducers";
+import { Reducers } from "src/app/interfaces";
 import { setUser, setAuthState } from '../../store/actions'
 
 @Component({

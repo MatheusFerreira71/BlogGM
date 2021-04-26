@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
-import { Post } from "../interfaces/Post";
+import { Post, UniquePost } from "../interfaces";
 import { Observable } from "rxjs";
-import { UniquePost } from "src/app/services/postagem.service";
 
 @Injectable({
   providedIn: "root",

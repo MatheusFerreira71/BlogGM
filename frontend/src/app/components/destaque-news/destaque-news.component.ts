@@ -1,12 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { PostsDestaques } from "src/app/interfaces";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { Post } from "../../interfaces/Post";
 import { DestaqueService } from "../../services/destaque.service";
-
-export interface PostsDestaques {
-  bigPost: Post;
-  postNews: Post[];
-}
 
 @Component({
   selector: "app-destaque-news",

@@ -6,11 +6,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../../services/firebase.service';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
-import { UserService, User, ReturnedUser } from '../../services/user.service'
+import { UserService } from '../../services/user.service'
 import { Observable, timer } from 'rxjs'
 import { Location } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { Reducers } from '../../interfaces/Reducers';
+import { Reducers, User, ReturnedUser } from '../../interfaces';
 import { setUser, setAuthState } from '../../store/actions';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { ReturnedUser, UserService } from "./services/user.service";
+import { UserService } from "./services/user.service";
 import { setUser, setAuthState } from './store/actions';
 import { FirebaseService } from "./services/firebase.service";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Reducers } from "./interfaces/Reducers";
+import { Reducers, ReturnedUser } from './interfaces';
 
 @Component({
   selector: "app-root",

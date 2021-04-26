@@ -2,12 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
-
-export interface CatNoFilter {
-  _id: string;
-  isSub: boolean;
-  titulo: string;
-}
+import { CatNoFilter } from "../interfaces";
 
 @Injectable({
   providedIn: "root",

@@ -2,8 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
-import { Categoria } from "../interfaces/Categoria";
-import { SubCat } from "../components/create-form/create-form.component";
+import { Categoria, SubCat } from "../interfaces";
 
 @Injectable({
   providedIn: "root",

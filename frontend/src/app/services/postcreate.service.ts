@@ -2,27 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment as env } from "../../environments/environment";
-import { Usuario } from "../interfaces/Usuario";
-export interface PostCreationBody {
-  titulo: string;
-  tituloLower: string;
-  descricao: string;
-  corpo: string;
-  usuario: string;
-  categorias: string[];
-  tags: TagsCadastro[];
-  banner: string;
-}
-
-export interface TagsCadastro {
-  titulo: string;
-  tituloLower: string;
-}
-export interface PostEditionBody extends PostCreationBody {
-  _id: string;
-  categorias: string[];
-  tags: TagsCadastro[];
-}
+import { Usuario, PostCreationBody, PostEditionBody } from "../interfaces";
 
 @Injectable({
   providedIn: "root",

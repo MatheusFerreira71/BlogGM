@@ -2,54 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment as env } from "../../environments/environment";
 import { Observable } from "rxjs";
-import { Usuario } from "../interfaces/Usuario";
-import { ReturnedUser } from "./user.service";
-
-interface Categories {
-  _id: string;
-  catId: {
-    _id: string;
-    titulo: string;
-  };
-}
-
-export interface Comentario {
-  _id: string;
-  usuario: ReturnedUser
-  texto: string;
-  postId: string;
-  updatedAt: string;
-}
-
-interface Tagers {
-  _id: string;
-  tagId: {
-    _id: string;
-    titulo: string;
-  };
-}
-
-export interface UniquePost {
-  post: {
-    _id: string;
-    titulo: string;
-    descricao: string;
-    corpo: string;
-    banner: string;
-    usuario: Usuario;
-    updatedAt: string;
-    visualizacao: number;
-  };
-  categorias: Categories[];
-  tags: Tagers[];
-  comentarios: Comentario[];
-}
-
-export interface Visualizar {
-  _id: string;
-  visualizacao: number;
-}
-
+import { UniquePost, Visualizar } from "../interfaces";
 @Injectable({
   providedIn: "root",
 })

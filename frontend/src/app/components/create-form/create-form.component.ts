@@ -2,25 +2,19 @@ import { Component, OnInit } from "@angular/core";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatChipInputEvent } from "@angular/material/chips";
-import { Categoria, ItemCategoria } from "../../interfaces/Categoria";
 import { NavbarService } from "src/app/services/navbar.service";
 import { MatSelectChange } from "@angular/material/select";
 import { NgForm } from "@angular/forms";
-import { PostcreateService, PostEditionBody } from "../../services/postcreate.service";
+import { PostcreateService } from "../../services/postcreate.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { PostagemService } from "src/app/services/postagem.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/components/confirm-dialog/confirm-dialog.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { PostCreationBody, TagsCadastro } from '../../services/postcreate.service';
-import { Reducers } from "src/app/interfaces/Reducers";
+import { Reducers, ReturnedUser, PostCreationBody, TagsCadastro, PostEditionBody, Categoria, SubCat } from "../../interfaces";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/services/user.service";
 import { FirebaseService } from "src/app/services/firebase.service";
-export interface SubCat {
-  catFilha: ItemCategoria;
-}
 
 @Component({
   selector: "app-create-form",

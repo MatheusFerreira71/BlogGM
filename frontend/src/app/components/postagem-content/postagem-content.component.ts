@@ -1,15 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { PostagemService, UniquePost } from "../../services/postagem.service";
-import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
+import { PostagemService } from "../../services/postagem.service";
+import { ActivatedRoute, Router } from "@angular/router";
 import { formatDate } from "@angular/common";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/components/confirm-dialog/confirm-dialog.component";
 import { Store } from "@ngrx/store";
-import { Reducers } from "src/app/interfaces/Reducers";
 import { Observable } from "rxjs";
-import { ReturnedUser } from "src/app/services/user.service";
 import { FirebaseService } from "src/app/services/firebase.service";
+import { UniquePost, ReturnedUser, Reducers } from '../../interfaces';
 
 @Component({
   selector: "app-postagem-content",

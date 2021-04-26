@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { FooterService, CatNoFilter } from "../../services/footer.service";
+import { FooterService } from "../../services/footer.service";
+import { CatNoFilter } from '../../interfaces';
 
 @Component({
   selector: "app-footer",
@@ -7,7 +8,7 @@ import { FooterService, CatNoFilter } from "../../services/footer.service";
   styleUrls: ["./footer.component.scss"],
 })
 export class FooterComponent implements OnInit {
-  constructor(private footerSrv: FooterService) {}
+  constructor(private footerSrv: FooterService) { }
 
   ngOnInit(): void {
     this.getAllCats();
