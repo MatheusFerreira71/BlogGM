@@ -54,7 +54,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
 import { StoreModule } from "@ngrx/store";
 import { AuthReducer } from './store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component'
+import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component';
+import { ProfileComponent } from './pages/profile/profile.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,8 @@ import { AppSpinnerComponent } from './components/app-spinner/app-spinner.compon
     ConfirmDialogComponent,
     AuthComponent,
     SignUpFormComponent,
-    AppSpinnerComponent
+    AppSpinnerComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

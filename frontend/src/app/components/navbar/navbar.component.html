@@ -23,10 +23,11 @@
         <mat-icon class="submitIcon">search</mat-icon>
       </button>
     </form>
-    <!-- <app-seletor-usuario></app-seletor-usuario> -->
     <div class="navbarMenu">
       <ul>
-        <li *ngIf="loggedIn$ | async; else loggedOut"><button type="button" (click)="signOut()">Sair</button></li>
+        <li *ngIf="loggedIn$ | async; else loggedOut">
+          <button type="button" (click)="signOut()">Sair</button>
+        </li>
         <ng-template #loggedOut>
           <li><a [routerLink]="['/auth']">Entrar</a></li>
           <li><a [routerLink]="['/sign-up']">Criar Conta</a></li>

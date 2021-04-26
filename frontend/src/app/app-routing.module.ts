@@ -16,6 +16,7 @@ import { AdminGuard } from "./guards/admin.guard";
 import { LoggedGuard } from "./guards/logged.guard";
 import { OwnerGuard } from "./guards/owner.guard";
 import { DisconnectedGuard } from "./guards/disconnected.guard";
+import { ProfileComponent } from "./pages/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -60,6 +61,14 @@ const routes: Routes = [
     path: "adm-sign-up",
     component: SignUpFormComponent,
     canActivate: [AdminGuard]
+  },
+  {
+    path: "me",
+    component: ProfileComponent
+  },
+  {
+    path: "profile/:id",
+    component: ProfileComponent
   },
   {
     path: "**",
