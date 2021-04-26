@@ -5,6 +5,7 @@ import { setUser, setAuthState } from './store/actions';
 import { FirebaseService } from "./services/firebase.service";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Reducers, ReturnedUser } from './interfaces';
+import { timer } from "rxjs";
 
 @Component({
   selector: "app-root",
@@ -27,8 +28,8 @@ export class AppComponent implements OnInit {
 
   constructor(private store: Store<Reducers>, private userSrv: UserService, private fireSrv: FirebaseService, private fireAuth: AngularFireAuth) { }
 
-  async ngOnInit() {
-    await this.fireAuth.onAuthStateChanged(async user => {
+  ngOnInit() {
+    this.fireAuth.onAuthStateChanged(async user => {
       if (user) {
         this.fireSrv.getCurrentUser().then(currentUser => {
           this.userSrv.findByUniqueId(currentUser.uid).subscribe(returnedUser => {
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
           })
         });
       }
-      this.loading = false;
+    }).then(() => {
+      timer(500).subscribe(() => this.loading = false)
     })
   }
 
