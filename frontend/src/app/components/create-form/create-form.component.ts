@@ -13,7 +13,7 @@ import { ConfirmDialogComponent } from "src/app/components/confirm-dialog/confir
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Reducers, ReturnedUser, PostCreationBody, TagsCadastro, PostEditionBody, Categoria, SubCat } from "../../interfaces";
 import { Store } from "@ngrx/store";
-import { Observable } from "rxjs";
+import { Observable, timer } from "rxjs";
 import { FirebaseService } from "src/app/services/firebase.service";
 
 @Component({
@@ -23,6 +23,7 @@ import { FirebaseService } from "src/app/services/firebase.service";
 })
 export class CreateFormComponent implements OnInit {
   user$: Observable<ReturnedUser>
+  upPercentage$: Observable<number>;
   constructor(
     private catsGetter: NavbarService,
     private postManagementSrv: PostcreateService,
@@ -223,19 +224,22 @@ export class CreateFormComponent implements OnInit {
           this.postBody.tags = this.tags;
 
           const uploadTask = this.fireSrv.uploadFile(`banners/${this.imgName}`, this.banner)
+          this.upPercentage$ = uploadTask.percentageChanges();
           uploadTask.then(() => {
-            this.postManagementSrv.createPost(this.postBody).subscribe((postId) => {
-              this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
-                this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
+            timer(1000).subscribe(() => {
+              this.postManagementSrv.createPost(this.postBody).subscribe((postId) => {
+                this.router.navigate([`post/${postId.createdPostId}`]).then(() => {
+                  this.snackBar.open("Post Criado com Sucesso!", "Entendi", {
+                    duration: 5000,
+                  });
+                });
+              }, error => {
+                this.fireSrv.deleteFile(`banners/${this.imgName}`).subscribe(() => this.upPercentage$ = undefined);
+                this.snackBar.open(`Algo deu errado: ${error}`, "Entendi", {
                   duration: 5000,
                 });
               });
-            }, error => {
-              this.fireSrv.deleteFile(`banners/${this.imgName}`)
-              this.snackBar.open(`Algo deu errado: ${error}`, "Entendi", {
-                duration: 5000,
-              });
-            });
+            })
           }).catch(error => {
             this.snackBar.open(`Algo deu errado: ${error}`, "Entendi", {
               duration: 5000,

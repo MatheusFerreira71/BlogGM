@@ -96,6 +96,7 @@ export class PostagemContentComponent implements OnInit {
       try {
         this.postagemSrv.removePost({ _id }).subscribe((response) => {
           if (response.removed) {
+            this.fireSrv.deleteFile(`banners/${this.uniquePost.post.banner}`);
             this.router.navigate(["/"]).then(() => {
               this.snackBar.open("Exclusão efetuada com sucesso.", "Entendi", {
                 duration: 5000,
