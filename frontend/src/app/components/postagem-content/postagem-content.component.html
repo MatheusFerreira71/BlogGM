@@ -1,8 +1,5 @@
 <div class="wrapperP">
-  <div
-    class="postagemWrapper"
-    *ngIf="uniquePost && categorias && tags && formatedDate"
-  >
+  <div class="postagemWrapper" *ngIf="uniquePost && categorias && tags && formatedDate">
     <div class="postagemHeader">
       <div class="postagemTitulo">
         <p>
@@ -24,10 +21,7 @@
         </div>
       </div>
       <div class="postagemUsuario">
-        <span class="nomeUsuario"
-          ><span class="porUsuario">Por:</span
-          >{{ uniquePost.post.usuario.username }}</span
-        >
+        <span class="nomeUsuario"><span class="porUsuario">Por:</span>{{ uniquePost.post.usuario.username }}</span>
         <div class="fotoUsuario">
           <img src="{{userAvatar}}" />
         </div>
@@ -35,10 +29,7 @@
     </div>
     <div class="postagemTexto">
       <div class="imgPost">
-        <img
-          src="{{ banner }}"
-          alt="Imagem do post: {{ uniquePost.post.titulo }}"
-        />
+        <img src="{{ banner }}" alt="Imagem do post: {{ uniquePost.post.titulo }}" />
       </div>
       <div>
         {{ uniquePost.post.corpo }}
@@ -72,14 +63,8 @@
     <div class="titleGm">Comentários</div>
     <span>Gostaria de deixar um comentário sobre o conteúdo?</span>
   </div>
-  <app-comentario-form
-    (criarComentario)="refreshComents()"
-    *ngIf="uniquePost"
-    [postId]="uniquePost.post._id"
-  ></app-comentario-form>
-  <app-comentario-card
-    *ngIf="uniquePost"
-    [comentsData]="uniquePost.comentarios"
-    (comentRemoved)="refreshComents()"
-  ></app-comentario-card>
+  <app-comentario-form (criarComentario)="refreshComents()" *ngIf="uniquePost" [postId]="uniquePost.post._id">
+  </app-comentario-form>
+  <app-comentario-card *ngIf="uniquePost" [comentsData]="uniquePost.comentarios" (comentRemoved)="refreshComents()">
+  </app-comentario-card>
 </div>

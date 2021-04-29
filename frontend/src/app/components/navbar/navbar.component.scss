@@ -160,3 +160,32 @@ li a,
     color: #fdfdfd;
   }
 }
+
+.fotoUsuario {
+  height: 32px;
+  width: 32px;
+  overflow: none;
+
+  img {
+    height: inherit;
+    width: inherit;
+    border-radius: 25px;
+  }
+}
+
+.postagemUsuario {
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  align-items: center;
+  max-width: 180px;
+  margin: 0 0.5rem 0 0.5rem;
+
+  @media (max-width: 649px) {
+    margin: 0 auto;
+  }
+
+  span {
+    margin-right: 0.5rem;
+  }
+}
+

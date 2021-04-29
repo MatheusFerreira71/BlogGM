@@ -25,7 +25,14 @@
     </form>
     <div class="navbarMenu">
       <ul>
-        <li *ngIf="loggedIn$ | async; else loggedOut">
+        <li class="navbarDropdownNews" *ngIf="loggedIn$ | async; else loggedOut">
+          <div class="postagemUsuario">
+            <span>{{ (user$ | async)?.username }}</span>
+            <div class="fotoUsuario" *ngIf="profilePic">
+              <img src="{{profilePic}}" />
+            </div>
+          </div>
+          <a routerLink="/me" class="newsArrow">Perfil</a>
           <button type="button" (click)="signOut()">Sair</button>
         </li>
         <ng-template #loggedOut>

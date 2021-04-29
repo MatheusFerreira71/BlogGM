@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { FirebaseService } from "src/app/services/firebase.service";
-import { Reducers } from "src/app/interfaces";
+import { Reducers, ReturnedUser } from "src/app/interfaces";
 import { setUser, setAuthState } from '../../store/actions'
 
 @Component({
@@ -14,14 +14,23 @@ import { setUser, setAuthState } from '../../store/actions'
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  loggedIn$: Observable<boolean>
+  loggedIn$: Observable<boolean>;
+  user$: Observable<ReturnedUser>;
+  profilePic: string;
   pesquisa: string = "";
 
   constructor(private route: Router, private store: Store<Reducers>, private fireSrv: FirebaseService, private matSnack: MatSnackBar) {
-    this.loggedIn$ = store.select(store => store.AuthState.loggedIn)
+    this.loggedIn$ = store.select(store => store.AuthState.loggedIn);
+    this.user$ = store.select(store => store.AuthState.user);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.user$.subscribe(user => {
+      if (user) {
+        this.fireSrv.getFileUrl(`avatars/${user.avatar}`).subscribe(url => this.profilePic = url);
+      }
+    });
+  }
 
   pesquisar(form: NgForm): void {
     const titulo: string = form.value.pesquisa;
