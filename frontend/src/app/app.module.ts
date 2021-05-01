@@ -55,7 +55,8 @@ import { StoreModule } from "@ngrx/store";
 import { AuthReducer } from './store/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppSpinnerComponent } from './components/app-spinner/app-spinner.component';
-import { ProfileComponent } from './pages/profile/profile.component'
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileContentComponent } from './components/profile-content/profile-content.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +90,8 @@ import { ProfileComponent } from './pages/profile/profile.component'
     AuthComponent,
     SignUpFormComponent,
     AppSpinnerComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileContentComponent
   ],
   imports: [
     BrowserModule,

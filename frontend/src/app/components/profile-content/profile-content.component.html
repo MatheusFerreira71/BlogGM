@@ -1,0 +1,55 @@
+<div class="wrapperPc">
+  <div class="profile-content">
+    <div class="viewTitle titlePc">Perfil do Usuário</div>
+    <div class="profile-buttons">
+      <!--<button class="profile-edit-button">Remover ADM <mat-icon class="profile-edit">lock_open</mat-icon></button>-->
+      <button class="profile-edit-button">
+        Tornar ADM <mat-icon class="profile-edit">lock</mat-icon>
+      </button>
+      <button class="profile-edit-button" [matMenuTriggerFor]="menu">
+        Editar conta <mat-icon class="profile-edit">edit</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Editar login</button>
+        <button mat-menu-item>Editar dados</button>
+        <button mat-menu-item>Desativar conta</button>
+      </mat-menu>
+      <button class="profile-edit-button">
+        Deletar <mat-icon class="profile-edit">delete</mat-icon>
+      </button>
+    </div>
+    <div class="profile-info">
+      <div>
+        <div class="profile-img">
+          <img
+            src="https://i.pinimg.com/originals/0c/86/84/0c868454b35d570028dd36c4de67fc5f.jpg"
+            alt="Imagem do perfil do usuário"
+          />
+        </div>
+        <div class="profile-persona">
+          <span class="profile-nick"> Mussum </span>
+          <span class="profile-name"> Antônio Carlos Bernardes Gomes </span>
+        </div>
+      </div>
+      <div class="profile-data">
+        <div class="data-content">48<span>comentários</span></div>
+        <div class="data-content">
+          12/02/2020
+          <span>Inscrição</span>
+        </div>
+        <div class="data-content">
+          Usuário
+          <span>Cargo</span>
+        </div>
+        <div class="profile-bio">
+          <span class="profile-bio-title">Biografia</span>
+          <p>
+            Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz
+            malandris se pirulitá. Interessantiss quisso pudia ce receita de
+            bolis, mais bolis eu num gostis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
