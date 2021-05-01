@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { UserService } from "./services/user.service";
-import { setUser, setAuthState } from './store/actions';
+import { setUser, setAuthState } from "./store/actions";
 import { FirebaseService } from "./services/firebase.service";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Reducers, ReturnedUser } from './interfaces';
+import { Reducers, ReturnedUser } from "./interfaces";
 import { timer } from "rxjs";
 
 @Component({
@@ -23,29 +23,37 @@ import { timer } from "rxjs";
   styles: [],
 })
 export class AppComponent implements OnInit {
+  loading = true;
 
-  loading = true
-
-  constructor(private store: Store<Reducers>, private userSrv: UserService, private fireSrv: FirebaseService, private fireAuth: AngularFireAuth) { }
+  constructor(
+    private store: Store<Reducers>,
+    private userSrv: UserService,
+    private fireSrv: FirebaseService,
+    private fireAuth: AngularFireAuth
+  ) {}
 
   ngOnInit() {
-    this.fireAuth.onAuthStateChanged(async user => {
-      if (user) {
-        this.fireSrv.getCurrentUser().then(currentUser => {
-          this.userSrv.findByUniqueId(currentUser.uid).subscribe(returnedUser => {
-            this.setUser(returnedUser);
-          })
-        });
-      }
-    }).then(() => {
-      timer(500).subscribe(() => this.loading = false)
-    })
+    this.fireAuth
+      .onAuthStateChanged(async (user) => {
+        if (user) {
+          this.fireSrv.getCurrentUser().then((currentUser) => {
+            this.userSrv
+              .findByUniqueId(currentUser.uid)
+              .subscribe((returnedUser) => {
+                this.setUser(returnedUser);
+              });
+          });
+        }
+      })
+      .then(() => {
+        timer(500).subscribe(() => (this.loading = false));
+      });
   }
 
   setUser(user: ReturnedUser): void {
     this.store.dispatch(setUser({ payload: user }));
     this.store.dispatch(setAuthState({ payload: true }));
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('loggedIn', JSON.stringify(true));
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("loggedIn", JSON.stringify(true));
   }
 }

@@ -1,45 +1,62 @@
-<div class="navbarWrapper">
-  <!-- <input type="checkbox" class="checkboxBar" name="navbarCheckbox" /> -->
-  <div class="leftContent">
+<mat-toolbar class="navbarWrapper">
+  <!-- Logo -->
+  <div>
     <div class="navLogo">
-      <a [routerLink]="['/']"><img src="" />
+      <a [routerLink]="['/']">
         <mat-icon class="miniLogo">games</mat-icon>
       </a>
     </div>
+    <!-- Menu -->
     <div class="navbarMenu">
       <ul>
         <li><a [routerLink]="['/']">Início</a></li>
         <li><a [routerLink]="['/tags']">Assuntos</a></li>
+        <!-- Dropdown Categorias -->
         <app-dropdown-categorias></app-dropdown-categorias>
       </ul>
     </div>
   </div>
-
-  <div class="rightContent">
+  <div>
+    <!-- Busca -->
     <form class="searchBar" #f="ngForm" (ngSubmit)="pesquisar(f)">
-      <input [(ngModel)]="pesquisa" type="search" placeholder="Buscar..." class="inputSearch" id="navbarSearch"
-        name="pesquisa" />
+      <input
+        [(ngModel)]="pesquisa"
+        type="search"
+        placeholder="Buscar..."
+        class="inputSearch"
+        id="navbarSearch"
+        name="pesquisa"
+      />
       <button type="submit" class="submitSearch">
         <mat-icon class="submitIcon">search</mat-icon>
       </button>
     </form>
-    <div class="navbarMenu">
-      <ul>
-        <li class="navbarDropdownNews" *ngIf="loggedIn$ | async; else loggedOut">
-          <div class="postagemUsuario">
-            <span>{{ (user$ | async)?.username }}</span>
-            <div class="fotoUsuario" *ngIf="profilePic">
-              <img src="{{profilePic}}" />
-            </div>
-          </div>
-          <a routerLink="/me" class="newsArrow">Perfil</a>
-          <button type="button" (click)="signOut()">Sair</button>
-        </li>
-        <ng-template #loggedOut>
-          <li><a [routerLink]="['/auth']">Entrar</a></li>
-          <li><a [routerLink]="['/sign-up']">Criar Conta</a></li>
-        </ng-template>
+    <!-- Usuário -->
+    <button
+      *ngIf="loggedIn$ | async; else loggedOut"
+      mat-button
+      [matMenuTriggerFor]="menu"
+    >
+      <div class="userWrapper">
+        <span>{{ (user$ | async)?.username }}</span>
+        <div class="userPic" *ngIf="profilePic">
+          <img src="{{ profilePic }}" />
+        </div>
+      </div>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <a routerLink="/me" class="newsArrow">Perfil</a>
+      </button>
+      <button mat-menu-item (click)="signOut()">Sair</button>
+    </mat-menu>
+
+    <ng-template #loggedOut>
+      <ul class="ul-logout">
+        <li><a routerLink="/auth">Entrar</a></li>
+        <li><a routerLink="/sign-up">Criar Conta</a></li>
       </ul>
-    </div>
+    </ng-template>
   </div>
-</div>
+</mat-toolbar>

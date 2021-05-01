@@ -1,28 +1,26 @@
 .navbarWrapper {
   width: 100%;
-  // height: 64px;
   position: fixed;
+  height: fit-content;
   top: 0;
   z-index: 2;
   background-color: #212121;
-  padding: 4px 4rem;
+  padding: 0.5rem 8.5rem;
   color: #f1f1f1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 14px;
+  grid-gap: 2rem;
 
-  @media (max-width: 799px) {
+  @media (max-width: 768) {
     padding: 0;
-    // justify-content: center;
   }
-}
 
-.leftContent {
-  display: grid;
-  grid-template-columns: 50px 1fr;
-  align-items: center;
-  z-index: 5;
-  background-color: #212121;
+  div {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .navLogo {
@@ -42,36 +40,26 @@
   font-size: 36px;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #212121;
-}
+.navbarMenu {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #212121;
+  }
 
-li {
-  float: left;
-}
+  li {
+    float: left;
+  }
 
-li a,
-.dropbtn {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-// RIGHT CONTENT
-
-.rightContent {
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 799px) {
-    position: absolute;
-    top: 48px;
+  li a,
+  .dropbtn {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
   }
 }
 
@@ -80,11 +68,12 @@ li a,
   justify-content: center;
   align-items: center;
   height: 2rem;
+  margin-right: 2rem;
 }
 
 .inputSearch {
   height: 100%;
-  width: 180px;
+  width: 272px;
   outline: none;
   border: none;
   border-radius: 8px 0px 0px 8px;
@@ -161,31 +150,40 @@ li a,
   }
 }
 
-.fotoUsuario {
-  height: 32px;
-  width: 32px;
-  overflow: none;
+.ul-logout {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #212121;
+  display: flex;
+  grid-gap: 2rem;
 
-  img {
-    height: inherit;
-    width: inherit;
-    border-radius: 25px;
+  li {
+    float: left;
+  }
+
+  li a,
+  .dropbtn {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
   }
 }
 
-.postagemUsuario {
-  display: grid;
-  grid-template-columns: 1fr 32px;
-  align-items: center;
-  max-width: 180px;
-  margin: 0 0.5rem 0 0.5rem;
+.userWrapper {
+  grid-gap: 0.5rem;
 
-  @media (max-width: 649px) {
-    margin: 0 auto;
-  }
+  .userPic {
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    overflow: hidden;
 
-  span {
-    margin-right: 0.5rem;
+    img {
+      height: 100%;
+      width: auto;
+    }
   }
 }
-

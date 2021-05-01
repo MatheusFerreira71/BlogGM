@@ -37,8 +37,12 @@ mat-toolbar {
   color: #f1f1f1;
 }
 
-mat-label {
-  padding-left: 0.5rem;
+mat-label,
+.formWarning {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  font-size: 14px;
+  color: #c4c4c4;
 }
 
 textarea,
