@@ -46,8 +46,8 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <a routerLink="/me" class="newsArrow">Perfil</a>
+      <button routerLink="/me" mat-menu-item>
+        <span class="newsArrow">Perfil</span>
       </button>
       <button mat-menu-item (click)="signOut()">Sair</button>
     </mat-menu>
