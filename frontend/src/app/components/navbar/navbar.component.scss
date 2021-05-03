@@ -13,13 +13,13 @@
   font-size: 14px;
   grid-gap: 2rem;
 
-  @media (max-width: 768) {
-    padding: 0;
-  }
-
   div {
     display: flex;
     align-items: center;
+  }
+
+  @media (max-width: 1199.98px) {
+    padding: 0.5rem 1.5rem;
   }
 }
 
@@ -27,10 +27,6 @@
   text-align: center;
   height: 36px;
   width: 36px;
-
-  @media (max-width: 799px) {
-    margin-left: 8px;
-  }
 }
 
 .miniLogo {
@@ -38,6 +34,26 @@
   width: 36px;
   color: #30bdff;
   font-size: 36px;
+}
+
+.navMenu {
+  color: white;
+  outline: none;
+  border: none;
+  background: none;
+  padding: none;
+
+  .mat-icon {
+    font-size: 36px;
+  }
+
+  &:active {
+    color: #30bdff;
+  }
+
+  @media (min-width: 1199.98px) {
+    display: none;
+  }
 }
 
 .navbarMenu {
@@ -61,6 +77,10 @@
     padding: 14px 16px;
     text-decoration: none;
   }
+
+  @media (max-width: 1199.98px) {
+    display: none !important;
+  }
 }
 
 .searchBar {
@@ -69,6 +89,10 @@
   align-items: center;
   height: 2rem;
   margin-right: 2rem;
+
+  @media (max-width: 1199.98px) {
+    display: none !important;
+  }
 }
 
 .inputSearch {
@@ -147,6 +171,12 @@
   color: #2c4574;
   @media (max-width: 799px) {
     color: #fdfdfd;
+  }
+}
+
+.navbar-right-content {
+  @media (max-width: 1199.98px) {
+    display: none !important;
   }
 }
 

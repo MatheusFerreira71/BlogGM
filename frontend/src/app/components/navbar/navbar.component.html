@@ -1,5 +1,5 @@
 <mat-toolbar class="navbarWrapper">
-  <!-- Logo -->
+  <!-- Logo e Menu Navbar -->
   <div>
     <div class="navLogo">
       <a [routerLink]="['/']">
@@ -16,7 +16,7 @@
       </ul>
     </div>
   </div>
-  <div>
+  <div class="navbar-right-content">
     <!-- Busca -->
     <form class="searchBar" #f="ngForm" (ngSubmit)="pesquisar(f)">
       <input
@@ -59,4 +59,7 @@
       </ul>
     </ng-template>
   </div>
+  <button class="navMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
