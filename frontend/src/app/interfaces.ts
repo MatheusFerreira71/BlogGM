@@ -59,6 +59,7 @@ export interface User {
 
 export interface ReturnedUser extends User {
     _id: string
+    createdAt?: Date
 }
 
 export interface DialogData {

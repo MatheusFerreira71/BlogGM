@@ -1,8 +1,10 @@
 <div class="wrapperPc">
-  <div class="profile-content">
+  <div class="profile-content" *ngIf="user">
     <div class="viewTitle titlePc">Perfil do Usuário</div>
     <div class="profile-buttons">
-      <!--<button class="profile-edit-button">Remover ADM <mat-icon class="profile-edit">lock_open</mat-icon></button>-->
+      <button class="profile-edit-button">
+        Remover ADM <mat-icon class="profile-edit">lock_open</mat-icon>
+      </button>
       <button class="profile-edit-button">
         Tornar ADM <mat-icon class="profile-edit">lock</mat-icon>
       </button>
@@ -10,7 +12,7 @@
         Editar conta <mat-icon class="profile-edit">edit</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Editar login</button>
+        <button mat-menu-item>Alterar senha</button>
         <button mat-menu-item>Editar dados</button>
         <button mat-menu-item>Desativar conta</button>
       </mat-menu>
@@ -21,32 +23,29 @@
     <div class="profile-info">
       <div>
         <div class="profile-img">
-          <img
-            src="https://i.pinimg.com/originals/0c/86/84/0c868454b35d570028dd36c4de67fc5f.jpg"
-            alt="Imagem do perfil do usuário"
-          />
+          <img src="{{userPic}}" alt="Imagem do perfil do usuário" />
         </div>
         <div class="profile-persona">
-          <span class="profile-nick"> Mussum </span>
-          <span class="profile-name"> Antônio Carlos Bernardes Gomes </span>
+          <span class="profile-nick"> {{ user.username }} </span>
+          <span class="profile-name"> {{ user.nome }} </span>
         </div>
       </div>
       <div class="profile-data">
-        <div class="data-content">48<span>comentários</span></div>
         <div class="data-content">
-          12/02/2020
+          {{ (commentCount$ | async) }}<span>{{ (commentCount$ | async) == 1 ? "Comentário" : "Comentários"}}</span>
+        </div>
+        <div class="data-content">
+          {{ user.createdAt | date:'shortDate' }}
           <span>Inscrição</span>
         </div>
         <div class="data-content">
-          Usuário
+          {{user.isAdm ? "Administrador" : "Usuário"}}
           <span>Cargo</span>
         </div>
         <div class="profile-bio">
           <span class="profile-bio-title">Biografia</span>
           <p>
-            Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz
-            malandris se pirulitá. Interessantiss quisso pudia ce receita de
-            bolis, mais bolis eu num gostis.
+            {{ user.bio }}
           </p>
         </div>
       </div>

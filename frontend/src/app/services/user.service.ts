@@ -23,4 +23,8 @@ export class UserService {
   findByUniqueId(uniqueId: string): Observable<ReturnedUser> {
     return this.http.get<ReturnedUser>(`${this.apiUri}/search-auth-user/${uniqueId}`)
   }
+
+  findById(id: string): Observable<ReturnedUser> {
+    return this.http.get<ReturnedUser>(`${this.apiUri}/${id}`);
+  }
 }

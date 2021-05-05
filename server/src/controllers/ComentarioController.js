@@ -49,4 +49,16 @@ module.exports = {
       res.status(500).send(erro);
     }
   },
+  countByUser: async (req, res) => {
+    try {
+      const { usuario } = req.params;
+
+      const quantidadeComent = await Comentario.countDocuments({ usuario });
+
+      res.json(quantidadeComent);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  }
 };

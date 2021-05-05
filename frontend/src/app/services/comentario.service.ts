@@ -8,7 +8,7 @@ import { ComentarioCreate } from "../interfaces";
   providedIn: "root",
 })
 export class ComentarioService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private apiUri = `${env.apiBaseUri}comentarios`;
   create(body: ComentarioCreate): Observable<any> {
@@ -19,5 +19,9 @@ export class ComentarioService {
     return this.http.request("DELETE", this.apiUri, {
       body,
     });
+  }
+
+  countById(id: string): Observable<number> {
+    return this.http.get<number>(`${this.apiUri}/${id}`);
   }
 }
